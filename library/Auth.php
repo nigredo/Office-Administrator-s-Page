@@ -36,15 +36,13 @@ if (!isset($_SESSION['auth_name']))
     <title><?php echo SITE_NAME; ?></title>
 </head>
 <body>
-    <div id="wrapper">
-        <div id="main">
-            <form action="" method="post" id="auth_form">
-                Login: <input type="text" name="login" id="auth_username" />
-                Password: <input type="password" name="password" id="auth_pass" />
-                <input type="submit" name="OK" value="Login" />
-            </form>
-        </div>
-    </div>
+<div id="main">
+	<form action="" method="post" id="auth_form">
+		Login: <input type="text" name="login" id="auth_username" />
+		Password: <input type="password" name="password" id="auth_pass" />
+		<input type="submit" name="OK" value="Login" />
+	</form>
+</div>
 </body>
 </html>
 <?php 
