@@ -1,0 +1,41 @@
+body			{
+	font-size: 12px;
+	color: #242424;
+	font-family:	sans, verdana, arial;
+	padding:0;
+	margin:0;
+	line-height: 1.5;
+	}
+
+.wrapper		{
+	width: 900px;
+	margin-bottom: 10px;
+	margin: 0 auto;
+	}
+	
+.main			{
+	padding-left: 25px;
+	padding-right: 25px;
+        padding-bottom: 25px;
+	}	
+	
+a:hover 		{
+        color: #3894e5;
+        text-decoration: none; 
+        font-family: verdana, tahoma; 
+        font-size: 11px;
+}
+
+a 			{
+        color: #000000; 
+        text-decoration:  underline; 
+        font-family: verdana, tahoma; 
+        font-size: 11px;
+}
+
+a:active                {
+        color: #3894e5;
+        text-decoration:  underline;
+        font-family: verdana, tahoma;
+        font-size: 11px;
+}
