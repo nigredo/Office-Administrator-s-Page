@@ -118,51 +118,10 @@ td			{
         margin: 0;
 }
                                 
-select	{
-	font-family: verdana, lucida, sans-serif;
-	font-size: 11px;
-	width: 180px;
-	margin-right: 10px; 
- } 
-
-form	{
-	text-align: center;
-} 
-
-h1		{
-	text-align: center;
-	font-size: 22px;
-	color: #555555;
-	text-decoration: underline;
-}
-
-h3		{
-	text-align: center;
-	font-size: 14px;
-}
-
-th		{
-        background-color: #e3f2ff;
-	text-align: left;
-	padding-left: 15px;
-	color: #333333;
-        border-color:#cccccc;
-        border-style:solid;
-        border-width:1px;
-	height: 25px;
-}
-
-tr		{
-	text-align: left;
-	font-size: 11px;
-	font-family: verdana, lucida, sans-serif;
-}
-
 input		{
 	font-family: verdana, lucida, sans-serif;
 	font-size: 11px;
 	border-color:#dddddd;
-	border-width:0px;
 	width: 100%;
 	background-color: #ffffff;
 }
