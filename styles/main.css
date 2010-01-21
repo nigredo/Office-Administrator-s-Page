@@ -24,6 +24,7 @@ list-style 	: none;
 a { 
 color: #855200;
 font-size: 11px;
+text-transform:uppercase;
 background-color:transparent;
 text-decoration: underline; 
 }
@@ -31,8 +32,9 @@ text-decoration: underline;
 a.hover { 
 color: #855200;
 font-size: 11px;
+text-transform:uppercase;
 background-color:transparent;
-text-decoration: underline; 
+text-decoration: none; 
 }
 
 pre { 
