@@ -38,8 +38,8 @@ if (!isset($_SESSION['auth_name']))
 <body>
 <div id="content">
 	<form action="" method="post" id="auth_form">
-		Login: <input type="text" name="login" id="auth_username" />
-		Password: <input type="password" name="password" id="auth_pass" />
+		Login: <input type="text" name="login" id="auth_username" /><br />
+		Password: <input type="password" name="password" id="auth_pass" /><br />
 		<input type="submit" name="OK" value="Login" />
 	</form>
 </div>
