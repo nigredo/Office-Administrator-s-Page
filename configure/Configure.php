@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ignore_user_abort(true);
 
-define('SITE_NAME','admin.awiki.net');
+define('SITE_NAME','Office Administrator\'s Page');
 define('HOSTNAME','www.admin.awiki.net');
 define('URL', rtrim(dirname($_SERVER['PHP_SELF']), '/\\'));
 
@@ -36,4 +36,5 @@ require_once(API_LIBRARY . 'Auth.php');
 require_once(API_FUNCTIONS . 'Core.php');
 require_once(API_FUNCTIONS . 'Date.php');
 require_once(API_FUNCTIONS . 'Files.php');
+
 ?>
