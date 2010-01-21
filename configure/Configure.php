@@ -34,5 +34,5 @@ require_once(API_FUNCTION . 'Date.php');
 require_once(API_FUNCTION . 'Files.php');
 
 $DB = new Database(DB_HOST,DB_USER,DB_PASS,DB_DATABASE);
-
+$DB->connect();
 ?>
