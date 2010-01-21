@@ -13,6 +13,7 @@ class Modulo {
             $i++;
         }
         closedir($dir_handle);
+        return($modules);
     }
 
     function __destruct() {
