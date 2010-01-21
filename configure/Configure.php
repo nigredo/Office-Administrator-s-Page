@@ -21,9 +21,9 @@ define ('DB_DATABASE','opa_admin');
 define ('RECORD_PER_PAGE','25');
 define ('LINKS_PER_PAGE','5');
  
-define ('API_LIBRARY', '/library' . DIRECTORY_SEPARATOR);
-define ('API_CLASSES','/library/classes' . DIRECTORY_SEPARATOR);
-define ('API_FUNCTIONS','/library/functions' . DIRECTORY_SEPARATOR);
+define ('API_LIBRARY', '../library' . DIRECTORY_SEPARATOR);
+define ('API_CLASSES','../library/classes' . DIRECTORY_SEPARATOR);
+define ('API_FUNCTIONS','../library/functions' . DIRECTORY_SEPARATOR);
 
 require_once(API_CLASSES . 'Sql.class.php');
 require_once(API_LIBRARY . 'Auth.php');
