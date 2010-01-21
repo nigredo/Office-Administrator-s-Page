@@ -19,5 +19,5 @@ print ('Jo fri bisi pronomeca frazetvortigo, tie oj postesigno prapostmorgaŭ ma
 		Brosi tiaokaze apostrofo kie ti. Kiom rilate sensubjekta zo pov. Fare popolnomo imperativo nf san,
 		sia do kuzo okej antaŭelemento. Sat grupo minusklo lo, deka kies iometo aj tie. Plue interalie 
 		neŭtrala rolmontrilo kv, iam la neniaĵo reciproke malantaŭe, ne oble duono geinstruisto mil.');
-print ('<div>');
+print ('</div>');
 ?>
