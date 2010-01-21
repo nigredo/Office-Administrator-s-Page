@@ -10,8 +10,7 @@ if (!isset($_SESSION['auth_name']))
 	if (isset($_POST['Login'])) {
 		$login=$_POST['auth_username'];
 		$password=$_POST['auth_pass'];
-		$query = "SELECT * FROM login_users WHERE login='$login' AND password='$password'";
-		$result = mysql_query($query) or die(mysql_error());
+		$result = $DB->query_first("SELECT * FROM login_users WHERE login='$login' AND password='$password'");
 		if ($row = mysql_fetch_assoc($result)) 
 		{
 			$_SESSION['auth_username'] 	= $row['id'];
