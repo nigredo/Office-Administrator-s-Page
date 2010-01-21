@@ -37,13 +37,12 @@ if (!isset($_SESSION['auth_name']))
 </head>
 <body>
     <div id="content">
-        <div id="auth">
+        <div id="login">
             <form action="" method="post" id="auth_form">
                 Login: <input type="text" name="login" id="auth_username" />
                 Password: <input type="password" name="password" id="auth_pass" />
                 <input type="submit" name="OK" value="Login" />
             </form>
-            <span id="error"></span>
         </div>
     </div>
 </body>
