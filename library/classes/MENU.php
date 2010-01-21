@@ -9,11 +9,11 @@
 class Menu	{
 	
 function __construct() {
-       print ('<ul>/n');
+       print ('<ul>\n');
    }
 
 function __destruct() {
-       print ('</ul>/n');
+       print ('</ul>\n');
    }
  
 function add_item($name, $link) {
