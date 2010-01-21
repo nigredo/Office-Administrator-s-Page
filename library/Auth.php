@@ -4,7 +4,7 @@
  *
  */
 
-mysql_select_db("microinvest") or die ("Can not select the database");
+mysql_select_db(DB_DATABASE) or die ("Can not select the database");
 session_start();
 if (!isset($_SESSION['auth_name']))
 {
