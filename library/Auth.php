@@ -31,7 +31,7 @@ if (!isset($_SESSION['auth_name']))
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="public/styles/awiki.css" type="text/css" />
+    <link rel="stylesheet" href="styles/awiki.css" type="text/css" />
     <title><?php echo SITE_NAME; ?></title>
 </head>
 <body>
