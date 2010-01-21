@@ -36,8 +36,8 @@ if (!isset($_SESSION['auth_name']))
     <title><?php echo SITE_NAME; ?></title>
 </head>
 <body>
-    <div id="content">
-        <div id="login">
+    <div id="wrapper">
+        <div id="content">
             <form action="" method="post" id="auth_form">
                 Login: <input type="text" name="login" id="auth_username" />
                 Password: <input type="password" name="password" id="auth_pass" />
