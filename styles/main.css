@@ -27,6 +27,8 @@ font-size: 11px;
 text-transform:uppercase;
 background-color:transparent;
 text-decoration: underline; 
+margin-top: 5px;
+margin-bottom: 5px;
 }
  
 a.hover { 
