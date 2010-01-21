@@ -6,6 +6,7 @@
  * Time: 12:25:47 PM
  */
 print ('<div id="main">');
+print ('<h1>First page title</h1>');
 print ('Jo fri bisi pronomeca frazetvortigo, tie oj postesigno prapostmorgaŭ malsuprenstreko.
 		Ekoo dank kialo tet oj, for tiel istan cirkumflekso dz. Nigra ipsilono netransitiva 
 		iz hav, vola arki ene ts. Leteri posttagmezo esperantigita obl ie, numero kaŭze frakcistreko
