@@ -51,11 +51,6 @@ h1 {
 font-size: 11px;
 text-transform:uppercase;
 text-align: right;
-color: #564b47;
-background-color: #C4002B;
-
-
-padding:5px 15px;
 margin:0px
 
 }
@@ -63,6 +58,12 @@ margin:0px
 
 strong { 
 font-size: 13px;
+}
+
+#header {
+background-color: #8C001E;
+padding:5px 15px;
+color: #E8E8E8;
 }
 
 #left {
