@@ -22,7 +22,7 @@ list-style 	: none;
 }
 
 a { 
-color: #ff66cc;
+color: #855200;
 font-size: 11px;
 background-color:transparent;
 text-decoration: none; 
@@ -35,29 +35,20 @@ background-color:transparent;
 font-family: Courier, Monaco, Monospace;
 }
 
-.alignright {
-margin-top: 0; 
+h1 {
+font-size: 14px;
+text-transform:uppercase;
 text-align: right;
-font-size: 10px;
+margin:0px
 }
 
 h2 {
-font-size:14px;
+font-size:12px;
 padding-top:10px;
 text-transform:uppercase;
 color: #564b47;
 background-color: transparent;
-	}
-
-
-h1 {
-font-size: 11px;
-text-transform:uppercase;
-text-align: right;
-margin:0px
-
 }
-
 
 strong { 
 font-size: 13px;
