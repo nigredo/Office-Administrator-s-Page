@@ -25,9 +25,16 @@ a {
 color: #855200;
 font-size: 11px;
 background-color:transparent;
-text-decoration: none; 
+text-decoration: underline; 
 }
  
+a.hover { 
+color: #855200;
+font-size: 11px;
+background-color:transparent;
+text-decoration: underline; 
+}
+
 pre { 
 color: #564b47;
 font-size: 11px;
