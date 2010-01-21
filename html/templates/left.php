@@ -7,7 +7,7 @@
  */
 
 $menu = new Menu();
-$menu = add_item('TEST','.');
+$menu->add_item('TEST','.');
 $menu->destroy();
 
 ?>
