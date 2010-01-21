@@ -91,8 +91,9 @@ position: absolute;
 right: 0px;        
 width: 190px;
 color: #564b47;
-margin: 0px; 
-padding-left: 10px;
+margin: 0px;
+margin-left: 10px; 
+padding: 0px;
 }
 
 #footer {
