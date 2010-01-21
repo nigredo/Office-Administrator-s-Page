@@ -14,7 +14,7 @@ print ('<meta name="keywords" content="" />');
 print ('<meta name="description" content="" />');
 print ('<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />');
 print ('<link rel="stylesheet" href="styles/main.css" type="text/css" />');
-print ('<title>'.$title.'</title>');
+print ('<title>'.SITE_NAME.'</title>');
 print ('<body>');
     
 ?>
