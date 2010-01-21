@@ -16,7 +16,7 @@ print ('<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />');
 print ('<link rel="stylesheet" href="styles/main.css" type="text/css" />');
 print ('<title>'.SITE_NAME.'</title>');
 print ('<body>');
-print ('<div id="header"');
+print ('<div id="header">');
 print ('<h1>Office Administrator\'s Page</h1>');
 print ('</div>');    
 ?>
