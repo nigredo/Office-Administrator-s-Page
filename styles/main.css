@@ -17,6 +17,9 @@ margin: 0px;
 padding: 5px 20px 5px 20px; 
 }
 
+ul	{
+list-style 	: none;
+}
 
 a { 
 color: #ff66cc;
