@@ -7,20 +7,21 @@
 session_start();
 if (!isset($_SESSION['auth_name']))
 {
-	if (isset($_POST['Login'])) {
+	if (isset($_POST['Login'])) 
+	{
 		$login=$_POST['auth_username'];
 		$password=$_POST['auth_pass'];
-		$result = $DB->query_first("SELECT * FROM login_users WHERE login='$login' AND password='$password'");
+		$result = $DB->query_first("SELECT * FROM users WHERE login='$login' AND password='$password'");
 		echo $result;
-		$_SESSION['auth_username'] 	= $result['id'];
-		$_SESSION['auth_user'] 		= $result['login'];
-		$_SESSION['auth_name'] 		= $result['name'];
-		$_SESSION['auth_surname'] 	= $result['surname'];
-		header("Location: http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-		exit;
+//		$_SESSION['auth_username'] 	= $result['id'];
+//		$_SESSION['auth_user'] 		= $result['login'];
+//		$_SESSION['auth_name'] 		= $result['name'];
+//		$_SESSION['auth_surname'] 	= $result['surname'];
+//		header("Location: http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+//		exit;
 	}
-	
-	if (!isset($_SESSION['auth_username']))
+
+	else	
 	{
 		?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -50,9 +51,6 @@ if (!isset($_SESSION['auth_name']))
 <?php 
 	exit;
 	}
-}
-else
-{
 }
 ?>
 
