@@ -9,6 +9,9 @@ if (!isset($_SESSION['auth_name']))
 {
 	if (isset($_POST['OK'])) 
 	{
+		$DB = new Database(DB_HOST,DB_USER,DB_PASS,DB_DATABASE);
+		$DB->connect();
+		
 		$login=$_POST['login'];
 		$password=$_POST['password'];
 		$result = $DB->query_first("SELECT * FROM users WHERE login='$login' AND password='$password'");
