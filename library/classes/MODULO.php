@@ -5,10 +5,10 @@
 class Modulo {
     function __construct() {
         $dir_handle = @opendir($path) or die("Unable to open $path");
-        echo "Directory Listing of $path<br/>";
         while ($file = readdir($dir_handle))
         {
-            echo "<a href='$file'>$file</a><br/>";
+            if($file!="." && $file!="..")
+            $module_name = explode(".",$file); // В названии файлов нельзя будет юзать точку. Надо будет потом продумать.
         }
         closedir($dir_handle);
     }
