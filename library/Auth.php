@@ -15,13 +15,13 @@ if (!isset($_SESSION['auth_name']))
 		$login=$_POST['login'];
 		$password=$_POST['password'];
 		$result = $DB->query_first("SELECT * FROM users WHERE login='$login' AND password='$password'");
-		echo $result;
-//		$_SESSION['auth_username'] 	= $result['id'];
-//		$_SESSION['auth_user'] 		= $result['login'];
-//		$_SESSION['auth_name'] 		= $result['name'];
-//		$_SESSION['auth_surname'] 	= $result['surname'];
-//		header("Location: http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-//		exit;
+
+		$_SESSION['auth_username'] 	= $result['id'];
+		$_SESSION['auth_user'] 		= $result['login'];
+		$_SESSION['auth_name'] 		= $result['name'];
+		$_SESSION['auth_surname'] 	= $result['surname'];
+		header("Location: http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+		exit;
 	}
 
 	else	
