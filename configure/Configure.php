@@ -28,7 +28,7 @@ define ('API_FUNCTIONS','library/functions' . DIRECTORY_SEPARATOR);
 require_once(API_CLASSES . 'SQL.php');
 require_once(API_LIBRARY . 'Auth.php');
 
-require_once(API_FUNCTION . 'Core.php');
-require_once(API_FUNCTION . 'Date.php');
-require_once(API_FUNCTION . 'Files.php');
+require_once(API_FUNCTIONS . 'Core.php');
+require_once(API_FUNCTIONS . 'Date.php');
+require_once(API_FUNCTIONS . 'Files.php');
 ?>
