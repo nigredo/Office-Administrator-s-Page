@@ -5,20 +5,11 @@
  */
 function show_ftpaccounts()
 {
-	$my_host=$GLOBALS["my_hostname"].":".$GLOBALS["my_port"];
-	$my_connection = mysql_pconnect($my_host,$GLOBALS["my_username"],$GLOBALS["my_password"]);
-	if (!$my_connection)
-	{
-	 	die ("<font color='#ff3333'>Could not connect to the database server!</font>");
-	};
-	$my_db_select=mysql_select_db("ftp");
-	if (!$my_db_select)
-	{
-	 	die ("<font color='#ff3333'>The database does not exist!</font>");
-	};
+	$DB = new Database(DB_HOST,DB_USER,DB_PASS,DB_DATABASE);
+	$DB->connect();
+	
 	print "<fieldset>";
 	print "<legend>FTP Accounts</legend>";
-	echo "<div class='add'><a href='.?show=ftp&add=true'>Add</a></div>";
 	echo "<table>\n
         <tr>\n
         <th>Username</th>\n
@@ -26,7 +17,7 @@ function show_ftpaccounts()
 	    <th>Home</th>\n
 	    <th>Delete</th>\n
         </tr>\n";
-	$my_query = "SELECT * FROM users"; 
+	$my_query = "SELECT * FROM ftp_users"; 
  	$query = mysql_query($my_query);
 	while ($row = mysql_fetch_array($query,MYSQL_ASSOC))
 		{
