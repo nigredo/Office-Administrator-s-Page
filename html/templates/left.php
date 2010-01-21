@@ -7,7 +7,10 @@
  */
 
 $menu = new Menu();
-$menu->add_item('TEST','.');
+$menu->add_item('TEST 01','.');
+$menu->add_item('TEST 02','.');
+$menu->add_item('TEST 03','.');
+$menu->add_item('TEST 04','.');
 unset($menu);
 
 ?>
