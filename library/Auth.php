@@ -7,10 +7,10 @@
 session_start();
 if (!isset($_SESSION['auth_name']))
 {
-	if (isset($_POST['Login'])) 
+	if (isset($_POST['OK'])) 
 	{
-		$login=$_POST['auth_username'];
-		$password=$_POST['auth_pass'];
+		$login=$_POST['login'];
+		$password=$_POST['password'];
 		$result = $DB->query_first("SELECT * FROM users WHERE login='$login' AND password='$password'");
 		echo $result;
 //		$_SESSION['auth_username'] 	= $result['id'];
@@ -41,7 +41,7 @@ if (!isset($_SESSION['auth_name']))
             <form action="" method="post" id="auth_form">
                 Login: <input type="text" name="login" id="auth_username" />
                 Password: <input type="password" name="password" id="auth_pass" />
-                <input style="padding:5pt;" type="submit" value="Login" />
+                <input type="submit" name="OK" value="Login" />
             </form>
             <span id="error"></span>
         </div>
