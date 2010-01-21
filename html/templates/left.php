@@ -7,9 +7,9 @@
  */
 print ('<div id="left">');
 $menu = new Menu();
-$menu->add_item('TEST 01','.');
-$menu->add_item('TEST 02','.');
-$menu->add_item('TEST 03','.');
+$menu->add_item('FTP Management','?section=ftp');
+$menu->add_item('SMS Management','?section=sms');
+$menu->add_item('VOIP Management','?section=voip');
 $menu->add_item('TEST 04','.');
 unset($menu);
 print ('</div>');
