@@ -16,7 +16,7 @@ define('URL', rtrim(dirname($_SERVER['PHP_SELF']), '/\\'));
 define ('DB_HOST','localhost');
 define ('DB_USER','admin');
 define ('DB_PASS','3ch046m1n');
-define ('DB_DATABASE','opa_admin');
+define ('DB_DATABASE','oap_admin');
 define ('DB_PREFIX','');
 
 define ('RECORD_PER_PAGE','25');
