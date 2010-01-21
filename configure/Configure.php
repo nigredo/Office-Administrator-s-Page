@@ -26,6 +26,10 @@ define ('API_LIBRARY', 'library' . DIRECTORY_SEPARATOR);
 define ('API_CLASSES','library/classes' . DIRECTORY_SEPARATOR);
 define ('API_FUNCTIONS','library/functions' . DIRECTORY_SEPARATOR);
 
+define ('FRONTEND_PATH', 'html' . DIRECTORY_SEPARATOR);
+define ('FRONTEND_TPL_PATH', 'html/templates' . DIRECTORY_SEPARATOR);
+
+
 require_once(API_CLASSES . 'SQL.php');
 require_once(API_LIBRARY . 'Auth.php');
 

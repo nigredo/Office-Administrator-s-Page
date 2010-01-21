@@ -1,7 +1,4 @@
 <?php
-/*
- * Created on Jan 12, 2010
- *
- */
-require_once("configure/Configure.php"); 
+require_once("configure/Configure.php");
+include(FRONTEND_PATH . 'index.php');
 ?>
