@@ -31,6 +31,8 @@ define ('FRONTEND_TPL_PATH', 'html/templates' . DIRECTORY_SEPARATOR);
 
 
 require_once(API_CLASSES . 'SQL.php');
+require_once(API_CLASSES . 'MENU.php');
+
 require_once(API_LIBRARY . 'Auth.php');
 
 require_once(API_FUNCTIONS . 'Core.php');
