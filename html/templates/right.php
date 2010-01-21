@@ -12,12 +12,12 @@ $os_type = exec('uname -s');
 $os_release = exec('uname -r');
 $kernel = exec('uname -i');
 
-
+print ('<div id="right">');
 print ('Server name: '.$server_name.'<br>');
 print ('Server arch: '.$arch.'<br>');
 print ('OS: '.$os_type.'<br>');
 print ('OS release: '.$os_release.'<br>');
 print ('Kernel: '.$kernel.'<br>');
-
+print ('</div>');
 
 ?>
