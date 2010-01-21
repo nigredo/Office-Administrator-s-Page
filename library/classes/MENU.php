@@ -9,17 +9,17 @@
 class Menu	{
 	
 function __construct() {
-       print ('<ul>\n');
+       print ('<ul>');
    }
 
 function __destruct() {
-       print ('</ul>\n');
+       print ('</ul>');
    }
  
 function add_item($name, $link) {
-       print ('<li>\n');
-       print ('<a href="'.$link.'">'.$name.'</a>\n');
-       print ('</li>\n');
+       print ('<li>');
+       print ('<a href="'.$link.'">'.$name.'</a>');
+       print ('</li>');
    }
 
 }

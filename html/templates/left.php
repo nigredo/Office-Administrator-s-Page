@@ -8,6 +8,6 @@
 
 $menu = new Menu();
 $menu->add_item('TEST','.');
-$menu->destroy();
+unset($menu);
 
 ?>
