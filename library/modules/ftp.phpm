@@ -4,4 +4,44 @@
  *
  */
 
+function show_accounts()
+{
+    $DB = new Database(DB_HOST,DB_USER,DB_PASS,DB_DATABASE);
+    $DB->connect();
+    print "<fieldset>";
+    print "<legend>FTP Accounts</legend>";
+    echo "<table>\n
+    <tr>\n
+    <th>Username</th>\n
+    <th>Password</th>\n
+    <th>Home</th>\n
+    <th>Delete</th>\n
+    </tr>\n";
+    $data = $DB->fetch_all_array("SELECT * FROM ftp_users");
+    while ($data)
+    {
+        echo "<tr";
+        @$count++;
+        if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
+        echo "<td ".$style."><input ".$style." name='user' type='text' value='" . $data['user'] . "'></td>\n";
+        echo "<td ".$style."><input ".$style." name='password' type='text' value='" . $data['password'] . "'></td>\n";
+        echo "<td ".$style."><input ".$style." name='home' type='text' value='" . $data['home'] . "'></td>\n";
+        echo "<td ".$style."><div class='add'><a href='index.php?show=ftp&delete=true&user=".$data['user']."'>Delete</a></div></td>\n";
+        echo "</tr>\n";
+    }
+    echo "</table>\n";
+    echo "</form>";
+    print "</fieldset>";
+    $DB->close();
+}
+
+function add_account()
+{
+
+}
+
+function delete_account()
+{
+    
+}
 ?>
