@@ -156,6 +156,18 @@ switch($action)
         echo "WARNING! User ID is not set!";
     };
     break;
+
+    case "start":
+        start_ftp();
+    break;
+
+    case "stop":
+        stop_ftp();
+    break;
+
+    case "restart":
+        restart_ftp();
+    break;
 };
 
 ?>
