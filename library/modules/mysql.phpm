@@ -5,30 +5,10 @@ function all_database_list()
     $DB = new Database(ROOT_DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
     $qw = $DB->query("SHOW DATABASES");
-    $data = $DB->fetch_array($qw);
-    $rows = $DB->num_rows($qw);
-    if ($rows != 0)
+    $db_list = mysql_list_dbs($qw);
+    while ($db = mysql_fetch_assoc($db_list))
     {
-        echo "<table width='100%'>\n
-        <tr>\n
-        <th>Database name</th>\n
-        </tr>\n";
-        for ($count=0;$count <= $rows; $count++)
-        {
-            $data = $DB->fetch_all_array($qw);
-            echo "<tr>";
-            if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
-            echo "<td ".$style.">".$data[$count]."</td>\n";
-            echo "</tr>\n";
-            @$count++;
-        }
-        echo "</table>\n";
-        echo "</form>";
-        print "</fieldset>";
-    }
-    else
-    {
-        print ("There is a FUCKING ERROR!");
+        echo $db['Database'] ."<br />";
     }
     $DB->close();
 }
