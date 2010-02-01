@@ -3,7 +3,8 @@
  * Created on Jan 12, 2010
  *
  */
-echo ($_SESSION['auth_name']);
+session_start();
+
 if (!isset($_SESSION['auth_name']))
 {
 	if (isset($_POST['OK'])) 
@@ -21,7 +22,6 @@ if (!isset($_SESSION['auth_name']))
 		$_SESSION['auth_surname'] 	= $result['surname'];
 		$DB->close();
 		exit;
-                session_start();
 		echo("Location: http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 
 	}
