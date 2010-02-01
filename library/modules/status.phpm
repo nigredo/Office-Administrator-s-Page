@@ -11,6 +11,8 @@ function show_service_status($service)
     }
     else
     {
+        echo $command;
+        echo (exec($command));
         echo ("<table width='100%'><tr><td width='25%'>".$service."</td><td><img src='".IMAGES_PATH."delete.gif'></td></tr></table>");
     }
 }
