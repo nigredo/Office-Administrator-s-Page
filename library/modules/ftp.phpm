@@ -58,7 +58,7 @@ if (isset($_REQUEST['OK']))
     $qw = $DB->query("INSERT INTO ftp_users (`username`, `pass`) VALUES (\"".$username."\",\"".$password."\")");
     $data = $DB->fetch_array($qw);
     echo "Account added. &nbsp;<br>";
-    echo "<a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a>";
+    echo "<a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a>";
     }
 }
 else
