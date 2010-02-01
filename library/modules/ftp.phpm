@@ -22,7 +22,6 @@ function show_ftp_accounts()
     $rows = $DB->num_rows($qw);
     while ($rows > 0)
     {
-        $rows=$rows-1;
         $data = $DB->fetch_array($qw);
         echo "<tr";
         @$count++;
@@ -33,6 +32,7 @@ function show_ftp_accounts()
         echo "<img src='".IMAGES_PATH."delete.gif'>";
         echo "</a></div></td>\n";
         echo "</tr>\n";
+        $rows=$rows-1;
     }
     echo "</table>\n";
     echo "</form>";
