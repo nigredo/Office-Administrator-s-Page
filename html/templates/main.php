@@ -6,7 +6,6 @@
  * Time: 12:25:47 PM
  */
 print ('<div id="main">');
-print ('<h1>First page title</h1>');
 if (isset($_REQUEST['section']))
 {
     $section=$_REQUEST['section'];
