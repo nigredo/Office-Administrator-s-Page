@@ -5,10 +5,11 @@ function all_database_list()
     $DB = new Database(ROOT_DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
     $qw = $DB->query("SHOW DATABASES");
-    $db_list = mysql_list_dbs($qw);
-    while ($db = mysql_fetch_assoc($db_list))
-    {
-        echo $db['Database'] ."<br />";
+    $result = mysql_query($qw);
+    $numrows = mysql_num_rows($result);
+    for($i=0;$i<$numrows;$i++){
+        $info = mysql_fetch_array($result);
+        echo $info[$i];
     }
     $DB->close();
 }
