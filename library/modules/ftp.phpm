@@ -42,7 +42,38 @@ function show_ftp_accounts()
 
 function add_ftp_account()
 {
-
+if (isset($_REQUEST['OK']))
+{
+    if ((!isset($_REQUEST['username'])) || (!isset($_REQUEST['password'])))
+    {
+        print ("Wrong username or password!");
+        break;
+    }
+    else
+    {
+    $username=$_REQUEST['username'];
+    $password=$_REQUEST['password'];
+    }
+}
+else
+{
+    print "<fieldset>";
+    print "<legend>Add FTP account</legend>";
+    echo "<table>\n
+    <tr>\n
+    <th>Username</th>\n
+    <th>Password</th>\n
+    </tr>\n";
+    echo "<form action='?section=ftp&action=add'>";
+    echo "<td><input name='username' type='text' value='Username'></td>\n";
+    echo "<td><input name='password' type='password' value='Password'></td>\n";
+    echo "</tr>\n<td>&nbsp;</td><td>";
+    echo "<input type='submit' name='OK' value='Submit'>";
+    echo "</td></tr>\n";
+    echo "</table>\n";
+    echo "</form>";
+    print "</fieldset>";
+};
 }
 
 function delete_ftp_account($uid)
@@ -71,7 +102,11 @@ switch($action)
         show_ftp_accounts();
     break;
 
-    case "delete":
+    case "add":
+        add_ftp_account();
+    break;
+
+case "delete":
     if (isset($_REQUEST['uid']))
     {
         $uid=$_REQUEST['uid'];
