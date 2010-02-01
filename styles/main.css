@@ -134,3 +134,11 @@ ul#modnavi
         float           :right;
         list-style-type :none;
 }
+
+div#modnavi
+{
+        height          :30px;
+        display         :block;
+        text-align      :center;
+        margin-top      :10px;
+}
