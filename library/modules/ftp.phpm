@@ -70,7 +70,7 @@ else
     <th>Username</th>\n
     <th>Password</th>\n
     </tr>\n";
-    echo "<form action='?section=ftp&action=add'>";
+    echo "<form action='?section=ftp&action=add' method='POST'>";
     echo "<td><input name='username' type='text' value='Username'></td>\n";
     echo "<td><input name='password' type='password' value='Password'></td>\n";
     echo "</tr>\n<td>&nbsp;</td><td>";
