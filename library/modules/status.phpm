@@ -2,7 +2,7 @@
 function show_service_status($service)
 {
 
-    $command_result = trim(exec("/bin/sleep 1 && /usr/local/bin/sudo /bin/ps aux | /usr/bin/grep ".$service." | /usr/bin/grep -v grep | /usr/bin/wc -l"));
+    $command_result = exec("/usr/local/bin/sudo /bin/ps aux ");
     if (!$command_result)
     {
         echo $command_result;
