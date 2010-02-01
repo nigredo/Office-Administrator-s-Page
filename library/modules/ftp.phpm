@@ -18,15 +18,15 @@ function show_ftp_accounts()
     </tr>\n";
     $SQL = "SELECT * FROM ftp_users";
     $qw = $DB->query($SQL);
-    $data = mysql_fetch_assoc($qw);
+    $data = mysql_fetch_array($qw);
     while ($data)
     {
         echo "<tr";
         @$count++;
         if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
-        echo "<td ".$style."><input ".$style." name='user' type='text' value='" . $data['username'] . "'></td>\n";
-        echo "<td ".$style."><input ".$style." name='password' type='text' value='" . $data['pass'] . "'></td>\n";
-        echo "<td ".$style."><div class='add'><a href='index.php?section=ftp&action=delete&uid=".$data['id']."'>Delete</a></div></td>\n";
+        echo "<td ".$style."><input ".$style." name='user' type='text' value='" . $data[1] . "'></td>\n";
+        echo "<td ".$style."><input ".$style." name='password' type='text' value='" . $data[2] . "'></td>\n";
+        echo "<td ".$style."><div class='add'><a href='index.php?section=ftp&action=delete&uid=".$data[0]."'>Delete</a></div></td>\n";
         echo "</tr>\n";
     }
     echo "</table>\n";
