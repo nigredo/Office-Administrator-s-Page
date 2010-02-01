@@ -32,4 +32,6 @@ function all_database_list()
     }
     $DB->close();
 }
+
+all_database_list();
 ?>
