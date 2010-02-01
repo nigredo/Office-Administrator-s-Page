@@ -1,9 +1,4 @@
 <?php
-/*
- * Created on Jan 12, 2010
- *
- */
-
 
 function load_module($module)
 {
