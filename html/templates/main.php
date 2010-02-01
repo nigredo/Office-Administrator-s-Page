@@ -18,7 +18,7 @@ else
 switch(section)
 {
     case ftp:
-        show_ftp_accounts();
+        load_module("ftp");
     break;
     default:
         print ('Jo fri bisi pronomeca frazetvortigo, tie oj postesigno prapostmorgaŭ malsuprenstreko.
