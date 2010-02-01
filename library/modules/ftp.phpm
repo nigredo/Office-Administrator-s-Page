@@ -18,7 +18,6 @@ function show_ftp_accounts()
     <th>Delete</th>\n
     </tr>\n";
     $qw = $DB->query("SELECT * FROM ftp_users");
-    $data = $DB->fetch_array($qw);
     $rows = $DB->num_rows($qw);
     for ($count=0;$count < $rows; $count++)
     {
