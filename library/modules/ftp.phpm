@@ -29,7 +29,7 @@ function show_ftp_accounts()
         if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
         echo "<td ".$style."><input ".$style." name='user' type='text' value='" . $data['username'] . "'></td>\n";
         echo "<td ".$style."><input ".$style." name='password' type='text' value='" . $data['pass'] . "'></td>\n";
-        echo "<td ".$style."><div class='add'><a href='index.php?section=ftp&action=delete&uid=".$data['id']."'>";
+        echo "<td ".$style."><div class='add'><a href='index.php?section=ftp&action=delete&uid=".$data['username']."'>";
         echo "<img src='".IMAGES_PATH."delete.gif'>";
         echo "</a></div></td>\n";
         echo "</tr>\n";
@@ -57,6 +57,8 @@ if (isset($_REQUEST['OK']))
     $DB->connect();
     $qw = $DB->query("INSERT INTO ftp_users (`username`, `pass`) VALUES (\"".$username."\",\"".$password."\")");
     $data = $DB->fetch_array($qw);
+    exec ("/usr/local/bin/sudo /bin/mkdir /usr/home/vsftpd".$username);
+    exec ("/usr/local/bin/sudo /usr/sbin/chown -R vsftpd:nogroup /usr/home/vsftpd");
     echo "Account added. &nbsp;<br>";
     echo "<a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a>";
     }
@@ -82,12 +84,13 @@ else
 };
 }
 
-function delete_ftp_account($uid)
+function delete_ftp_account($username)
 {
     $DB = new Database(DB_HOST,DB_USER,DB_PASS,DB_DATABASE);
     $DB->connect();
-    $qw = $DB->query("DELETE FROM ftp_users WHERE `id` = ".$uid);
+    $qw = $DB->query("DELETE FROM ftp_users WHERE `id` = ".$username);
     $data = $DB->fetch_array($qw);
+    exec ("/bin/rm -rf /usr/home/vsftpd".$username);
     echo "Account deleted. &nbsp;<br>";
     echo "<a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a>";
 }
@@ -145,10 +148,10 @@ switch($action)
     break;
 
 case "delete":
-    if (isset($_REQUEST['uid']))
+    if (isset($_REQUEST['username']))
     {
-        $uid=$_REQUEST['uid'];
-        delete_ftp_account($uid);
+        $username=$_REQUEST['username'];
+        delete_ftp_account($username);
     }
     else
     {
