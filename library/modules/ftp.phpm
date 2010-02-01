@@ -3,14 +3,6 @@
  * FTP module
  *
  */
-if (isset($_REQUEST['action']))
-{
-    $action=$_REQUEST['action'];
-}
-else
-{
-    $action="view";  // Default action is VIEW
-};
 
 function show_ftp_accounts()
 {
@@ -24,7 +16,7 @@ function show_ftp_accounts()
     <th>Password</th>\n
     <th>Delete</th>\n
     </tr>\n";
-    $data = $DB->fetch_all_array("SELECT * FROM ftp_users");
+    $data = $DB->fetch_array("SELECT * FROM ftp_users");
     while ($data)
     {
         echo "<tr";
@@ -32,7 +24,7 @@ function show_ftp_accounts()
         if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
         echo "<td ".$style."><input ".$style." name='user' type='text' value='" . $data['username'] . "'></td>\n";
         echo "<td ".$style."><input ".$style." name='password' type='text' value='" . $data['pass'] . "'></td>\n";
-        echo "<td ".$style."><div class='add'><a href='index.php?section=ftp&action=delete&user=".$data['user']."'>Delete</a></div></td>\n";
+        echo "<td ".$style."><div class='add'><a href='index.php?section=ftp&action=delete&uid=".$data['id']."'>Delete</a></div></td>\n";
         echo "</tr>\n";
     }
     echo "</table>\n";
@@ -46,30 +38,25 @@ function add_ftp_account()
 
 }
 
-function delete_ftp_account($user)
+function delete_ftp_account($uid)
 {
     
 }
 
+if (isset($_REQUEST['action']))
+{
+    $action=$_REQUEST['action'];
+}
+else
+{
+    $action="view";  // Default action is VIEW
+};
 
 switch($action)
 {
     case "view":
         show_ftp_accounts();
     break;
-    default:
-        print ('Jo fri bisi pronomeca frazetvortigo, tie oj postesigno prapostmorgaŭ malsuprenstreko.
-		Ekoo dank kialo tet oj, for tiel istan cirkumflekso dz. Nigra ipsilono netransitiva
-		iz hav, vola arki ene ts. Leteri posttagmezo esperantigita obl ie, numero kaŭze frakcistreko
-		cia iz. Da mis oble senobjekta anstataŭe, sor pako aliam traigi is, on fin hemi reciproke
-		miriametro.Kaj it deksesuma gingivalo literaturo, i panjo vasta mil. In ari kaŭ fratineto
-		nedifinita, ul ojd rekta kurta, ek nul duon esperanto. Alial reciproke lingvonomo re un,
-		spite komplika decimaloj il nen, kune proto rolmontrilo it ali. Hot tc difina respondo dupunkto,
-		vol ut filo trafe antaŭhieraŭ. Gh aĥ eĥo koreo nekutima, ene mf paki sude nombrovorto, vic ng jena
-		sekstiliono. Sep no kiam veki aperi, hej nedifina subpropozicio it.
-		Brosi tiaokaze apostrofo kie ti. Kiom rilate sensubjekta zo pov. Fare popolnomo imperativo nf san,
-		sia do kuzo okej antaŭelemento. Sat grupo minusklo lo, deka kies iometo aj tie. Plue interalie
-		neŭtrala rolmontrilo kv, iam la neniaĵo reciproke malantaŭe, ne oble duono geinstruisto mil.');
 };
 
 ?>
