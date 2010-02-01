@@ -15,7 +15,7 @@ function all_database_list()
         </tr>\n";
         for ($count=0;$count <= $rows; $count++)
         {
-            $data = $DB->fetch_array($qw);
+            $data = $DB->fetch_all_array($qw);
             echo "<tr>";
             if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
             echo "<td ".$style.">".$data[$count]."</td>\n";
