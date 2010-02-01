@@ -76,8 +76,8 @@ else
     echo "</tr>\n<td>&nbsp;</td><td>";
     echo "<input type='submit' name='OK' value='Submit'>";
     echo "</td></tr>\n";
-    echo "</table>\n";
     echo "</form>";
+    echo "</table>\n";
     print "</fieldset>";
 };
 }
