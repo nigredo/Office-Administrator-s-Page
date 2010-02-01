@@ -19,7 +19,7 @@ function show_ftp_accounts()
     </tr>\n";
     $qw = $DB->query("SELECT * FROM ftp_users");
     $rows = $DB->num_rows($qw);
-    for ($count=0;$count < $rows; $count++)
+    for ($count=0;$count <= $rows; $count++)
     {
         $data = $DB->fetch_array($qw);
         echo "<tr";
