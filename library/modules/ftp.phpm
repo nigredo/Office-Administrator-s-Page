@@ -24,7 +24,6 @@ function show_ftp_accounts()
     {
         $data = $DB->fetch_array($qw);
         echo "<tr";
-        @$count++;
         if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
         echo "<td ".$style."><input ".$style." name='user' type='text' value='" . $data['username'] . "'></td>\n";
         echo "<td ".$style."><input ".$style." name='password' type='text' value='" . $data['pass'] . "'></td>\n";
@@ -32,6 +31,7 @@ function show_ftp_accounts()
         echo "<img src='".IMAGES_PATH."delete.gif'>";
         echo "</a></div></td>\n";
         echo "</tr>\n";
+        @$count++;
     }
     echo "</table>\n";
     echo "</form>";
