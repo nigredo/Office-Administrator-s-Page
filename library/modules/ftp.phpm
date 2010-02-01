@@ -92,6 +92,17 @@ function delete_ftp_account($uid)
     echo "<a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a>";
 }
 
+
+
+// Module submenu
+$menu = new Menu();
+$menu->add_item('Add account','?section=ftp&action=add');
+$menu->add_item('Restart FTP','?section=ftp&action=restart');
+$menu->add_item('Stop FTP','?section=ftp&action=stop');
+$menu->add_item('Start FTP','?section=ftp&action=start');
+unset($menu);
+
+
 if (isset($_REQUEST['action']))
 {
     $action=$_REQUEST['action'];
