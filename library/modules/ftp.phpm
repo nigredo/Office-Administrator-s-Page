@@ -24,7 +24,7 @@ function show_ftp_accounts()
         for ($count=0;$count <= $rows; $count++)
         {
             $data = $DB->fetch_array($qw);
-            echo "<tr";
+            echo "<tr>";
             if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
             echo "<td ".$style.">".$data['username']."</td>\n";
             echo "<td ".$style.">".$data['pass']."</td>\n";
