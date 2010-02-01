@@ -19,10 +19,10 @@ if (!isset($_SESSION['auth_name']))
 		$_SESSION['auth_user'] 		= $result['login'];
 		$_SESSION['auth_name'] 		= $result['name'];
 		$_SESSION['auth_surname'] 	= $result['surname'];
-		header("Location: http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 		$DB->close();
 		exit;
                 session_start();
+		header("Location: http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 	}
 
 	else	
