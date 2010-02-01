@@ -11,30 +11,38 @@ function show_ftp_accounts()
     print "<fieldset>";
     print "<legend>FTP Accounts</legend>";
     print "<div id='add'><a href='index.php?section=ftp&action=add'><img src='".IMAGES_PATH."add.png'>Add account</a></div>\n";
-    echo "<table>\n
-    <tr>\n
-    <th>Username</th>\n
-    <th>Password</th>\n
-    <th>Delete</th>\n
-    </tr>\n";
     $qw = $DB->query("SELECT * FROM ftp_users");
     $rows = $DB->num_rows($qw);
-    for ($count=0;$count <= $rows; $count++)
+    if ($rows = 0)
     {
-        $data = $DB->fetch_array($qw);
-        echo "<tr";
-        if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
-        echo "<td ".$style."><input ".$style." name='user' type='text' value='" . $data['username'] . "'></td>\n";
-        echo "<td ".$style."><input ".$style." name='password' type='text' value='" . $data['pass'] . "'></td>\n";
-        echo "<td ".$style."><div class='add'><a href='index.php?section=ftp&action=delete&username=".$data['username']."'>";
-        echo "<img src='".IMAGES_PATH."delete.gif'>";
-        echo "</a></div></td>\n";
-        echo "</tr>\n";
-        @$count++;
+        print ("There is no FTP accounts on this server!");
+        break;
     }
-    echo "</table>\n";
-    echo "</form>";
-    print "</fieldset>";
+    else
+    {
+        echo "<table>\n
+        <tr>\n
+        <th>Username</th>\n
+        <th>Password</th>\n
+        <th>Delete</th>\n
+        </tr>\n";
+        for ($count=0;$count <= $rows; $count++)
+        {
+            $data = $DB->fetch_array($qw);
+            echo "<tr";
+            if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
+            echo "<td ".$style."><input ".$style." name='user' type='text' value='" . $data['username'] . "'></td>\n";
+            echo "<td ".$style."><input ".$style." name='password' type='text' value='" . $data['pass'] . "'></td>\n";
+            echo "<td ".$style."><div class='add'><a href='index.php?section=ftp&action=delete&username=".$data['username']."'>";
+            echo "<img src='".IMAGES_PATH."delete.gif'>";
+            echo "</a></div></td>\n";
+            echo "</tr>\n";
+            @$count++;
+        }
+        echo "</table>\n";
+        echo "</form>";
+        print "</fieldset>";
+    }
     $DB->close();
 }
 
