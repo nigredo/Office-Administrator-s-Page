@@ -130,4 +130,7 @@ ul#modnavi
 	font-weight 	: bold;
 	border-top 	: 1px solid #404040;
 	border-bottom 	: 5px solid #404040;
+        display         :inline;
+        float           :right;
+        list-style-type :none;
 }
