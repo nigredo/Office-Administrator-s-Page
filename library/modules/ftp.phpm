@@ -16,7 +16,7 @@ function show_ftp_accounts()
     if ($rows = 1)
     {
         print ("There is no FTP accounts on this server!");
-        break;
+        exit;
     }
     else
     {
