@@ -1,4 +1,4 @@
-    <?php
+<?php
 require_once("configure/Configure.php");
 echo "POINT";
 
