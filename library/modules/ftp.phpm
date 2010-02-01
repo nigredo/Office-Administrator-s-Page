@@ -29,7 +29,7 @@ function show_ftp_accounts()
         if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
         echo "<td ".$style."><input ".$style." name='user' type='text' value='" . $data['username'] . "'></td>\n";
         echo "<td ".$style."><input ".$style." name='password' type='text' value='" . $data['pass'] . "'></td>\n";
-        echo "<td ".$style."><div class='add'><a href='index.php?section=ftp&action=delete&uid=".$data['username']."'>";
+        echo "<td ".$style."><div class='add'><a href='index.php?section=ftp&action=delete&username=".$data['username']."'>";
         echo "<img src='".IMAGES_PATH."delete.gif'>";
         echo "</a></div></td>\n";
         echo "</tr>\n";
@@ -147,7 +147,7 @@ switch($action)
         add_ftp_account();
     break;
 
-case "delete":
+    case "delete":
     if (isset($_REQUEST['username']))
     {
         $username=$_REQUEST['username'];
