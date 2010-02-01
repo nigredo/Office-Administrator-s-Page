@@ -17,7 +17,7 @@ else
 };
 switch(section)
 {
-    case "ftp":
+    case ftp:
         show_ftp_accounts();
     break;
     default:
