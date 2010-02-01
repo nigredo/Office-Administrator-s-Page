@@ -2,7 +2,7 @@
 function show_service_status($service)
 {
 
-    $command_result = exec("/usr/local/bin/sudo /bin/ps aux ");
+    $command_result = exec("/bin/ps aux ");
     if (!$command_result)
     {
         echo $command_result;
