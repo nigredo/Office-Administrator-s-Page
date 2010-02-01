@@ -87,6 +87,13 @@ function query($sql) {
     return $this->query_id;
 }#-#query()
 
+#-#############################################
+function num_rows($query_id) {
+    // retrieve row
+        $record = @mysql_num_rows($this->query_id);
+        return $record;
+}#-#fetch_array()
+
 
 #-#############################################
 # desc: fetches and returns results one line at a time
