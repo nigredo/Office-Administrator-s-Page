@@ -95,7 +95,7 @@ function delete_ftp_account($uid)
 
 
 // Module submenu
-print ("<div class='modnavi'>");
+print ("<div id='modnavi'>");
 $menu = new Menu();
 $menu->add_item('Add account','?section=ftp&action=add');
 $menu->add_item('Restart FTP','?section=ftp&action=restart');
