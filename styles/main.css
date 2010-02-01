@@ -13,91 +13,91 @@ body {
 }
 
 p, h2, pre {
-margin: 0px; 
-padding: 5px 20px 5px 20px; 
+    margin: 0px;
+    padding: 5px 20px 5px 20px;
 }
 
 ul	{
-list-style 	: none;
+    list-style 	: none;
 }
 
 a { 
-color: #4A2007;
-font-size: 11px;
-text-transform:uppercase;
-background-color:transparent;
-text-decoration: underline; 
-padding-top: 5px;
-padding-bottom: 5px;
+    color: #4A2007;
+    font-size: 11px;
+    text-transform:uppercase;
+    background-color:transparent;
+    text-decoration: underline;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
  
 a.hover { 
-color: #4A2007;
-font-size: 11px;
-text-transform:uppercase;
-background-color:transparent;
-text-decoration: none; 
+    color: #4A2007;
+    font-size: 11px;
+    text-transform:uppercase;
+    background-color:transparent;
+    text-decoration: none;
 }
 
 pre { 
-color: #564b47;
-font-size: 11px;
-background-color:transparent;
-font-family: Courier, Monaco, Monospace;
+    color: #564b47;
+    font-size: 11px;
+    background-color:transparent;
+    font-family: Courier, Monaco, Monospace;
 }
 
 h1 {
-font-size: 14px;
-text-transform:uppercase;
-text-align: right;
-margin:0px
+    font-size: 14px;
+    text-transform:uppercase;
+    text-align: right;
+    margin:0px
 }
 
 h2 {
-font-size:12px;
-padding-top:10px;
-text-transform:uppercase;
-color: #564b47;
-background-color: transparent;
+    font-size:12px;
+    padding-top:10px;
+    text-transform:uppercase;
+    color: #564b47;
+    background-color: transparent;
 }
 
 strong { 
-font-size: 13px;
+    font-size: 13px;
 }
 
 #header {
-background-color: #4A2007;
-padding:5px 15px;
-color: #E8E8E8;
+    background-color: #4A2007;
+    padding:5px 15px;
+    color: #E8E8E8;
 }
 
 #left {
-position: absolute;
-left: 0px;
-width: 190px;
-color: #564b47;
-margin: 0px; 
-padding: 10px;
-min-height: 150px;
+    position: absolute;
+    left: 0px;
+    width: 190px;
+    color: #564b47;
+    margin: 0px;
+    padding: 10px;
+    min-height: 350px;
 }
 
 #main {
-margin: 0px 190px 0px 190px;
-border-left: 2px solid #564b47;
-border-right: 2px solid #564b47;
-padding: 10px;
-background-color: #ffffff;    
-min-height: 150px;
+    margin: 0px 190px 0px 190px;
+    border-left: 2px solid #564b47;
+    border-right: 2px solid #564b47;
+    padding: 10px;
+    background-color: #ffffff;
+    min-height: 350px;
 }
 
 #right {
-position: absolute;
-right: 0px;        
-width: 190px;
-color: #564b47;
-margin: 0px;
-padding: 0px;
-min-height: 150px;
+    position: absolute;
+    right: 0px;
+    width: 190px;
+    color: #564b47;
+    margin: 0px;
+    padding: 0px;
+    min-height: 350px;
 }
 
 #footer {
