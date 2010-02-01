@@ -15,9 +15,9 @@ else
 {
     $section="ftp";
 };
-switch(section)
+switch($section)
 {
-    case ftp:
+    case "ftp":
         load_module("ftp");
     break;
     default:
