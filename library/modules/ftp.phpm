@@ -57,7 +57,7 @@ if (isset($_REQUEST['OK']))
     $DB->connect();
     $qw = $DB->query("INSERT INTO ftp_users (`username`, `pass`) VALUES (\"".$username."\",\"".$password."\")");
     $data = $DB->fetch_array($qw);
-    exec ("/usr/local/bin/sudo /bin/mkdir /usr/home/vsftpd".$username);
+    exec ("/usr/local/bin/sudo /bin/mkdir /usr/home/vsftpd/".$username);
     exec ("/usr/local/bin/sudo /usr/sbin/chown -R vsftpd:nogroup /usr/home/vsftpd");
     echo "Account added. &nbsp;<br>";
     echo "<a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a>";
@@ -90,7 +90,7 @@ function delete_ftp_account($username)
     $DB->connect();
     $qw = $DB->query("DELETE FROM ftp_users WHERE `id` = \"".$username."\"");
     $data = $DB->fetch_array($qw);
-    exec ("/usr/local/bin/sudo /bin/rm -rf /usr/home/vsftpd".$username);
+    exec ("/usr/local/bin/sudo /bin/rm -rf /usr/home/vsftpd/".$username);
     echo "Account deleted. &nbsp;<br>";
     echo "<a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a>";
 }
