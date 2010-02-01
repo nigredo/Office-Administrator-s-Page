@@ -21,6 +21,7 @@ print ('OS: '.$os_type.'<br>');
 print ('OS release: '.$os_release.'<br>');
 print ('Kernel: '.$kernel.'<br>');
 print ('</div>');
+print ("<h3>Services status</h3>");
 print ('<div id="right">');
 load_module("status");
 show_usr_service_status('vsftpd');
