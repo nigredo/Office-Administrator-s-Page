@@ -1,7 +1,7 @@
 <?php
 function show_service_status($service)
 {
-    $command = "ps aux | grep ".$service." | grep -v grep";
+    $command = "/usr/local/bin/sudo /bin/ps aux | /usr/bin/grep ".$service." | /usr/bin/grep -v grep";
     return (exec($command));
 }
 
