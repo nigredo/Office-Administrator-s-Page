@@ -3,7 +3,7 @@
  * Created on Jan 12, 2010
  *
  */
-
+echo ($_SESSION['auth_name']);
 if (!isset($_SESSION['auth_name']))
 {
 	if (isset($_POST['OK'])) 
