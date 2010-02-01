@@ -15,10 +15,10 @@ function show_ftp_accounts()
     $rows = $DB->num_rows($qw);
     if ($rows != 0)
     {
-        echo "<table>\n
+        echo "<table width='100%'>\n
         <tr>\n
-        <th>Username</th>\n
-        <th>Password</th>\n
+        <th width='40%'>Username</th>\n
+        <th width='40%'>Password</th>\n
         <th>Delete</th>\n
         </tr>\n";
         for ($count=0;$count <= $rows; $count++)
