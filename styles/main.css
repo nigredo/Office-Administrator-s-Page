@@ -111,15 +111,15 @@ strong {
 }
 
 #footer {
-background-color: #4A2007;
-padding:5px 15px;
-color: #E8E8E8;
+    background-color: #4A2007;
+    padding:5px 15px;
+    color: #E8E8E8;
 }
 
 #info {
-color: #564b47;
-margin: 10px;
-padding: 0px;
+    color: #564b47;
+    margin: 10px;
+    padding: 0px;
 }
 
 img     {
