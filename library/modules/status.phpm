@@ -1,5 +1,5 @@
 <?php
-function show_service_status($service)
+function show_usr_service_status($service)
 {
 
     $command_result = exec("/usr/local/bin/sudo /usr/local/etc/rc.d/".$service." status | grep run");
@@ -15,8 +15,25 @@ function show_service_status($service)
     }
 }
 
-show_service_status('vsftpd');
-show_service_status('httpd');
-show_service_status('sshd');
-show_service_status('absd');
+function show_etc_service_status($service)
+{
+
+    $command_result = exec("/usr/local/bin/sudo /etc/rc.d/".$service." status | grep run");
+    if (!$command_result)
+    {
+        echo $command_result;
+        echo ("<table width='100%'><tr><td width='25%'>".$service."</td><td><img src='".IMAGES_PATH."add.png'></td></tr></table>");
+    }
+    else
+    {
+        echo $command_result;
+        echo ("<table width='100%'><tr><td width='25%'>".$service."</td><td><img src='".IMAGES_PATH."delete.gif'></td></tr></table>");
+    }
+}
+
+show_usr_service_status('vsftpd');
+show_usr_service_status('apache22');
+show_usr_service_status('mysql');
+show_etc_service_status('sshd');
+show_etc_service_status('absd');
 ?>
