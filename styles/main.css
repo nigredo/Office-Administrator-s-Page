@@ -78,6 +78,7 @@ width: 190px;
 color: #564b47;
 margin: 0px; 
 padding: 10px;
+min-height: 150px;
 }
 
 #main {
@@ -86,6 +87,7 @@ border-left: 2px solid #564b47;
 border-right: 2px solid #564b47;
 padding: 10px;
 background-color: #ffffff;    
+min-height: 150px;
 }
 
 #right {
@@ -95,6 +97,7 @@ width: 190px;
 color: #564b47;
 margin: 0px;
 padding: 0px;
+min-height: 150px;
 }
 
 #footer {
