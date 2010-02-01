@@ -39,6 +39,11 @@ a.hover {
     text-decoration: none;
 }
 
+th
+{
+    text-align: left;
+}
+
 pre { 
     color: #564b47;
     font-size: 11px;
