@@ -5,6 +5,7 @@ function show_service_status($service)
     $command = "/usr/local/bin/sudo /bin/ps aux | /usr/bin/grep ".$service." | /usr/bin/grep -v grep";
     if (!exec($command))
     {
+        echo (exec($command));
         echo ("<table width='100%'><tr><td width='25%'>".$service."</td><td><img src='".IMAGES_PATH."add.png'></td></tr></table>");
     }
     else
