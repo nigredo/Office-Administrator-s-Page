@@ -19,6 +19,9 @@ switch($section)
     case "ftp":
         load_module("ftp");
     break;
+    case "status":
+        load_module("status");
+    break;
 };
 print ('</div>');
 ?>
