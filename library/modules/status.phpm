@@ -1,9 +1,10 @@
 <?php
 function show_service_status($service)
 {
+
     $command = "/usr/local/bin/sudo /bin/ps aux | /usr/bin/grep ".$service." | /usr/bin/grep -v grep";
     return (exec($command));
 }
 
-echo (show_service_status("vsftpd"));
+echo (show_service_status('vsftpd''));
 ?>
