@@ -5,11 +5,11 @@
  */
 if (isset($_REQUEST['action']))
 {
-    $section=$_REQUEST['action'];
+    $action=$_REQUEST['action'];
 }
 else
 {
-    $section="view";  // Default action is VIEW
+    $action="view";  // Default action is VIEW
 };
 
 function show_ftp_accounts()
