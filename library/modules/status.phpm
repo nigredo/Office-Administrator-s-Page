@@ -14,4 +14,7 @@ function show_service_status($service)
 }
 
 show_service_status('vsftpd');
+show_service_status('httpd');
+show_service_status('sshd');
+show_service_status('absd');
 ?>
