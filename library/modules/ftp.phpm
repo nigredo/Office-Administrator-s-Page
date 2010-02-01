@@ -48,8 +48,9 @@ function delete_ftp_account($uid)
 {
     $DB = new Database(DB_HOST,DB_USER,DB_PASS,DB_DATABASE);
     $DB->connect();
-    $qw = $DB->query("DROP * FROM ftp_users WHERE `id` = ".$uid);
+    $qw = $DB->query("DROP FROM ftp_users WHERE `id` = ".$uid);
     $data = $DB->fetch_array($qw);
+
 }
 
 if (isset($_REQUEST['action']))
