@@ -51,7 +51,8 @@ function delete_ftp_account($uid)
     $DB->connect();
     $qw = $DB->query("DELETE FROM ftp_users WHERE `id` = ".$uid);
     $data = $DB->fetch_array($qw);
-    echo "<a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'></a>";
+    echo "Account deleted.<br>";
+    echo "<a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a>";
 
 }
 
