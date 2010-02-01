@@ -10,7 +10,7 @@ function show_ftp_accounts()
     $DB->connect();
     print "<fieldset>";
     print "<legend>FTP Accounts</legend>";
-    print "<div class='add'><a href='index.php?section=ftp&action=add'><img src='".IMAGES_PATH."add.gif'></a>\n";
+    print "<div class='add'><a href='index.php?section=ftp&action=add'><img src='".IMAGES_PATH."add.png'></a>\n";
     echo "<table>\n
     <tr>\n
     <th>Username</th>\n
