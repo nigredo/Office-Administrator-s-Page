@@ -6,5 +6,5 @@ function show_service_status($service)
     return (exec($command));
 }
 
-echo (show_service_status('vsftpd''));
+echo (show_service_status('vsftpd'));
 ?>
