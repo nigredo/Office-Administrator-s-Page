@@ -82,6 +82,10 @@ strong {
     min-height: 200px;
 }
 
+#left li {
+    margin-top: 5px;
+}
+
 #main {
     margin: 0px 190px 0px 190px;
     border-left: 2px solid #564b47;
