@@ -3,8 +3,15 @@ function show_service_status($service)
 {
 
     $command = "/usr/local/bin/sudo /bin/ps aux | /usr/bin/grep ".$service." | /usr/bin/grep -v grep";
-    return (exec($command));
+    if (!exec($command))
+    {
+        echo ("<table><tr><td>".$service."</td><td><img src='".IMAGES_PATH."add.png'></td></tr></table>");
+    }
+    else
+    {
+        echo ("<table><tr><td>".$service."</td><td><img src='".IMAGES_PATH."delete.gif'></td></tr></table>");
+    }
 }
 
-echo (show_service_status('vsftpd'));
+show_service_status('vsftpd');
 ?>
