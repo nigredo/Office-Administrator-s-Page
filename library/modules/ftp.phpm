@@ -53,6 +53,12 @@ if (isset($_REQUEST['OK']))
     {
     $username=$_REQUEST['username'];
     $password=$_REQUEST['password'];
+    $DB = new Database(DB_HOST,DB_USER,DB_PASS,DB_DATABASE);
+    $DB->connect();
+    $qw = $DB->query("INSERT INTO ftp_users (`username`, `pass`) VALUES (".$username.",".$password.")");
+    $data = $DB->fetch_array($qw);
+    echo "Account added. &nbsp;<br>";
+    echo "<a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a>";
     }
 }
 else
@@ -84,7 +90,6 @@ function delete_ftp_account($uid)
     $data = $DB->fetch_array($qw);
     echo "Account deleted. &nbsp;<br>";
     echo "<a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a>";
-
 }
 
 if (isset($_REQUEST['action']))
