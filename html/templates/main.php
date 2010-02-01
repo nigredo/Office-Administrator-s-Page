@@ -10,6 +10,7 @@ print ('<h1>First page title</h1>');
 switch(section)
 {
     case ftp:
+        load_module("ftp.phpm");
         show_accounts();
     break;
     default:

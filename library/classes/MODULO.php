@@ -3,7 +3,8 @@
  * Modules class
  */
 class Modulo {
-    function __construct() {
+    function __construct()
+    {
         $i = 0;
         $dir_handle = @opendir($path) or die("Unable to open $path");
         while ($file = readdir($dir_handle))
@@ -16,7 +17,13 @@ class Modulo {
         return($modules);
     }
 
-    function __destruct() {
+    function __destruct()
+    {
+    }
+
+    function load_module($module)
+    {
+        include (MODULES_PATH."/".$module);
     }
 }
 ?>
