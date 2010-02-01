@@ -92,7 +92,26 @@ function delete_ftp_account($uid)
     echo "<a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a>";
 }
 
+function start_ftp()
+{
+    exec("/usr/local/bin/sudo /usr/local/etc/rc.d/vsftpd start");
+    echo "Server started. &nbsp;<br>";
+    echo "<a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a>";
+}
 
+function stop_ftp()
+{
+    exec("/usr/local/bin/sudo /usr/local/etc/rc.d/vsftpd stop");
+    echo "Server stopped. &nbsp;<br>";
+    echo "<a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a>";
+}
+
+function restart_ftp()
+{
+    exec("/usr/local/bin/sudo /usr/local/etc/rc.d/vsftpd restart");
+    echo "Server restarted. &nbsp;<br>";
+    echo "<a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a>";
+}
 
 // Module submenu
 print ("<div id='modnavi'>");
