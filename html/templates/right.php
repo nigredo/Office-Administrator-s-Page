@@ -21,6 +21,12 @@ print ('OS: '.$os_type.'<br>');
 print ('OS release: '.$os_release.'<br>');
 print ('Kernel: '.$kernel.'<br>');
 print ('</div>');
-
+print ('<div id="right">');
+show_usr_service_status('vsftpd');
+show_usr_service_status('apache22');
+show_usr_service_status('mysql-server');
+show_etc_service_status('sshd');
+show_etc_service_status('absd');
+print ('</div>');
 print ('</div>');
 ?>
