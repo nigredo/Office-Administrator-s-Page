@@ -114,7 +114,10 @@ padding: 0px;
 
 img     {
     border: 0px;
-    margin: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 5px;
 }
 
 #modnavi ul
