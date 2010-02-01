@@ -22,7 +22,8 @@ if (!isset($_SESSION['auth_name']))
 		$DB->close();
 		exit;
                 session_start();
-		header("Location: http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+		echo("Location: http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+
 	}
 
 	else	
