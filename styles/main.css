@@ -115,3 +115,19 @@ padding: 0px;
 img     {
     border: 0px;
 }
+
+ul#modnavi
+{
+	margin 		: 5px;
+	padding 	: 0;
+	margin-bottom	: 15px;
+	list-style-type : none;
+	width 		: auto;
+	position 	: relative;
+	display 	: block;
+	height 		: 30px;
+	font-size 	: 12px;
+	font-weight 	: bold;
+	border-top 	: 1px solid #404040;
+	border-bottom 	: 5px solid #404040;
+}
