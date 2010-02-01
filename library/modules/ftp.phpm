@@ -86,7 +86,7 @@ function delete_ftp_account($username)
 {
     $DB = new Database(DB_HOST,DB_USER,DB_PASS,DB_DATABASE);
     $DB->connect();
-    $qw = $DB->query("DELETE FROM ftp_users WHERE `id` = \"".$username."\"");
+    $qw = $DB->query("DELETE FROM ftp_users WHERE `username` = \"".$username."\"");
     $data = $DB->fetch_array($qw);
     exec ("/usr/local/bin/sudo /bin/rm -rf /usr/home/vsftpd/".$username);
     echo "Account deleted. &nbsp;<br>";
