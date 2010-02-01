@@ -22,7 +22,7 @@ print ('OS release: '.$os_release.'<br>');
 print ('Kernel: '.$kernel.'<br>');
 print ('</div>');
 print ("<h3>Services status</h3>");
-print ('<div id="right">');
+print ('<div id="info">');
 load_module("status");
 show_usr_service_status('vsftpd');
 show_usr_service_status('apache22');
