@@ -46,18 +46,10 @@ function add_ftp_account()
 
 function delete_ftp_account($uid)
 {
-    if (isset($_REQUEST['uid']))
-    {
-        $uid=$_REQUEST['uid'];
-        $DB = new Database(DB_HOST,DB_USER,DB_PASS,DB_DATABASE);
-        $DB->connect();
-        $qw = $DB->query("DROP * FROM ftp_users WHERE `id` = ".$uid);
-        $data = $DB->fetch_array($qw);
-    }
-    else
-    {
-        echo "WARNING! User ID is not set!";
-    };
+    $DB = new Database(DB_HOST,DB_USER,DB_PASS,DB_DATABASE);
+    $DB->connect();
+    $qw = $DB->query("DROP * FROM ftp_users WHERE `id` = ".$uid);
+    $data = $DB->fetch_array($qw);
 }
 
 if (isset($_REQUEST['action']))
@@ -73,6 +65,18 @@ switch($action)
 {
     case "view":
         show_ftp_accounts();
+    break;
+
+    case "delete":
+    if (isset($_REQUEST['uid']))
+    {
+        $uid=$_REQUEST['uid'];
+        delete_ftp_account($uid);
+    }
+    else
+    {
+        echo "WARNING! User ID is not set!";
+    };
     break;
 };
 
