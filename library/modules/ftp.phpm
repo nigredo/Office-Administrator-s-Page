@@ -16,7 +16,7 @@ function show_ftp_accounts()
     <th>Password</th>\n
     <th>Delete</th>\n
     </tr>\n";
-    $data = $DB->fetch_array("SELECT * FROM ftp_users");
+    $data = $DB->fetch_all_array("SELECT * FROM ftp_users");
     while ($data)
     {
         echo "<tr";
