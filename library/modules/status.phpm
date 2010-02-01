@@ -26,10 +26,4 @@ function show_etc_service_status($service)
         echo ("<table width='100%'><tr><td width='25%'>".$service."</td><td><img src='".IMAGES_PATH."delete.gif'></td></tr></table>");
     }
 }
-
-show_usr_service_status('vsftpd');
-show_usr_service_status('apache22');
-show_usr_service_status('mysql-server');
-show_etc_service_status('sshd');
-show_etc_service_status('absd');
 ?>
