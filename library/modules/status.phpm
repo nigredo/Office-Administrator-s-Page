@@ -29,7 +29,7 @@ function show_etc_service_status($service)
 
 show_usr_service_status('vsftpd');
 show_usr_service_status('apache22');
-show_usr_service_status('mysqld');
+show_usr_service_status('mysql-server');
 show_etc_service_status('sshd');
 show_etc_service_status('absd');
 ?>
