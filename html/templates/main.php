@@ -7,9 +7,17 @@
  */
 print ('<div id="main">');
 print ('<h1>First page title</h1>');
+if (isset($_REQUEST['section']))
+{
+    $section=$_REQUEST['section'];
+}
+else
+{
+    $section="ftp";
+};
 switch(section)
 {
-    case ftp:
+    case "ftp":
         show_ftp_accounts();
     break;
     default:
