@@ -5,7 +5,7 @@
 function load_module($module)
 {
     $module_file = MODULES_PATH."/".$module.".phpm";
-    if file_exists($module_file)
+    if (file_exists($module_file))
     {
         include ($module_file);
     }

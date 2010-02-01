@@ -43,6 +43,6 @@ require_once(API_LIBRARY . 'Auth.php');
 require_once(API_FUNCTIONS . 'Core.php');
 require_once(API_FUNCTIONS . 'Date.php');
 require_once(API_FUNCTIONS . 'Files.php');
+require_once(API_FUNCTIONS . 'Modul.php');
 
-require_once(API_CLASSES . 'MODULO.php');
 ?>
