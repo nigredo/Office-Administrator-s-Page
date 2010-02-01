@@ -2,28 +2,16 @@
 /* 
  * Modules class
  */
-class Modulo {
-    function __construct()
+function load_module($module)
+{
+    $module_file = MODULES_PATH."/".$module.".phpm";
+    if file_exists($module_file)
     {
-        $i = 0;
-        $dir_handle = @opendir($path) or die("Unable to open $path");
-        while ($file = readdir($dir_handle))
-        {
-            if($file!="." && $file!="..")
-            $modules['$i'] = explode(".",$file); // В названии файлов нельзя будет юзать точку. Надо будет потом продумать.
-            $i++;
-        }
-        closedir($dir_handle);
-        return($modules);
+        include ($module_file);
     }
-
-    function __destruct()
+    else
     {
-    }
-
-    function load_module($module)
-    {
-        include (MODULES_PATH."/".$module);
+        print ("Sorry, no such module - ".$module);
     }
 }
 ?>
