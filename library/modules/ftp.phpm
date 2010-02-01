@@ -30,7 +30,7 @@ function show_ftp_accounts()
         echo "<td ".$style."><input ".$style." name='password' type='text' value='" . $data['pass'] . "'></td>\n";
         echo "<td ".$style."><div class='add'><a href='index.php?section=ftp&action=delete&uid=".$data['id']."'>Delete</a></div></td>\n";
         echo "</tr>\n";
-    }
+//    }
     echo "</table>\n";
     echo "</form>";
     print "</fieldset>";
