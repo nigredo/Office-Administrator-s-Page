@@ -4,7 +4,7 @@
  *
  */
 
-function show_accounts()
+function show_ftp_accounts()
 {
     $DB = new Database(DB_HOST,DB_USER,DB_PASS,DB_DATABASE);
     $DB->connect();
@@ -35,12 +35,12 @@ function show_accounts()
     $DB->close();
 }
 
-function add_account()
+function add_ftp_account()
 {
 
 }
 
-function delete_account()
+function delete_ftp_account()
 {
     
 }

@@ -26,6 +26,8 @@ define ('LINKS_PER_PAGE','5');
 /*********************************************************************************************/
 /*  DO NOT EDIT FROM HERE!
 /*********************************************************************************************/
+define ('CONFIG_PATH', 'configure' . DIRECTORY_SEPARATOR);
+
 define ('API_LIBRARY', 'library' . DIRECTORY_SEPARATOR);
 define ('API_CLASSES','library/classes' . DIRECTORY_SEPARATOR);
 define ('API_FUNCTIONS','library/functions' . DIRECTORY_SEPARATOR);
@@ -44,5 +46,7 @@ require_once(API_FUNCTIONS . 'Core.php');
 require_once(API_FUNCTIONS . 'Date.php');
 require_once(API_FUNCTIONS . 'Files.php');
 require_once(API_FUNCTIONS . 'Modul.php');
+
+require_once(CONFIG_PATH . 'Loadedmodules.php');
 
 ?>

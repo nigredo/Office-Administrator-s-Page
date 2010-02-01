@@ -10,8 +10,7 @@ print ('<h1>First page title</h1>');
 switch(section)
 {
     case ftp:
-        load_module("ftp.phpm");
-        show_accounts();
+        show_ftp_accounts();
     break;
     default:
         print ('Jo fri bisi pronomeca frazetvortigo, tie oj postesigno prapostmorgaŭ malsuprenstreko.
