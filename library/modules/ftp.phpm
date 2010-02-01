@@ -22,7 +22,6 @@ function show_ftp_accounts()
     <tr>\n
     <th>Username</th>\n
     <th>Password</th>\n
-    <th>Home</th>\n
     <th>Delete</th>\n
     </tr>\n";
     $data = $DB->fetch_all_array("SELECT * FROM ftp_users");
@@ -31,10 +30,9 @@ function show_ftp_accounts()
         echo "<tr";
         @$count++;
         if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
-        echo "<td ".$style."><input ".$style." name='user' type='text' value='" . $data['user'] . "'></td>\n";
-        echo "<td ".$style."><input ".$style." name='password' type='text' value='" . $data['password'] . "'></td>\n";
-        echo "<td ".$style."><input ".$style." name='home' type='text' value='" . $data['home'] . "'></td>\n";
-        echo "<td ".$style."><div class='add'><a href='index.php?show=ftp&delete=true&user=".$data['user']."'>Delete</a></div></td>\n";
+        echo "<td ".$style."><input ".$style." name='user' type='text' value='" . $data['username'] . "'></td>\n";
+        echo "<td ".$style."><input ".$style." name='password' type='text' value='" . $data['pass'] . "'></td>\n";
+        echo "<td ".$style."><div class='add'><a href='index.php?section=ftp&action=delete&user=".$data['user']."'>Delete</a></div></td>\n";
         echo "</tr>\n";
     }
     echo "</table>\n";
@@ -48,7 +46,7 @@ function add_ftp_account()
 
 }
 
-function delete_ftp_account()
+function delete_ftp_account($user)
 {
     
 }
