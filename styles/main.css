@@ -146,3 +146,8 @@ img     {
 	font-weight	: bold;
         margin          : 10px;
 }
+
+#add
+{
+        text-decoration: none;
+}
