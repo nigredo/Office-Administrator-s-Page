@@ -5,11 +5,11 @@ function show_usr_service_status($service)
     $command_result = exec("/usr/local/bin/sudo /usr/local/etc/rc.d/".$service." status | grep runn");
     if ($command_result)
     {
-        echo ("<table width='100%'><tr><td width='25%'>".$service."</td><td><img src='".IMAGES_PATH."add.png'></td></tr></table>");
+        echo ("<table width='100%'><tr><td>".$service."</td><td width='25%'><img src='".IMAGES_PATH."add.png'></td></tr></table>");
     }
     else
     {
-        echo ("<table width='100%'><tr><td width='25%'>".$service."</td><td><img src='".IMAGES_PATH."delete.gif'></td></tr></table>");
+        echo ("<table width='100%'><tr><td>".$service."</td><td width='25%'><img src='".IMAGES_PATH."delete.gif'></td></tr></table>");
     }
 }
 
@@ -19,11 +19,11 @@ function show_etc_service_status($service)
     $command_result = exec("/usr/local/bin/sudo /etc/rc.d/".$service." status | grep runn");
     if ($command_result)
     {
-        echo ("<table width='100%'><tr><td width='25%'>".$service."</td><td><img src='".IMAGES_PATH."add.png'></td></tr></table>");
+        echo ("<table width='100%'><tr><td>".$service."</td><td width='25%'><img src='".IMAGES_PATH."add.png'></td></tr></table>");
     }
     else
     {
-        echo ("<table width='100%'><tr><td width='25%'>".$service."</td><td><img src='".IMAGES_PATH."delete.gif'></td></tr></table>");
+        echo ("<table width='100%'><tr><td>".$service."</td><td width='25%'><img src='".IMAGES_PATH."delete.gif'></td></tr></table>");
     }
 }
 ?>
