@@ -58,7 +58,7 @@ if (isset($_REQUEST['OK']))
     exec ("/usr/local/bin/sudo /bin/mkdir /usr/home/vsftpd/".$username);
     exec ("/usr/local/bin/sudo /usr/sbin/chown -R vsftpd:nogroup /usr/home/vsftpd");
     echo "Account added. &nbsp;<br>";
-    echo "<a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a>";
+    echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
     }
 }
 else
@@ -90,28 +90,28 @@ function delete_ftp_account($username)
     $data = $DB->fetch_array($qw);
     exec ("/usr/local/bin/sudo /bin/rm -rf /usr/home/vsftpd/".$username);
     echo "Account deleted. &nbsp;<br>";
-    echo "<a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a>";
+    echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
 }
 
 function start_ftp()
 {
     exec("/usr/local/bin/sudo /usr/local/etc/rc.d/vsftpd start");
     echo "Server started. &nbsp;<br>";
-    echo "<a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a>";
+    echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
 }
 
 function stop_ftp()
 {
     exec("/usr/local/bin/sudo /usr/local/etc/rc.d/vsftpd stop");
     echo "Server stopped. &nbsp;<br>";
-    echo "<a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a>";
+    echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
 }
 
 function restart_ftp()
 {
     exec("/usr/local/bin/sudo /usr/local/etc/rc.d/vsftpd restart");
     echo "Server restarted. &nbsp;<br>";
-    echo "<a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a>";
+    echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
 }
 
 // Module submenu
