@@ -18,6 +18,49 @@ function all_database_list()
     $DB->close();
 }
 
+function show_mysql_accounts()
+{
+    $DB = new Database(ROOT_DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
+    $DB->connect();
+    print "<fieldset>";
+    print "<legend>MySQL Accounts</legend>";
+    print "<div id='add'><a href='index.php?section=mysql&action=add_user'><img src='".IMAGES_PATH."add.png'>Add account</a></div>\n";
+    $qw = $DB->query("SELECT * FROM user");
+    $rows = $DB->num_rows($qw);
+    if ($rows != 0)
+    {
+        echo "<table width='100%'>\n
+        <tr>\n
+        <th width='30%'>Username</th>\n
+        <th width='30%'>Hostname</th>\n
+        <th width='30%'>Password</th>\n
+        <th>Delete</th>\n
+        </tr>\n";
+        for ($count=0;$count <= $rows; $count++)
+        {
+            $data = $DB->fetch_array($qw);
+            echo "<tr>";
+            if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
+            echo "<td ".$style.">".$data['User']."</td>\n";
+            echo "<td ".$style.">".$data['Host']."</td>\n";
+            echo "<td ".$style.">".$data['Password']."</td>\n";
+            echo "<td ".$style."><div class='add'><a href='index.php?section=mysql&action=delete_user&username=".$data['User']."&host=".$data['Host']."'>";
+            echo "<img src='".IMAGES_PATH."delete.gif'>";
+            echo "</a></div></td>\n";
+            echo "</tr>\n";
+            @$count++;
+        }
+        echo "</table>\n";
+        echo "</form>";
+        print "</fieldset>";
+    }
+    else
+    {
+        print ("There is no MySQL accounts on this server!");
+    }
+    $DB->close();
+}
+
 function start_mysql()
 {
     exec("/usr/local/bin/sudo /usr/local/etc/rc.d/mysql-server start");
