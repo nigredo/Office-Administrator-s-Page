@@ -51,7 +51,6 @@ function show_mysql_accounts()
             echo "<img src='".IMAGES_PATH."delete.gif'>";
             echo "</a></div></td>\n";
             echo "</tr>\n";
-            @$count++;
         }
         echo "</table>\n";
         echo "</form>";
