@@ -213,7 +213,7 @@ if (isset($_REQUEST['OK']))
     $name=$_REQUEST['name'];
     $domain=$_REQUEST['domain'];
     $password=$_REQUEST['password'];
-    $md5pass = md5($password);
+    $md5pass = md5crypt($password);
     $full_username = $username."@".$domain;
     $maildir = $full_username."/";
     $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
@@ -253,7 +253,7 @@ else
         for ($count=0;$count < $rows; $count++)
         {
             $data = $DB->fetch_array($qw);
-            echo "<option value=".$data['domain']."'>@".$data['domain']."</option>\n";
+            echo "<option value=".$data['domain'].">@".$data['domain']."</option>\n";
         }
     }
     else
