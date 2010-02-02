@@ -11,7 +11,7 @@ function all_database_list()
         print ("<table><th>Database name</th>");
         for($i=0;$i<$numrows;$i++){
             $info = mysql_fetch_array($qw);
-            echo ("<tr><td>".$info['Database']."</td></tr>");
+            echo ("<tr><td><a href='?section=mysql&action=show_db_privs&database=".$info['Database']."'>".$info['Database']."</a></td></tr>");
         }
         print ("</table>");
     }
@@ -59,6 +59,81 @@ function show_mysql_accounts()
     }
     $DB->close();
 }
+
+
+
+function show_db_privileges($database)
+{
+    if (isset($_REQUEST['database']))
+    {
+    $database = $_REQUEST['database'];
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
+    $DB->connect();
+    print "<fieldset>";
+    print "<legend>MySQL user privileges</legend>";
+    $qw = $DB->query("SELECT * FROM db WHERE `Db` = '".$database."'");
+    $rows = $DB->num_rows($qw);
+    if ($rows != 0)
+    {
+        echo "<table width='100%'>\n
+        <tr>\n
+        <th>Username</th>\n
+        <th>Hostname</th>\n
+        <th>Select</th>\n
+        <th>Insert</th>\n
+        <th>Update</th>\n
+        <th>Delete</th>\n
+        <th>Create</th>\n
+        <th>Drop</th>\n
+        <th>Grant</th>\n
+        <th>Referenses</th>\n
+        <th>Index</th>\n
+        <th>Alter</th>\n
+        <th>Execute</th>\n
+        </tr>\n";
+        for ($count=0;$count <= $rows; $count++)
+        {
+            $data = $DB->fetch_array($qw);
+            echo "<tr>";
+            echo "<td>".$data['User']."</td>\n";
+            echo "<td>".$data['Host']."</td>\n";
+            echo "<td>".$data['Select_priv']."</td>\n";
+            echo "<td>".$data['Insert_priv']."</td>\n";
+            echo "<td>".$data['Update_priv']."</td>\n";
+            echo "<td>".$data['Delete_priv']."</td>\n";
+            echo "<td>".$data['Create_priv']."</td>\n";
+            echo "<td>".$data['Drop_priv']."</td>\n";
+            echo "<td>".$data['Grant_priv']."</td>\n";
+            echo "<td>".$data['References_priv']."</td>\n";
+            echo "<td>".$data['Index_priv']."</td>\n";
+            echo "<td>".$data['Alter_priv']."</td>\n";
+            echo "<td>".$data['Execute_priv']."</td>\n";
+
+//            echo "<img src='".IMAGES_PATH."delete.gif'>";
+//            echo "</a></div></td>\n";
+            echo "</tr>\n";
+            @$count++;
+        }
+        echo "</table>\n";
+        echo "</form>";
+        print "</fieldset>";
+    }
+    else
+    {
+        print ("There is no such database!");
+    }
+    $DB->close();    
+
+    }
+    else
+    {
+        print "No database specified!";
+    }
+}
+
+
+
+
 
 function start_mysql()
 {
