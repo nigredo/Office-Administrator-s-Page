@@ -2,6 +2,7 @@
 
 function show_email_domains()
 {
+    echo "BUFBUF!!!";
     $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
     $DB->connect();
     print "<fieldset>";
