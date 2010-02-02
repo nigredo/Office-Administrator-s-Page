@@ -77,8 +77,8 @@ function show_db_privileges()
     {
         echo "<table width='100%'>\n
         <tr>\n
-        <th>Username</th>\n
-        <th>Hostname</th>\n
+        <th>User</th>\n
+        <th>Host</th>\n
         <th>Select</th>\n
         <th>Insert</th>\n
         <th>Update</th>\n
@@ -97,20 +97,17 @@ function show_db_privileges()
             echo "<tr>";
             echo "<td>".$data['User']."</td>\n";
             echo "<td>".$data['Host']."</td>\n";
-            echo "<td>".$data['Select_priv']."</td>\n";
-            echo "<td>".$data['Insert_priv']."</td>\n";
-            echo "<td>".$data['Update_priv']."</td>\n";
-            echo "<td>".$data['Delete_priv']."</td>\n";
-            echo "<td>".$data['Create_priv']."</td>\n";
-            echo "<td>".$data['Drop_priv']."</td>\n";
-            echo "<td>".$data['Grant_priv']."</td>\n";
-            echo "<td>".$data['References_priv']."</td>\n";
-            echo "<td>".$data['Index_priv']."</td>\n";
-            echo "<td>".$data['Alter_priv']."</td>\n";
-            echo "<td>".$data['Execute_priv']."</td>\n";
-
-//            echo "<img src='".IMAGES_PATH."delete.gif'>";
-//            echo "</a></div></td>\n";
+            echo "<td><a href=?section=mysql&action=change_priv&database=".$database."&privilege=Select_priv>".$data['Select_priv']."</a></td>\n";
+            echo "<td><a href=?section=mysql&action=change_priv&database=".$database."&privilege=Insert_priv>".$data['Insert_priv']."</a></td>\n";
+            echo "<td><a href=?section=mysql&action=change_priv&database=".$database."&privilege=Update_priv>".$data['Update_priv']."</a></td>\n";
+            echo "<td><a href=?section=mysql&action=change_priv&database=".$database."&privilege=Delete_priv>".$data['Delete_priv']."</a></td>\n";
+            echo "<td><a href=?section=mysql&action=change_priv&database=".$database."&privilege=Create_priv>".$data['Create_priv']."</a></td>\n";
+            echo "<td><a href=?section=mysql&action=change_priv&database=".$database."&privilege=Drop_priv>".$data['Drop_priv']."</a></td>\n";
+            echo "<td><a href=?section=mysql&action=change_priv&database=".$database."&privilege=Grant_priv>".$data['Grant_priv']."</a></td>\n";
+            echo "<td><a href=?section=mysql&action=change_priv&database=".$database."&privilege=References_priv>".$data['References_priv']."</a></td>\n";
+            echo "<td><a href=?section=mysql&action=change_priv&database=".$database."&privilege=Index_priv>".$data['Index_priv']."</a></td>\n";
+            echo "<td><a href=?section=mysql&action=change_priv&database=".$database."&privilege=Alter_priv>".$data['Alter_priv']."</a></td>\n";
+            echo "<td><a href=?section=mysql&action=change_priv&database=".$database."&privilege=Execute_priv>".$data['Execute_priv']."</a></td>\n";
             echo "</tr>\n";
             @$count++;
         }
@@ -132,8 +129,18 @@ function show_db_privileges()
 }
 
 
+function change_privs($database, $privilege)
+{
+    if (isset($_REQUEST['database']))
+    {
+    $database = $_REQUEST['database'];
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
+    $DB->connect();
+    $data = $DB->query_first("SELECT '".$privilege."' FROM db WHERE `Db` = '".$database."'");
+    print $data;
+    }
 
-
+}
 
 function start_mysql()
 {
