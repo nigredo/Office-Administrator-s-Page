@@ -138,10 +138,16 @@ function change_privs()
     $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
     $qw = $DB->query("SELECT '".$privilege."' FROM db WHERE `Db` = '".$database."'");
-    $data = mysql_fetch_row($qw);
-    print $data[1];
-    $DB->close();
+    $rows = $DB->num_rows($qw);
+    if ($rows != 0)
+    {
+        for ($count=0;$count <= $rows; $count++)
+        {
+            $data = $DB->fetch_array($qw);
+            echo $data[$privilege];
+        }
     }
+    $DB->close();
 }
 
 function start_mysql()
