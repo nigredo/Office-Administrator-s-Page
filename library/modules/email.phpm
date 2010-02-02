@@ -98,7 +98,7 @@ function delete_mailbox($username)
     echo "<div id='add'><a href='?section=email'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
 }
 
-function delete_mailbox($domain)
+function delete_domain($domain)
 {
     $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
     $DB->connect();
