@@ -43,6 +43,51 @@ function show_email_domains()
     $DB->close();
 }
 
+function show_all_mailboxes()
+{
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB->connect();
+    print "<fieldset>";
+    print "<legend>Email Domains</legend>";
+    print "<div id='add'><a href='index.php?section=email&action=add_domain'><img src='".IMAGES_PATH."add.png'>Add domain</a></div>\n";
+    $qw = $DB->query("SELECT * FROM `mailbox`");
+    $rows = $DB->num_rows($qw);
+    if ($rows != 0)
+    {
+        echo "<table width='100%'>\n
+        <tr>\n
+        <th>Username</th>\n
+        <th>Mailbox</th>\n
+        <th>Name</th>\n
+        <th>Quota</th>\n
+        <th>Domain</th>\n
+        <th>Delete</th>\n
+        </tr>\n";
+        for ($count=0;$count < $rows; $count++)
+        {
+            $data = $DB->fetch_array($qw);
+            echo "<tr>";
+            echo "<td>".$data['username']."</td>\n";
+            echo "<td><a href='?section=email&action=show_mailbox&mailbox=".$data['mailbox']."'>".$data['mailbox']."</a></td>\n";
+            echo "<td>".$data['name']."</td>\n";
+            echo "<td>".$data['domain']."</td>\n";
+            echo "<td>".$data['quota']."</td>\n";
+            echo "<td><div class='add'><a href='index.php?section=email&action=delete_domain&domain=".$data['domain']."'>";
+            echo "<img src='".IMAGES_PATH."delete.gif'>";
+            echo "</a></div></td>\n";
+            echo "</tr>\n";
+        }
+        echo "</table>\n";
+        echo "</form>";
+        print "</fieldset>";
+    }
+    else
+    {
+        print ("There is no email domains on this server!");
+    }
+    $DB->close();
+}
+
 print ("<div id='modnavi'>");
 $menu = new Menu();
 $menu->add_item('View domains','?section=email');
@@ -68,7 +113,9 @@ switch($action)
     case "view_domains":
         show_email_domains();
     break;
-
+    case "show_all_users":
+        show_all_mailboxes()
+    break;
 /*    case "add":
         add_ftp_account();
     break;
