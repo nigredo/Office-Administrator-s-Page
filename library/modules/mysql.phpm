@@ -85,6 +85,7 @@ function restart_mysql()
 print ("<div id='modnavi'>");
 $menu = new Menu();
 $menu->add_item('View databases','?section=mysql');
+$menu->add_item('Show users','?section=mysql&action=show_users');
 $menu->add_item('Add database','?section=mysql&action=add');
 $menu->add_item('Restart MySQL','?section=mysql&action=restart');
 $menu->add_item('Stop MySQL','?section=mysql&action=stop');
@@ -105,6 +106,10 @@ switch($action)
 {
     case "view_all":
         all_database_list();
+    break;
+
+    case "show_users":
+        show_mysql_accounts();
     break;
 
 /*    case "add":
