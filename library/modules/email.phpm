@@ -104,9 +104,6 @@ $menu = new Menu();
 $menu->add_item('View domains','?section=email');
 $menu->add_item('Show all mails','?section=email&action=show_all_users');
 $menu->add_item('Add domain','?section=mysql&action=add_domain');
-$menu->add_item('Restart MySQL','?section=mysql&action=restart');
-$menu->add_item('Stop MySQL','?section=mysql&action=stop');
-$menu->add_item('Start MySQL','?section=mysql&action=start');
 unset($menu);
 print ("</div>");
 
