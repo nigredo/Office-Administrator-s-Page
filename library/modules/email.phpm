@@ -241,7 +241,7 @@ else
     <th>Full name</th>\n
     <th>Password</th>\n
     </tr>\n";
-    echo "<form action='?section=email&action=add_domain' method='POST'>";
+    echo "<form action='?section=email&action=add_mailbox' method='POST'>";
     echo "<td><input name='username' type='text' value='me'></td>\n";
     echo "<td><select name='domain'>";
     $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
