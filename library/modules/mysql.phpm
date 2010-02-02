@@ -140,7 +140,6 @@ function change_privs()
     $data = $DB->query_first("SELECT '".$privilege."' FROM db WHERE `Db` = '".$database."'");
     print $data;
     }
-
 }
 
 function start_mysql()
