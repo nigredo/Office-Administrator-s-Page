@@ -72,7 +72,7 @@ function show_all_mailboxes()
             echo "<td>".$data['name']."</td>\n";
             echo "<td>".$data['domain']."</td>\n";
             echo "<td>".$data['quota']."</td>\n";
-            echo "<td><div class='add'><a href='index.php?section=email&action=delete_domain&domain=".$data['domain']."'>";
+            echo "<td><div class='add'><a href='index.php?section=email&action=delete_mailbox&username=".$data['username']."'>";
             echo "<img src='".IMAGES_PATH."delete.gif'>";
             echo "</a></div></td>\n";
             echo "</tr>\n";
@@ -87,6 +87,17 @@ function show_all_mailboxes()
     }
     $DB->close();
 }
+
+function delete_mailbox($username)
+{
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB->connect();
+    $qw = $DB->query("DELETE FROM `mailbox` WHERE `username` = \"".$username."\"");
+    $data = $DB->fetch_array($qw);
+    echo "Account deleted. &nbsp;<br>";
+    echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+}
+
 
 print ("<div id='modnavi'>");
 $menu = new Menu();
@@ -116,6 +127,18 @@ switch($action)
 
     case "show_all_users":
         show_all_mailboxes();
+    break;
+
+    case "delete":
+    if (isset($_REQUEST['username']))
+    {
+        $username=$_REQUEST['username'];
+        delete_mailbox($username);
+    }
+    else
+    {
+        echo "WARNING! User ID is not set!";
+    };
     break;
 /*    case "add":
         add_ftp_account();
