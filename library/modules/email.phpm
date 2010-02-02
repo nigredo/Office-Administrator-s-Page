@@ -23,7 +23,7 @@ function show_email_domains()
         {
             $data = $DB->fetch_array($qw);
             echo "<tr>";
-            echo "<td>".$data['domain']."</td>\n";
+            echo "<td><a href='?section=email&action=show_domain&domain=".$data['domain']."'>".$data['domain']."</a></td>\n";
             echo "<td>".$data['aliases']."</td>\n";
             echo "<td>".$data['mailboxes']."</td>\n";
             echo "<td>".$data['maxquota']."</td>\n";
