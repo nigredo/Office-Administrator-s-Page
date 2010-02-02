@@ -95,7 +95,17 @@ function delete_mailbox($username)
     $qw = $DB->query("DELETE FROM `mailbox` WHERE `username` = \"".$username."\"");
     $data = $DB->fetch_array($qw);
     echo "Account deleted. &nbsp;<br>";
-    echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+    echo "<div id='add'><a href='?section=email'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+}
+
+function delete_mailbox($domain)
+{
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB->connect();
+    $qw = $DB->query("DELETE FROM `domain` WHERE `domain` = \"".$domain."\"");
+    $data = $DB->fetch_array($qw);
+    echo "Account deleted. &nbsp;<br>";
+    echo "<div id='add'><a href='?section=email'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
 }
 
 function add_domain()
@@ -178,7 +188,7 @@ switch($action)
         show_all_mailboxes();
     break;
 
-    case "delete":
+    case "delete_mailbox":
     if (isset($_REQUEST['username']))
     {
         $username=$_REQUEST['username'];
@@ -189,7 +199,20 @@ switch($action)
         echo "WARNING! User ID is not set!";
     };
     break;
-/*    case "add":
+
+    case "delete_domain":
+    if (isset($_REQUEST['domain']))
+    {
+        $domain=$_REQUEST['domain'];
+        delete_domain($domain);
+    }
+    else
+    {
+        echo "WARNING! User ID is not set!";
+    };
+    break;
+
+    /*    case "add":
         add_ftp_account();
     break;
 
