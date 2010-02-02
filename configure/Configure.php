@@ -24,7 +24,7 @@ define ('ROOT_DB_PASS','3ch0r00t');
 define ('ROOT_DB_DATABASE','mysql');
 define ('ROOT_DB_PREFIX','');
 
-define ('MAIL_DB_DATABASE','mysql');
+define ('MAIL_DB_DATABASE','postfix');
 
 define ('RECORD_PER_PAGE','25');
 define ('LINKS_PER_PAGE','5');
