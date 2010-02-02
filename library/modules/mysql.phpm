@@ -22,10 +22,10 @@ function all_database_list()
             if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
             echo "<td ".$style.">".$data['Db']."</td>\n";
             echo "<td ".$style.">".$data['User']."</td>\n";
-             echo "<td ".$style.">".$data['Host']."</td>\n";
-            echo "<td ".$style."><div class='add'><a href='index.php?section=mysql&action=delete&username=".$data['username']."'>";
-            echo "<img src='".IMAGES_PATH."delete.gif'>";
-            echo "</a></div></td>\n";
+            echo "<td ".$style.">".$data['Host']."</td>\n";
+            //echo "<td ".$style."><div class='add'><a href='index.php?section=mysql&action=delete&username=".$data['username']."'>";
+            //echo "<img src='".IMAGES_PATH."delete.gif'>";
+            //echo "</a></div></td>\n";
             echo "</tr>\n";
             @$count++;
         }
