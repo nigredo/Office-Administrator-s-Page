@@ -141,6 +141,7 @@ function delete_mailbox($username)
     $data = $DB->fetch_array($qw);
     echo "Mailbox deleted. &nbsp;<br>";
     echo "<div id='add'><a href='?section=email'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+    $DB->close();
 }
 
 function delete_domain($domain)
@@ -150,6 +151,7 @@ function delete_domain($domain)
     $qw = $DB->query("DELETE FROM `domain` WHERE `domain` = \"".$domain."\"");
     $data = $DB->fetch_array($qw);
     show_email_domains();
+    $DB->close();
 }
 
 function add_domain()
@@ -198,7 +200,79 @@ else
     echo "</table>\n";
     print "</fieldset>";
 };
+    $DB->close();
 }
+
+function add_mailbox()
+{
+if (isset($_REQUEST['OK']))
+{
+    if ((isset($_REQUEST['username'])) && (isset($_REQUEST['domain'])) && (isset($_REQUEST['password'])) && (isset($_REQUEST['name'])))
+    {
+    $username=$_REQUEST['username'];
+    $name=$_REQUEST['name'];
+    $domain=$_REQUEST['domain'];
+    $password=$_REQUEST['password'];
+    $md5pass = md5($password);
+    $full_username = $username."@".$domain;
+    $maildir = $full_username."/";
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB->connect();
+    $qw = $DB->query("INSERT INTO `mailbox` (`username`, `password`,`name`,`maildir`,`quota`,`local_part`, `domain`, `created`,`modified`,`active`) VALUES (\"".$full_username."\",\"".$md5pass."\",\"".$name."\",\"".$maildir."\",'0',\"".$username."\",\"".$domain."\",NOW(), NOW(), '1')");
+    $data = $DB->fetch_array($qw);
+    echo "Mailbox added. &nbsp;<br>";
+    echo "<div id='add'><a href='?section=email'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+    }
+    else
+    {
+        print ("You didn't fill all data fileds!");
+        break;
+    }
+}
+else
+{
+    print "<fieldset>";
+    print "<legend>Add mailbox</legend>";
+    echo "<table>\n
+    <tr>\n
+    <th>Username</th>\n
+    <th>Domain</th>\n
+    <th>Full name</th>\n
+    <th>Password</th>\n
+    </tr>\n";
+    echo "<form action='?section=email&action=add_domain' method='POST'>";
+    echo "<td><input name='username' type='text' value='me'></td>\n";
+    echo "<td><select name='domain'>";
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB->connect();
+    $qw = $DB->query("SELECT * FROM `domain`");
+    $rows = $DB->num_rows($qw);
+    if ($rows != 0)
+    {
+        for ($count=0;$count < $rows; $count++)
+        {
+            $data = $DB->fetch_array($qw);
+            echo "<option value=".$data['domain']."'>@".$data['domain']."</option>\n";
+        }
+    }
+    else
+    {
+        print ("There is no email domains on this server!");
+    }
+    $DB->close();
+    echo "</td>\n";
+    echo "<td><input name='name' type='text' value='Mr. Smith'></td>\n";
+    echo "<td><input name='password' type='text' value='myP455w0rd'></td>\n";
+    echo "</tr>\n<td>&nbsp;</td><td>";
+    echo "<input type='submit' name='OK' value='Submit'>";
+    echo "</td></tr>\n";
+    echo "</form>";
+    echo "</table>\n";
+    print "</fieldset>";
+};
+    $DB->close();
+}
+
 
 print ("<div id='modnavi'>");
 $menu = new Menu();
@@ -225,6 +299,10 @@ switch($action)
     break;
 
     case "add_domain":
+        add_domain();
+    break;
+
+    case "add_mailbox":
         add_domain();
     break;
 
