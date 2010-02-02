@@ -303,7 +303,7 @@ switch($action)
     break;
 
     case "add_mailbox":
-        add_domain();
+        add_mailbox();
     break;
 
     case "show_all_users":
