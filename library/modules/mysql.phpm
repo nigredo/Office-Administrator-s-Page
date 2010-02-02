@@ -20,7 +20,7 @@ function all_database_list()
 
 function show_mysql_accounts()
 {
-    $DB = new Database(ROOT_DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
     print "<fieldset>";
     print "<legend>MySQL Accounts</legend>";
