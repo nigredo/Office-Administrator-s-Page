@@ -2,7 +2,6 @@
 
 function show_email_domains()
 {
-    echo "BUFBUF!!!";
     $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
     $DB->connect();
     print "<fieldset>";
@@ -14,10 +13,10 @@ function show_email_domains()
     {
         echo "<table width='100%'>\n
         <tr>\n
-        <th width='30%'>Domain</th>\n
-        <th width='30%'>Max aliases</th>\n
-        <th width='30%'>Max mailboxes</th>\n
-        <th width='30%'>Max quota</th>\n
+        <th>Domain</th>\n
+        <th>Max aliases</th>\n
+        <th>Max mailboxes</th>\n
+        <th>Max quota</th>\n
         <th>Delete</th>\n
         </tr>\n";
         for ($count=0;$count <= $rows; $count++)
