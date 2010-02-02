@@ -9,7 +9,7 @@ function all_database_list()
     $numrows = mysql_num_rows($qw);
     for($i=0;$i<$numrows;$i++){
         $info = mysql_fetch_array($qw);
-        echo $info[$i];
+        echo $info['Database'];
     }
     $DB->close();
 }
