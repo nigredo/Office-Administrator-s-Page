@@ -98,6 +98,53 @@ function delete_mailbox($username)
     echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
 }
 
+function add_domain()
+{
+if (isset($_REQUEST['OK']))
+{
+    if ((isset($_REQUEST['domain'])) && (isset($_REQUEST['maxquota'])) && (isset($_REQUEST['aliases'])) && (isset($_REQUEST['mailboxes'])))
+    {
+    $domain=$_REQUEST['domain'];
+    $maxquota=$_REQUEST['maxquota'];
+    $domain=$_REQUEST['aliases'];
+    $maxquota=$_REQUEST['mailboxes'];
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB->connect();
+    $qw = $DB->query("INSERT INTO `domain` (`domain`, `aliases`,`mailboxes`,`maxquota`,`quota`,`transport`,`created`,`modified`,`active`) VALUES (\"".$domain."\",\"".$aliases."\",\"".$mailboxes."\",\"".$maxquota."\",'0','virtual',NOW(), NOW(), '1')");
+    $data = $DB->fetch_array($qw);
+    echo "Account added. &nbsp;<br>";
+    echo "<div id='add'><a href='?section=email'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+    }
+    else
+    {
+        print ("You didn't fill all data fileds!");
+        break;
+    }
+}
+else
+{
+    print "<fieldset>";
+    print "<legend>Add email domain</legend>";
+    echo "<table>\n
+    <tr>\n
+    <th>Domain</th>\n
+    <th>Max quota</th>\n
+    <th>Max aliases</th>\n
+    <th>Max mailboxes</th>\n
+    </tr>\n";
+    echo "<form action='?section=email&action=add_domain' method='POST'>";
+    echo "<td><input name='domain' type='text' value='my.domain'></td>\n";
+    echo "<td><input name='maxquota' type='text' value='0'></td>\n";
+    echo "<td><input name='aliases' type='text' value='10'></td>\n";
+    echo "<td><input name='mailboxes' type='text' value='100'></td>\n";
+    echo "</tr>\n<td>&nbsp;</td><td>";
+    echo "<input type='submit' name='OK' value='Submit'>";
+    echo "</td></tr>\n";
+    echo "</form>";
+    echo "</table>\n";
+    print "</fieldset>";
+};
+}
 
 print ("<div id='modnavi'>");
 $menu = new Menu();
@@ -121,6 +168,10 @@ switch($action)
 {
     case "view_domains":
         show_email_domains();
+    break;
+
+    case "add_domain":
+        add_domain();
     break;
 
     case "show_all_users":
