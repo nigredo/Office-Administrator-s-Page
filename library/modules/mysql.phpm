@@ -182,7 +182,7 @@ switch($action)
         all_database_list();
     break;
 
-    case "show_users":
+    case "show_db_privs":
         show_mysql_accounts();
     break;
 
