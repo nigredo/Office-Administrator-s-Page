@@ -131,7 +131,7 @@ function show_db_privileges()
 
 function change_privs()
 {
-    if (((isset($_REQUEST['database'])) && (isset($_REQUEST['database'])))
+    if ((isset($_REQUEST['database'])) && (isset($_REQUEST['privilege'])))
     {
     $database = $_REQUEST['database'];
     $privilege = $_REQUEST['privilege'];
