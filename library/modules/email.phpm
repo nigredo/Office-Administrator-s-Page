@@ -246,7 +246,7 @@ else
     echo "<td><select name='domain'>";
     $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
     $DB->connect();
-    $qw = $DB->query("SELECT * FROM `domain` where `domain` != 'ALL');
+    $qw = $DB->query("SELECT * FROM `domain` where `domain` != 'ALL'");
     $rows = $DB->num_rows($qw);
     if ($rows != 0)
     {
