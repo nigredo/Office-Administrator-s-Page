@@ -7,7 +7,7 @@ function show_email_domains()
     print "<fieldset>";
     print "<legend>Email Domains</legend>";
     print "<div id='add'><a href='index.php?section=email&action=add_domain'><img src='".IMAGES_PATH."add.png'>Add domain</a></div>\n";
-    $qw = $DB->query("SELECT * FROM domain");
+    $qw = $DB->query("SELECT * FROM `domain`");
     $rows = $DB->num_rows($qw);
     if ($rows != 0)
     {
