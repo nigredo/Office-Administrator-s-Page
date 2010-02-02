@@ -2,18 +2,21 @@
 
 function all_database_list()
 {
+    print "<fieldset>";
+    print "<legend>MySQL databases list</legend>";
     $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
     $qw = $DB->query("SHOW DATABASES");
     $numrows = mysql_num_rows($qw);
     if ($numrows > 0)
     {
-        print ("<table><th>Database name</th>");
+        print ("<table>");
         for($i=0;$i<$numrows;$i++){
             $info = mysql_fetch_array($qw);
             echo ("<tr><td><a href='?section=mysql&action=show_db_privs&database=".$info['Database']."'>".$info['Database']."</a></td></tr>");
         }
         print ("</table>");
+        print "</fieldset>";
     }
     $DB->close();
 }
