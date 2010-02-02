@@ -18,5 +18,79 @@ function all_database_list()
     $DB->close();
 }
 
-all_database_list();
+function start_mysql()
+{
+    exec("/usr/local/bin/sudo /usr/local/etc/rc.d/mysql-server start");
+    echo "Server started. &nbsp;<br>";
+    echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+}
+
+function stop_mysql()
+{
+    exec("/usr/local/bin/sudo /usr/local/etc/rc.d/mysql-server stop");
+    echo "Server stopped. &nbsp;<br>";
+    echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+}
+
+function restart_mysql()
+{
+    exec("/usr/local/bin/sudo /usr/local/etc/rc.d/mysql-server restart");
+    echo "Server restarted. &nbsp;<br>";
+    echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+}
+
+print ("<div id='modnavi'>");
+$menu = new Menu();
+$menu->add_item('View databases','?section=mysql');
+$menu->add_item('Add database','?section=mysql&action=add');
+$menu->add_item('Restart MySQL','?section=mysql&action=restart');
+$menu->add_item('Stop MySQL','?section=mysql&action=stop');
+$menu->add_item('Start MySQL','?section=mysql&action=start');
+unset($menu);
+print ("</div>");
+
+if (isset($_REQUEST['action']))
+{
+    $action=$_REQUEST['action'];
+}
+else
+{
+    $action="view_all";  // Default action is VIEW
+};
+
+switch($action)
+{
+    case "view_all":
+        all_database_list();
+    break;
+
+/*    case "add":
+        add_ftp_account();
+    break;
+
+    case "delete":
+    if (isset($_REQUEST['username']))
+    {
+        $username=$_REQUEST['username'];
+        delete_ftp_account($username);
+    }
+    else
+    {
+        echo "WARNING! User ID is not set!";
+    };
+    break;
+*/
+    case "start":
+        start_mysql();
+    break;
+
+    case "stop":
+        stop_mysql();
+    break;
+
+    case "restart":
+        restart_mysql();
+    break;
+};
+
 ?>
