@@ -113,8 +113,9 @@ switch($action)
     case "view_domains":
         show_email_domains();
     break;
+
     case "show_all_users":
-        show_all_mailboxes()
+        show_all_mailboxes();
     break;
 /*    case "add":
         add_ftp_account();
