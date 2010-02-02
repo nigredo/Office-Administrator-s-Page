@@ -19,12 +19,12 @@ define ('DB_PASS','3ch046m1n');
 define ('DB_DATABASE','oap_admin');
 define ('DB_PREFIX','');
 
-define ('ROOT_DB_HOST','localhost');
 define ('ROOT_DB_USER','root');
 define ('ROOT_DB_PASS','3ch0r00t');
 define ('ROOT_DB_DATABASE','mysql');
 define ('ROOT_DB_PREFIX','');
 
+define ('MAIL_DB_DATABASE','mysql');
 
 define ('RECORD_PER_PAGE','25');
 define ('LINKS_PER_PAGE','5');

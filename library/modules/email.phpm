@@ -1,3 +1,104 @@
 <?php
+function show_email_domains()
+{
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB->connect();
+    print "<fieldset>";
+    print "<legend>Email Domains</legend>";
+    print "<div id='add'><a href='index.php?section=email&action=add_domain'><img src='".IMAGES_PATH."add.png'>Add domain</a></div>\n";
+    $qw = $DB->query("SELECT * FROM domain");
+    $rows = $DB->num_rows($qw);
+    if ($rows != 0)
+    {
+        echo "<table width='100%'>\n
+        <tr>\n
+        <th width='30%'>Domain</th>\n
+        <th width='30%'>Max aliases</th>\n
+        <th width='30%'>Max mailboxes</th>\n
+        <th width='30%'>Max quota</th>\n
+        <th>Delete</th>\n
+        </tr>\n";
+        for ($count=0;$count <= $rows; $count++)
+        {
+            $data = $DB->fetch_array($qw);
+            echo "<tr>";
+            $style = "style='background-color: #e3f2ff;'";
+            echo "<td ".$style.">".$data['domain']."</td>\n";
+            echo "<td ".$style.">".$data['aliases']."</td>\n";
+            echo "<td ".$style.">".$data['mailboxes']."</td>\n";
+            echo "<td ".$style.">".$data['maxquota']."</td>\n";
+            echo "<td ".$style."><div class='add'><a href='index.php?section=email&action=delete_domain&domain=".$data['domain']."'>";
+            echo "<img src='".IMAGES_PATH."delete.gif'>";
+            echo "</a></div></td>\n";
+            echo "</tr>\n";
+            @$count++;
+        }
+        echo "</table>\n";
+        echo "</form>";
+        print "</fieldset>";
+    }
+    else
+    {
+        print ("There is no email domains on this server!");
+    }
+    $DB->close();
+}
+
+print ("<div id='modnavi'>");
+$menu = new Menu();
+$menu->add_item('View domains','?section=email');
+$menu->add_item('Show all mails','?section=email&action=show_all_users');
+$menu->add_item('Add domain','?section=mysql&action=add_domain');
+$menu->add_item('Restart MySQL','?section=mysql&action=restart');
+$menu->add_item('Stop MySQL','?section=mysql&action=stop');
+$menu->add_item('Start MySQL','?section=mysql&action=start');
+unset($menu);
+print ("</div>");
+
+if (isset($_REQUEST['action']))
+{
+    $action=$_REQUEST['action'];
+}
+else
+{
+    $action="view_domains";  // Default action is VIEW
+};
+
+switch($action)
+{
+    case "view_domains":
+        show_email_domains();
+    break;
+
+/*    case "add":
+        add_ftp_account();
+    break;
+
+    case "delete":
+    if (isset($_REQUEST['username']))
+    {
+        $username=$_REQUEST['username'];
+        delete_ftp_account($username);
+    }
+    else
+    {
+        echo "WARNING! User ID is not set!";
+    };
+    break;
+    case "start":
+        start_mysql();
+    break;
+
+    case "stop":
+        stop_mysql();
+    break;
+
+    case "restart":
+        restart_mysql();
+    break;
+ *
+ */
+};
+
 
 ?>

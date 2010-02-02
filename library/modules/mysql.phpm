@@ -2,7 +2,7 @@
 
 function all_database_list()
 {
-    $DB = new Database(ROOT_DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
     $qw = $DB->query("SHOW DATABASES");
     $numrows = mysql_num_rows($qw);
