@@ -104,8 +104,7 @@ function delete_domain($domain)
     $DB->connect();
     $qw = $DB->query("DELETE FROM `domain` WHERE `domain` = \"".$domain."\"");
     $data = $DB->fetch_array($qw);
-    echo "Domain deleted. &nbsp;<br>";
-    echo "<div id='add'><a href='?section=email'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+    show_email_domains();
 }
 
 function add_domain()
