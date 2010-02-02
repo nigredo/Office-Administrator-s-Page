@@ -19,7 +19,7 @@ function show_email_domains()
         <th>Max quota</th>\n
         <th>Delete</th>\n
         </tr>\n";
-        for ($count=0;$count <= $rows; $count++)
+        for ($count=0;$count < $rows; $count++)
         {
             $data = $DB->fetch_array($qw);
             echo "<tr>";
