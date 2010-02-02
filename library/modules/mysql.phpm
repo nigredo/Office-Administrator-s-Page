@@ -62,7 +62,7 @@ function show_mysql_accounts()
 
 
 
-function show_db_privileges($database)
+function show_db_privileges()
 {
     if (isset($_REQUEST['database']))
     {
