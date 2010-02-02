@@ -220,6 +220,7 @@ if (isset($_REQUEST['OK']))
     $DB->connect();
     $qw = $DB->query("INSERT INTO `mailbox` (`username`, `password`,`name`,`maildir`,`quota`,`local_part`, `domain`, `created`,`modified`,`active`) VALUES (\"".$full_username."\",\"".$md5pass."\",\"".$name."\",\"".$maildir."\",'0',\"".$username."\",\"".$domain."\",NOW(), NOW(), '1')");
     $data = $DB->fetch_array($qw);
+    $DB->close();
     echo "Mailbox added. &nbsp;<br>";
     echo "<div id='add'><a href='?section=email'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
     }
@@ -259,6 +260,7 @@ else
     {
         print ("There is no email domains on this server!");
     }
+    $DB->close();
     echo "</td>\n";
     echo "<td><input name='name' type='text' value='Mr. Smith'></td>\n";
     echo "<td><input name='password' type='text' value='myP455w0rd'></td>\n";
@@ -269,7 +271,6 @@ else
     echo "</table>\n";
     print "</fieldset>";
     };
-    $DB->close();
 }
 
 
