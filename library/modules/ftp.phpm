@@ -25,10 +25,9 @@ function show_ftp_accounts()
         {
             $data = $DB->fetch_array($qw);
             echo "<tr>";
-            if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
-            echo "<td ".$style.">".$data['username']."</td>\n";
-            echo "<td ".$style.">".$data['pass']."</td>\n";
-            echo "<td ".$style."><div class='add'><a href='index.php?section=ftp&action=delete&username=".$data['username']."'>";
+            echo "<td>".$data['username']."</td>\n";
+            echo "<td>".$data['pass']."</td>\n";
+            echo "<td><div class='add'><a href='index.php?section=ftp&action=delete&username=".$data['username']."'>";
             echo "<img src='".IMAGES_PATH."delete.gif'>";
             echo "</a></div></td>\n";
             echo "</tr>\n";

@@ -40,11 +40,10 @@ function show_mysql_accounts()
         {
             $data = $DB->fetch_array($qw);
             echo "<tr>";
-            $style = "style='background-color: #e3f2ff;'";
-            echo "<td ".$style.">".$data['User']."</td>\n";
-            echo "<td ".$style.">".$data['Host']."</td>\n";
-            echo "<td ".$style.">".$data['Password']."</td>\n";
-            echo "<td ".$style."><div class='add'><a href='index.php?section=mysql&action=delete_user&username=".$data['User']."&host=".$data['Host']."'>";
+            echo "<td>".$data['User']."</td>\n";
+            echo "<td>".$data['Host']."</td>\n";
+            echo "<td>".$data['Password']."</td>\n";
+            echo "<td><div class='add'><a href='index.php?section=mysql&action=delete_user&username=".$data['User']."&host=".$data['Host']."'>";
             echo "<img src='".IMAGES_PATH."delete.gif'>";
             echo "</a></div></td>\n";
             echo "</tr>\n";
