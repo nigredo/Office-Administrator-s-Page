@@ -129,11 +129,12 @@ function show_db_privileges()
 }
 
 
-function change_privs($database, $privilege)
+function change_privs()
 {
-    if (isset($_REQUEST['database']))
+    if (((isset($_REQUEST['database'])) && (isset($_REQUEST['database'])))
     {
     $database = $_REQUEST['database'];
+    $privilege = $_REQUEST['privilege'];
     $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
     $data = $DB->query_first("SELECT '".$privilege."' FROM db WHERE `Db` = '".$database."'");
@@ -195,6 +196,10 @@ switch($action)
 
     case "show_db_privs":
         show_db_privileges();
+    break;
+
+    case "change_priv":
+        change_privs();
     break;
 /*    case "add":
         add_ftp_account();
