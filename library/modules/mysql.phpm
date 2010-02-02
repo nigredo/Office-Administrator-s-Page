@@ -137,7 +137,7 @@ function change_privs()
     $privilege = $_REQUEST['privilege'];
     $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
-    $data = $DB->fetch_array("SELECT ".$privilege." FROM db WHERE `Db` = '".$database."'");
+    $data = $DB->query_first("SELECT ".$privilege." FROM db WHERE `Db` = '".$database."'");
     print $data[$privilege];
     $DB->close();
     }
