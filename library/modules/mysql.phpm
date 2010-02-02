@@ -135,12 +135,15 @@ function change_privs()
     {
     $database = $_REQUEST['database'];
     $privilege = $_REQUEST['privilege'];
+    $value = 'N';
     $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
     $data = $DB->query_first("SELECT ".$privilege." FROM db WHERE `Db` = '".$database."'");
-    print $data[$privilege];
+    if ($data[$privilege] == 'N') { $value = 'Y'; };
+    $data = $DB->query("UPDATE db SET `".$privilege."` = `".$value."` WHERE `Db` = '".$database."'");
     $DB->close();
     }
+    show_db_privileges();
 }
 
 function start_mysql()
