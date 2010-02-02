@@ -106,8 +106,8 @@ if (isset($_REQUEST['OK']))
     {
     $domain=$_REQUEST['domain'];
     $maxquota=$_REQUEST['maxquota'];
-    $domain=$_REQUEST['aliases'];
-    $maxquota=$_REQUEST['mailboxes'];
+    $aliases=$_REQUEST['aliases'];
+    $mailboxes=$_REQUEST['mailboxes'];
     $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
     $DB->connect();
     $qw = $DB->query("INSERT INTO `domain` (`domain`, `aliases`,`mailboxes`,`maxquota`,`quota`,`transport`,`created`,`modified`,`active`) VALUES (\"".$domain."\",\"".$aliases."\",\"".$mailboxes."\",\"".$maxquota."\",'0','virtual',NOW(), NOW(), '1')");
