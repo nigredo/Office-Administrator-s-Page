@@ -80,5 +80,11 @@ function md5crypt ($pw, $salt="", $magic="")
     return "$magic$salt\$$passwd";
 }
 
+function create_salt ()
+{
+    srand ((double) microtime ()*1000000);
+    $salt = substr (md5 (rand (0,9999999)), 0, 8);
+    return $salt;
+}
 
 ?>
