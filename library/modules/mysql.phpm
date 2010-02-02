@@ -4,18 +4,35 @@ function all_database_list()
 {
     $DB = new Database(ROOT_DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
-    $qw = $DB->query("SHOW DATABASES");
-    $numrows = mysql_num_rows($qw);
-    if ($numrows > 0)
+    $qw = $DB->query("SELECT * FROM db");
+    $rows = $DB->num_rows($qw);
+    if ($rows != 0)
     {
-        print ("<table><th>Database name</th>");
-        for($i=0;$i<$numrows;$i++){
-            $info = mysql_fetch_array($qw);
-            echo ("<tr><td>".$info['Database']."</td></tr>");
+        echo "<table width='100%'>\n
+        <tr>\n
+        <th width='30%'>Database</th>\n
+        <th width='30%'>Username</th>\n
+        <th width='30%'>Host</th>\n
+        <th>Delete</th>\n
+        </tr>\n";
+        for ($count=0;$count <= $rows; $count++)
+        {
+            $data = $DB->fetch_array($qw);
+            echo "<tr>";
+            if ($count/2==intval($count/2)) { $style = "style='background-color: #e3f2ff;'";} else { $style=""; };
+            echo "<td ".$style.">".$data['Db']."</td>\n";
+            echo "<td ".$style.">".$data['User']."</td>\n";
+             echo "<td ".$style.">".$data['Host']."</td>\n";
+            echo "<td ".$style."><div class='add'><a href='index.php?section=mysql&action=delete&username=".$data['username']."'>";
+            echo "<img src='".IMAGES_PATH."delete.gif'>";
+            echo "</a></div></td>\n";
+            echo "</tr>\n";
+            @$count++;
         }
-        print ("</table>");
+        echo "</table>\n";
+        echo "</form>";
+        print "</fieldset>";
     }
-    $DB->close();
 }
 
 function start_mysql()
