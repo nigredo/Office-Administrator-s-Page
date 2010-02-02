@@ -2,7 +2,7 @@
 function show_usr_service_status($service)
 {
 
-    $command_result = exec("/usr/local/bin/sudo /usr/local/etc/rc.d/".$service." status | grep runn");
+    $command_result = exec("/usr/local/bin/sudo /usr/local/etc/rc.d/".$service." status | grep runn | grep -v not");
     if ($command_result)
     {
         echo ("<table width='100%'><tr><td>".$service."</td><td width='25%'><img src='".IMAGES_PATH."add.png'></td></tr></table>");
@@ -16,7 +16,7 @@ function show_usr_service_status($service)
 function show_etc_service_status($service)
 {
 
-    $command_result = exec("/usr/local/bin/sudo /etc/rc.d/".$service." status | grep runn");
+    $command_result = exec("/usr/local/bin/sudo /etc/rc.d/".$service." status | grep runn | grep -v not");
     if ($command_result)
     {
         echo ("<table width='100%'><tr><td>".$service."</td><td width='25%'><img src='".IMAGES_PATH."add.png'></td></tr></table>");
