@@ -133,18 +133,19 @@ function change_privs()
 {
     if ((isset($_REQUEST['database'])) && (isset($_REQUEST['privilege'])))
     {
-    $database = $_REQUEST['database'];
-    $privilege = $_REQUEST['privilege'];
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
-    $DB->connect();
-    $qw = $DB->query("SELECT '".$privilege."' FROM db WHERE `Db` = '".$database."'");
-    $rows = $DB->num_rows($qw);
-    if ($rows != 0)
-    {
-        for ($count=0;$count <= $rows; $count++)
+        $database = $_REQUEST['database'];
+        $privilege = $_REQUEST['privilege'];
+        $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
+        $DB->connect();
+        $qw = $DB->query("SELECT '".$privilege."' FROM db WHERE `Db` = '".$database."'");
+        $rows = $DB->num_rows($qw);
+        if ($rows != 0)
         {
-            $data = $DB->fetch_array($qw);
-            echo $data[$privilege];
+            for ($count=0;$count <= $rows; $count++)
+            {
+                $data = $DB->fetch_array($qw);
+                echo $data[$privilege];
+            }
         }
     }
     $DB->close();
