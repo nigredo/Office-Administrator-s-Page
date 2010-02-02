@@ -182,10 +182,13 @@ switch($action)
         all_database_list();
     break;
 
-    case "show_db_privs":
+    case "show_users":
         show_mysql_accounts();
     break;
 
+    case "show_db_privs":
+        show_db_privileges();
+    break;
 /*    case "add":
         add_ftp_account();
     break;
