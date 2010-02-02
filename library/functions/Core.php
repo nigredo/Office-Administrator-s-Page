@@ -87,4 +87,17 @@ function create_salt ()
     return $salt;
 }
 
+function hex2bin ($str)
+{
+    $len = strlen ($str);
+    $nstr = "";
+    for ($i=0;$i<$len;$i+=2)
+    {
+        $num = sscanf (substr ($str,$i,2), "%x");
+        $nstr.=chr ($num[0]);
+    }
+    return $nstr;
+}
+
+
 ?>
