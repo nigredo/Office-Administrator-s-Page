@@ -99,5 +99,18 @@ function hex2bin ($str)
     return $nstr;
 }
 
+function to64 ($v, $n)
+{
+    $ITOA64 = "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    $ret = "";
+    while (($n - 1) >= 0)
+    {
+        $n--;
+        $ret .= $ITOA64[$v & 0x3f];
+        $v = $v >> 6;
+    }
+    return $ret;
+}
+
 
 ?>
