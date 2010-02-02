@@ -259,7 +259,6 @@ else
     {
         print ("There is no email domains on this server!");
     }
-    $DB->close();
     echo "</td>\n";
     echo "<td><input name='name' type='text' value='Mr. Smith'></td>\n";
     echo "<td><input name='password' type='text' value='myP455w0rd'></td>\n";
@@ -269,7 +268,7 @@ else
     echo "</form>";
     echo "</table>\n";
     print "</fieldset>";
-};
+    };
     $DB->close();
 }
 
