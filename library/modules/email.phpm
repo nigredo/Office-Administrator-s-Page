@@ -103,7 +103,8 @@ print ("<div id='modnavi'>");
 $menu = new Menu();
 $menu->add_item('View domains','?section=email');
 $menu->add_item('Show all mails','?section=email&action=show_all_users');
-$menu->add_item('Add domain','?section=mysql&action=add_domain');
+$menu->add_item('Add domain','?section=email&action=add_domain');
+$menu->add_item('Add mailbox','?section=email&action=add_mailbox');
 unset($menu);
 print ("</div>");
 
