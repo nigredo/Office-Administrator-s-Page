@@ -1,0 +1,23 @@
+<?php
+
+function all_database_list()
+{
+    $DB = new Database(ROOT_DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
+    $DB->connect();
+    $qw = $DB->query("SHOW DATABASES");
+    $result = mysql_query($qw);
+    $numrows = mysql_num_rows($qw);
+    if ($numrows > 0)
+    {
+        print ("<table><th>Database name</th>");
+        for($i=0;$i<$numrows;$i++){
+            $info = mysql_fetch_array($result);
+            echo ("<tr><td>".$info['Database']."</td></tr>");
+        }
+        print ("</table>");
+    }
+    $DB->close();
+}
+
+all_database_list();
+?>
