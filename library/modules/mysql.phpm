@@ -140,7 +140,7 @@ function change_privs()
     $DB->connect();
     $data = $DB->query_first("SELECT ".$privilege." FROM db WHERE `Db` = '".$database."'");
     if ($data[$privilege] == 'N') { $value = 'Y'; };
-    $data = $DB->query("UPDATE db SET `".$privilege."` = `".$value."` WHERE `Db` = '".$database."'");
+    $data = $DB->query("UPDATE db SET `".$privilege."`='".$value."' WHERE `Db` = '".$database."'");
     $DB->close();
     }
     show_db_privileges();
