@@ -9,19 +9,11 @@ print ('<div id="main">');
 if (isset($_REQUEST['section']))
 {
     $section=$_REQUEST['section'];
+    load_module($section);
 }
 else
 {
     $section="ftp";
-};
-switch($section)
-{
-    case "ftp":
-        load_module("ftp");
-    break;
-    case "mysql":
-        load_module("mysql");
-    break;
 };
 print ('</div>');
 ?>
