@@ -30,7 +30,6 @@ function show_mysql_accounts()
     print "<div id='add'><a href='index.php?section=mysql&action=add_user'><img src='".IMAGES_PATH."add.png'>Add account</a></div>\n";
     $qw = $DB->query("SELECT * FROM `user`");
     $rows = $DB->num_rows($qw);
-    print $rows;
     if ($rows != 0)
     {
         echo "<table width='100%'>\n
