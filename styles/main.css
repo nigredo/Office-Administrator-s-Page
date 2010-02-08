@@ -134,6 +134,7 @@ strong {
 #vertmenu ul li a:hover, #vertmenu ul li a:focus {
     color: #000000;
     background-color: #eeeeee;
+    padding: 10px 0px 2px 4px;
 }
 
 #main {
