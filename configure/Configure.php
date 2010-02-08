@@ -30,8 +30,8 @@ define ('ROOT_DB_PREFIX','');
 // Email database
 define ('MAIL_DB_HOST','localhost');
 define ('MAIL_DB_DATABASE','postfix');
-define ('MAIL_DB_USER','admin');
-define ('MAIL_DB_PASS','3ch046m1n');
+define ('MAIL_DB_USER','postfix');
+define ('MAIL_DB_PASS','3ch0m41l');
 define ('MAIL_DB_PREFIX','');
 
 // SMS database user
