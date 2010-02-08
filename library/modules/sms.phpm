@@ -1,0 +1,306 @@
+<?php
+
+function show_sms_sent($phone)
+{
+    $DATABASE_SMS = "phone-".$phone;
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB->connect();
+    print "<fieldset>";
+    print "<legend>SMS sent from ".$phone." phone</legend>";
+    $qw = $DB->query("SELECT * FROM sentitems WHERE Status = 'DeliveryOK' OR Status = 'SendingOKNoReport' ORDER BY UpdatedInDB desc");
+    $rows = $DB->num_rows($qw);
+    if ($rows != 0)
+    {
+        echo "<table width='100%'>\n
+	<tr>\n
+        <th>ID</th>\n
+        <th>To whom</th>\n
+        <th>Message</th>\n
+        <th>Date</th>\n
+        </tr>\n";
+        for ($count=0;$count <= $rows; $count++)
+        {
+            $data = $DB->fetch_array($qw);
+ 	    echo "<td>" . $data['ID'] . "</td>\n";
+	    echo "<td>" . $data['DestinationNumber'] . "</td>\n";
+	    echo "<td>" . $data['TextDecoded'] . "</td>\n";
+	    echo "<td>" . $data['UpdatedInDB'] . "</td>\n";
+	    echo "</tr>\n";
+            @$count++;
+        }
+        echo "</table>\n";
+        echo "</form>";
+        print "</fieldset>";
+    }
+    else
+    {
+        print ("NOTHING HERE!");
+    }
+    $DB->close();
+}
+
+function show_sms_queue($phone)
+{
+    $DATABASE_SMS = 'phone-'.$phone;
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB->connect();
+    print "<fieldset>";
+    print "<legend>SMS in queue from ".$phone." phone</legend>";
+    $qw = $DB->query("SELECT * FROM outbox ORDER BY UpdatedInDB desc");
+    $rows = $DB->num_rows($qw);
+    if ($rows != 0)
+    {
+        echo "<table width='100%'>\n
+	<tr>\n
+        <th>ID</th>\n
+        <th>To whom</th>\n
+        <th>Message</th>\n
+        <th>Date</th>\n
+        </tr>\n";
+        for ($count=0;$count <= $rows; $count++)
+        {
+            $data = $DB->fetch_array($qw);
+ 	    echo "<td>" . $data['ID'] . "</td>\n";
+	    echo "<td>" . $data['DestinationNumber'] . "</td>\n";
+	    echo "<td>" . $data['TextDecoded'] . "</td>\n";
+	    echo "<td>" . $data['UpdatedInDB'] . "</td>\n";
+	    echo "</tr>\n";
+            @$count++;
+        }
+        echo "</table>\n";
+        echo "</form>";
+        print "</fieldset>";
+    }
+    else
+    {
+        print ("NOTHING HERE!");
+    }
+    $DB->close();
+}
+
+function show_sms_errors($phone)
+{
+    $DATABASE_SMS = 'phone-'.$phone;
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB->connect();
+    print "<fieldset>";
+    print "<legend>SMS sent with errors from ".$phone." phone</legend>";
+    $qw = $DB->query("SELECT * FROM sentitems WHERE Status != 'DeliveryOK' AND Status != 'SendingOKNoReport' ORDER BY UpdatedInDB desc");
+    $rows = $DB->num_rows($qw);
+    if ($rows != 0)
+    {
+        echo "<table width='100%'>\n
+	<tr>\n
+        <th>ID</th>\n
+        <th>To whom</th>\n
+        <th>Message</th>\n
+        <th>Date</th>\n
+        </tr>\n";
+        for ($count=0;$count <= $rows; $count++)
+        {
+            $data = $DB->fetch_array($qw);
+ 	    echo "<td>" . $data['ID'] . "</td>\n";
+	    echo "<td>" . $data['DestinationNumber'] . "</td>\n";
+	    echo "<td>" . $data['TextDecoded'] . "</td>\n";
+	    echo "<td>" . $data['UpdatedInDB'] . "</td>\n";
+	    echo "</tr>\n";
+            @$count++;
+        }
+        echo "</table>\n";
+        echo "</form>";
+        print "</fieldset>";
+    }
+    else
+    {
+        print ("NOTHING HERE!");
+    }
+    $DB->close();
+}
+
+function show_sms_received($phone)
+{
+    $DATABASE_SMS = 'phone-'.$phone;
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB->connect();
+    print "<fieldset>";
+    print "<legend>SMS received to ".$phone." phone</legend>";
+    $qw = $DB->query("SELECT * FROM inbox ORDER BY ReceivingDateTime desc");
+    $rows = $DB->num_rows($qw);
+    if ($rows != 0)
+    {
+        echo "<table width='100%'>\n
+	<tr>\n
+        <th>ID</th>\n
+        <th>Sender</th>\n
+        <th>Message</th>\n
+        <th>Date</th>\n
+        </tr>\n";
+        for ($count=0;$count <= $rows; $count++)
+        {
+            $data = $DB->fetch_array($qw);
+ 	    echo "<td>" . $data['ID'] . "</td>\n";
+	    echo "<td>" . $data['SenderNumber'] . "</td>\n";
+	    echo "<td>" . $data['TextDecoded'] . "</td>\n";
+	    echo "<td>" . $data['ReceivingDateTime'] . "</td>\n";
+	    echo "</tr>\n";
+            @$count++;
+        }
+        echo "</table>\n";
+        echo "</form>";
+        print "</fieldset>";
+    }
+    else
+    {
+        print ("NOTHING HERE!");
+    }
+    $DB->close();
+}
+
+
+function delete_sms_inbox($phone,$id)
+{
+    $DATABASE_SMS = 'phone-'.$phone;
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB->connect();
+    $qw = $DB->query("DELETE FROM inbox WHERE `ID` = \"".$id."\"");
+    $data = $DB->fetch_array($qw);
+    echo "Message deleted. &nbsp;<br>";
+    echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+}
+
+function delete_sms_outbox($phone,$id)
+{
+    $DATABASE_SMS = 'phone-'.$phone;
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB->connect();
+    $qw = $DB->query("DELETE FROM sentitems WHERE `ID` = \"".$id."\"");
+    $data = $DB->fetch_array($qw);
+    echo "Message deleted. &nbsp;<br>";
+    echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+}
+
+function delete_sms_queue($phone,$id)
+{
+    $DATABASE_SMS = 'phone-'.$phone;
+    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB->connect();
+    $qw = $DB->query("DELETE FROM outbox WHERE `ID` = \"".$id."\"");
+    $data = $DB->fetch_array($qw);
+    echo "Message deleted. &nbsp;<br>";
+    echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+if (isset($_REQUEST['action']))
+{
+    $action=$_REQUEST['action'];
+}
+else
+{
+    $action="menu";
+};
+
+switch($action)
+{
+    case "menu":
+	echo ("<a href='?section=sms&action=inbox&phone=1'>Inbox for Orange phone</a><br>");
+	echo ("<a href='?section=sms&action=inbox&phone=2'>Inbox for Moldcell phone</a><br>&nbsp; <br>");
+	echo ("<a href='?section=sms&action=outbox&phone=1'>Outbox for Orange phone</a><br>");
+	echo ("<a href='?section=sms&action=outbox&phone=2'>Outbox for Moldcell phone</a><br>&nbsp; <br>");
+	echo ("<a href='?section=sms&action=queue&phone=1'>Queue for Orange phone</a><br>");
+	echo ("<a href='?section=sms&action=queue&phone=2'>Queue for Moldcell phone</a><br>&nbsp; <br>");
+	echo ("<a href='?section=sms&action=errors&phone=1'>Errors for Orange phone</a><br>");
+	echo ("<a href='?section=sms&action=errors&phone=2'>Errors for Moldcell phone</a><br>&nbsp; <br>&nbsp; <br>");
+	print "<b>Running GAMMU processes:</b><br>";
+	$output = shell_exec("ps aux | grep gammu | grep -v grep");
+	if ($output) { print "<pre>".$output."</pre>"; };
+    break;
+
+    case "inbox":
+    if (isset($_REQUEST['phone']))
+    {
+        $phone=$_REQUEST['phone'];
+        show_sms_received($phone);
+    }
+    else
+    {
+        echo "WARNING! Phone is not selected!";
+    };
+    break;
+
+    case "outbox":
+    if (isset($_REQUEST['phone']))
+    {
+        $phone=$_REQUEST['phone'];
+        show_sms_sent($phone);
+    }
+    else
+    {
+        echo "WARNING! Phone is not selected!";
+    };
+    break;
+
+    case "queue":
+    if (isset($_REQUEST['phone']))
+    {
+        $phone=$_REQUEST['phone'];
+        show_sms_queue($phone);
+    }
+    else
+    {
+        echo "WARNING! Phone is not selected!";
+    };
+    break;
+
+    case "errors":
+    if (isset($_REQUEST['phone']))
+    {
+        $phone=$_REQUEST['phone'];
+        show_sms_errors($phone);
+    }
+    else
+    {
+        echo "WARNING! Phone is not selected!";
+    };
+    break;
+
+    case "del_inbox":
+    if ((isset($_REQUEST['phone'])) && (isset($_REQUEST['id'])))
+    {
+        $phone=$_REQUEST['phone'];
+        $id=$_REQUEST['id'];
+        delete_sms_inbox($phone,$id);
+    };
+    break;
+
+    case "del_outbox":
+    if ((isset($_REQUEST['phone'])) && (isset($_REQUEST['id'])))
+    {
+        $phone=$_REQUEST['phone'];
+        $id=$_REQUEST['id'];
+        delete_sms_outbox($phone,$id);
+    };
+    break;
+
+    case "del_queue":
+    if ((isset($_REQUEST['phone'])) && (isset($_REQUEST['id'])))
+    {
+        $phone=$_REQUEST['phone'];
+        $id=$_REQUEST['id'];
+        delete_sms_queue($phone,$id);
+    };
+    break;
+};
+
+
+?>
