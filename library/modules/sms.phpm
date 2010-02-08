@@ -46,7 +46,7 @@ function show_sms_queue($phone)
     $DB->connect();
     print "<fieldset>";
     print "<legend>SMS in queue from ".$phone." phone</legend>";
-    $qw = $DB->query("SELECT * FROM outbox ORDER BY SendingDateTime desc");
+    $qw = $DB->query("SELECT * FROM outbox ORDER BY SendingDateTime ");
     $rows = $DB->num_rows($qw);
     if ($rows != 0)
     {
