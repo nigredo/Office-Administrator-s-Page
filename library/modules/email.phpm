@@ -22,6 +22,8 @@ function show_email_domains()
         for ($count=0;$count < $rows; $count++)
         {
             $data = $DB->fetch_array($qw);
+            if ($data['domain'] != "ALL")
+            {
             echo "<tr>";
             echo "<td><a href='?section=email&action=show_domain&domain=".$data['domain']."'>".$data['domain']."</a></td>\n";
             echo "<td>".$data['aliases']."</td>\n";
@@ -31,6 +33,7 @@ function show_email_domains()
             echo "<img src='".IMAGES_PATH."delete.gif'>";
             echo "</a></div></td>\n";
             echo "</tr>\n";
+            }
         }
         echo "</table>\n";
         echo "</form>";
