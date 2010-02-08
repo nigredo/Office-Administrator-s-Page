@@ -106,6 +106,7 @@ strong {
     margin-left: -30px;
     padding: 10px;
     min-height: 400px;
+    text-align: right;
 }
 
 #left li {
