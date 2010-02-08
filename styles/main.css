@@ -78,7 +78,7 @@ strong {
 
 #header {
     background-image: url(/images/logo.png);
-    background-repeat: norepeat;
+    background-repeat: no-repeat;
     background-color: #B9C900;
     padding:5px 15px;
     color: #1A0E00;
