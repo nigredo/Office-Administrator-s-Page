@@ -62,15 +62,16 @@ function show_all_mailboxes()
         <th>Username</th>\n
         <th>Maildir</th>\n
         <th>Name</th>\n
-        <th>Quota</th>\n
         <th>Domain</th>\n
+        <th>Quota</th>\n
         <th>Delete</th>\n
         </tr>\n";
         for ($count=0;$count < $rows; $count++)
         {
             $data = $DB->fetch_array($qw);
             echo "<tr>";
-            echo "<td><a href='?section=email&action=show_user&username=".$data['username']."'>".$data['username']."</a></td>\n";
+            echo "<td>".$data['username']."</td>\n";
+//            echo "<td><a href='?section=email&action=show_user&username=".$data['username']."'>".$data['username']."</a></td>\n";
             echo "<td>".$data['maildir']."</td>\n";
             echo "<td>".$data['name']."</td>\n";
             echo "<td>".$data['domain']."</td>\n";
