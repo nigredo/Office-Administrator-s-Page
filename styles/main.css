@@ -81,7 +81,7 @@ strong {
     padding:5px 15px;
     color: #1A0E00;
     height: 50px;
-    vertical-align: middle;
+    vertical-align: baseline;
 }
 
 #left {
