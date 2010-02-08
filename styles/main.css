@@ -121,7 +121,7 @@ strong {
     vertical-align: middle;
 }
 
-#left li hover{
+#left li.hover{
     margin-top: 5px;
     background-image: url(/images/li.png);
     background-repeat: no-repeat;
