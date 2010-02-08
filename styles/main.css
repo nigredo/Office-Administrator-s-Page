@@ -89,10 +89,9 @@ strong {
     background-color: #B9C900;
     padding:5px 15px;
     color: #1A0E00;
-    height: 80px;
-    padding-right: 130px;
     padding-top: 25px;
-    vertical-align: baseline;
+    padding-bottom: 25px;
+    vertical-align: middle;
 }
 
 #left {
