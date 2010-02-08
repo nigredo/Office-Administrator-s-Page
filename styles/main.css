@@ -116,7 +116,7 @@ strong {
     background-position:top right;
     height: 18px;
     width: 190px;
-    margin-left: 15px;
+    padding-right: 15px;
     vertical-align: middle;
 }
 
