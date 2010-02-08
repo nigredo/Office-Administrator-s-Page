@@ -119,9 +119,6 @@ strong {
 }
 
 #vertmenu li {
-    background-image: url(/images/li.png);
-    background-repeat: no-repeat;
-    background-position:top right;
     height: 18px;
     padding-right: 17px;
     margin-top: 5px;
