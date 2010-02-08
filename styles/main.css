@@ -7,7 +7,7 @@ body {
   background-color: #FCFFE0;
   font-size: 12px;
   font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
-  color:#564b47;  
+  color: #666666;
   padding:0px;
   margin:0px;
 }
@@ -22,7 +22,7 @@ ul	{
 }
 
 a { 
-    color: #4A2007;
+    color: #666666;
     font-size: 11px;
     text-transform:uppercase;
     background-color:transparent;
