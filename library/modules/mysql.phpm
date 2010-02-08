@@ -206,22 +206,7 @@ switch($action)
     case "change_priv":
         change_privs();
     break;
-/*    case "add":
-        add_ftp_account();
-    break;
 
-    case "delete":
-    if (isset($_REQUEST['username']))
-    {
-        $username=$_REQUEST['username'];
-        delete_ftp_account($username);
-    }
-    else
-    {
-        echo "WARNING! User ID is not set!";
-    };
-    break;
-*/
     case "start":
         start_mysql();
     break;
