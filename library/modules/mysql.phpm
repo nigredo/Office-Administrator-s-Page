@@ -4,7 +4,7 @@ function all_database_list()
 {
     print "<fieldset>";
     print "<legend>MySQL databases list</legend>";
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
+    $DB = new Database(ROOT_DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
     $qw = $DB->query("SHOW DATABASES");
     $numrows = mysql_num_rows($qw);
@@ -23,7 +23,7 @@ function all_database_list()
 
 function show_mysql_accounts()
 {
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
+    $DB = new Database(ROOT_DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
     print "<fieldset>";
     print "<legend>MySQL Accounts</legend>";
@@ -69,7 +69,7 @@ function show_db_privileges()
     if (isset($_REQUEST['database']))
     {
     $database = $_REQUEST['database'];
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
+    $DB = new Database(ROOT_DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
     print "<fieldset>";
     print "<legend>MySQL user privileges</legend>";
@@ -138,7 +138,7 @@ function change_privs()
     $database = $_REQUEST['database'];
     $privilege = $_REQUEST['privilege'];
     $value = 'N';
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
+    $DB = new Database(ROOT_DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,ROOT_DB_DATABASE);
     $DB->connect();
     $data = $DB->query_first("SELECT ".$privilege." FROM db WHERE `Db` = '".$database."'");
     if ($data[$privilege] == 'N') { $value = 'Y'; };
