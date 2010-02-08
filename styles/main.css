@@ -121,16 +121,13 @@ strong {
     vertical-align: middle;
 }
 
-#left li.hover{
-    margin-top: 5px;
-    background-image: url(/images/li.png);
-    background-repeat: no-repeat;
-    background-position:top right;
-    height: 18px;
-    width: 190px;
-    margin-left: 15px;
+#left a.hover{
+    padding-right: 15px;
+    text-decoration: none;
+}
+
+#left a.hover{
     padding-right: 25px;
-    vertical-align: middle;
 }
 
 #main {
