@@ -127,6 +127,21 @@ strong {
     margin-top: 5px;
 }
 
+#vertmenu ul li a {
+    font-size: 80%;
+    display: block;
+    border-bottom: 1px dashed #C39C4E;
+    padding: 5px 0px 2px 4px;
+    text-decoration: none;
+    color: #666666;
+    width:160px;
+}
+
+#vertmenu ul li a:hover, #vertmenu ul li a:focus {
+    color: #000000;
+    background-color: #eeeeee;
+}
+
 #main {
     margin: 0px 190px 0px 190px;
     border-left: 1px dotted #564b47;
