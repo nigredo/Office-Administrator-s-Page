@@ -116,6 +116,7 @@ strong {
     background-position:top right;
     height: 18px;
     width: 190px;
+    padding-right: 15px;
 }
 
 #main {
