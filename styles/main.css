@@ -44,6 +44,10 @@ th
     text-align: left;
 }
 
+td
+{
+    border-left: 1px solid #564b47;
+}
 pre { 
     color: #564b47;
     font-size: 11px;
