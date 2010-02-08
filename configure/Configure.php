@@ -13,18 +13,32 @@ define('SITE_NAME','Office Administrator\'s Page');
 define('HOSTNAME','www.admin.awiki.net');
 define('URL', rtrim(dirname($_SERVER['PHP_SELF']), '/\\'));
 
+// OAP database settings
 define ('DB_HOST','localhost');
 define ('DB_USER','admin');
 define ('DB_PASS','3ch046m1n');
 define ('DB_DATABASE','oap_admin');
 define ('DB_PREFIX','');
 
+// MySQL administrator
+define ('ROOT_DB_HOST','localhost');
 define ('ROOT_DB_USER','root');
 define ('ROOT_DB_PASS','3ch0r00t');
 define ('ROOT_DB_DATABASE','mysql');
 define ('ROOT_DB_PREFIX','');
 
+// Email database
+define ('MAIL_DB_HOST','localhost');
 define ('MAIL_DB_DATABASE','postfix');
+define ('MAIL_DB_USER','admin');
+define ('MAIL_DB_PASS','3ch046m1n');
+define ('MAIL_DB_PREFIX','');
+
+// SMS database user
+define ('SMS_DB_HOST','87.248.185.251');
+define ('SMS_DB_USER','root');
+define ('SMS_DB_PASS','3ch0r00t');
+define ('SMS_DB_PREFIX','');
 
 define ('RECORD_PER_PAGE','25');
 define ('LINKS_PER_PAGE','5');
