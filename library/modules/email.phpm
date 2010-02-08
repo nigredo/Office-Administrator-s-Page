@@ -168,6 +168,7 @@ if (isset($_REQUEST['OK']))
     $DB->connect();
     $qw = $DB->query("INSERT INTO `domain` (`domain`, `aliases`,`mailboxes`,`maxquota`,`quota`,`transport`,`created`,`modified`,`active`) VALUES (\"".$domain."\",\"".$aliases."\",\"".$mailboxes."\",\"".$maxquota."\",'0','virtual',NOW(), NOW(), '1')");
     $data = $DB->fetch_array($qw);
+    $DB->close();
     echo "Account added. &nbsp;<br>";
     echo "<div id='add'><a href='?section=email'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
     }
@@ -200,7 +201,6 @@ else
     echo "</table>\n";
     print "</fieldset>";
 };
-    $DB->close();
 }
 
 function add_mailbox()
