@@ -63,7 +63,7 @@ function show_sms_queue($phone)
  	    echo "<td>" . $data['ID'] . "</td>\n";
 	    echo "<td>" . $data['DestinationNumber'] . "</td>\n";
 	    echo "<td>" . $data['TextDecoded'] . "</td>\n";
-	    echo "<td>" . $data['UpdatedInDB'] . "</td>\n";
+	    echo "<td>" . $data['SendingDateTime'] . "</td>\n";
 	    echo "</tr>\n";
             @$count++;
         }
