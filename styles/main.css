@@ -102,14 +102,17 @@ strong {
     width: 190px;
     color: #564b47;
     margin: 0px;
-    margin-top: 5px;
-    margin-left: -70px;
-    padding: 10px;
     min-height: 400px;
-    text-align: right;
 }
 
-#left li {
+#vertmenu ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+#vertmenu li {
     margin-top: 5px;
     background-image: url(/images/li.png);
     background-repeat: no-repeat;
@@ -118,15 +121,6 @@ strong {
     width: 190px;
     padding-right: 15px;
     vertical-align: middle;
-}
-
-#left a.hover{
-    padding-right: 15px;
-    text-decoration: none;
-}
-
-#left a.hover{
-    padding-right: 25px;
 }
 
 #main {
