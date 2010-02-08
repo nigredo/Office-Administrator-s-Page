@@ -114,6 +114,8 @@ strong {
     background-image: url(/images/li.png);
     background-repeat: no-repeat;
     background-position:top right;
+    height: 18px;
+    width: 100px;
 }
 
 #main {
