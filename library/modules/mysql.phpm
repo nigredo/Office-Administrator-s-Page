@@ -39,7 +39,7 @@ function show_mysql_accounts()
         <th width='30%'>Password</th>\n
         <th>Delete</th>\n
         </tr>\n";
-        for ($count=0;$count <= $rows; $count++)
+        for ($count=0;$count < $rows; $count++)
         {
             $data = $DB->fetch_array($qw);
             echo "<tr>";
@@ -121,7 +121,7 @@ function show_db_privileges()
     {
         print ("There is no such database!");
     }
-    $DB->close();    
+    $DB->close();
 
     }
     else
@@ -169,11 +169,32 @@ function restart_mysql()
     echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
 }
 
+function repair_mysql()
+{
+mysql_connect(ROOT_DB_HOST, ROOT_DB_USER, ROOT_DB_PASS) or die("Error: No BD Connection");
+$rs = mysql_query("show databases");
+while($arr=mysql_fetch_array($rs)){
+	if ($arr[0] != 'information_schema')
+	{
+	echo "<h2>$arr[0]</h2>";
+	mysql_select_db("$arr[0]");
+	$rs2 = mysql_query("show tables");
+	while($arr2=mysql_fetch_array($rs2)){
+			$rs3 = mysql_query("analyze table `$arr2[0]`"); echo mysql_error();
+			$arr3=mysql_fetch_array($rs3);
+			$rs4 = mysql_query("repair table `$arr2[0]`"); echo mysql_error();
+			$arr4=mysql_fetch_array($rs4);
+		}
+		echo "$arr2[0] <i>$arr3[3]</i> <b>$arr4[3]</b>";
+	}
+	}
+}
+
 print ("<div id='modnavi'>");
 $menu = new Menu();
 $menu->add_item('View databases','?section=mysql');
 $menu->add_item('Show users','?section=mysql&action=show_users');
-$menu->add_item('Add database','?section=mysql&action=add');
+$menu->add_item('Repair tables','?section=mysql&action=repair');
 $menu->add_item('Restart MySQL','?section=mysql&action=restart');
 $menu->add_item('Stop MySQL','?section=mysql&action=stop');
 $menu->add_item('Start MySQL','?section=mysql&action=start');
@@ -205,6 +226,10 @@ switch($action)
 
     case "change_priv":
         change_privs();
+    break;
+
+    case "repair":
+        repair_mysql();
     break;
 
     case "start":
