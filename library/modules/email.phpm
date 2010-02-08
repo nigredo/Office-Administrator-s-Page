@@ -289,7 +289,7 @@ if (isset($_REQUEST['action']))
 }
 else
 {
-    $action="view_domains";  // Default action is VIEW
+    $action="view_domains";
 };
 
 switch($action)
@@ -345,35 +345,6 @@ switch($action)
         echo "WARNING! User ID is not set!";
     };
     break;
-
-    /*    case "add":
-        add_ftp_account();
-    break;
-
-    case "delete":
-    if (isset($_REQUEST['username']))
-    {
-        $username=$_REQUEST['username'];
-        delete_ftp_account($username);
-    }
-    else
-    {
-        echo "WARNING! User ID is not set!";
-    };
-    break;
-    case "start":
-        start_mysql();
-    break;
-
-    case "stop":
-        stop_mysql();
-    break;
-
-    case "restart":
-        restart_mysql();
-    break;
- *
- */
 };
 
 
