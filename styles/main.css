@@ -118,6 +118,8 @@ strong {
     background-repeat: no-repeat;
     background-position:top right;
     height: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
     padding-right: 15px;
     vertical-align: middle;
 }
