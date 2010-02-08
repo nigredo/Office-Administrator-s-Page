@@ -99,7 +99,7 @@ strong {
 
 #left {
     position: absolute;
-    left: 0px;
+    margin-left: 0px;
     width: 190px;
     color: #564b47;
     margin: 0px;
