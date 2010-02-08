@@ -3,7 +3,7 @@
 function show_sms_sent($phone)
 {
     $DATABASE_SMS = "phone-".$phone;
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB = new Database(SMS_DB_HOST,SMS_DB_USER,SMS_DB_PASS,$DATABASE_SMS);
     $DB->connect();
     print "<fieldset>";
     print "<legend>SMS sent from ".$phone." phone</legend>";
@@ -42,7 +42,7 @@ function show_sms_sent($phone)
 function show_sms_queue($phone)
 {
     $DATABASE_SMS = 'phone-'.$phone;
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB = new Database(SMS_DB_HOST,SMS_DB_USER,SMS_DB_PASS,$DATABASE_SMS);
     $DB->connect();
     print "<fieldset>";
     print "<legend>SMS in queue from ".$phone." phone</legend>";
@@ -81,7 +81,7 @@ function show_sms_queue($phone)
 function show_sms_errors($phone)
 {
     $DATABASE_SMS = 'phone-'.$phone;
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB = new Database(SMS_DB_HOST,SMS_DB_USER,SMS_DB_PASS,$DATABASE_SMS);
     $DB->connect();
     print "<fieldset>";
     print "<legend>SMS sent with errors from ".$phone." phone</legend>";
@@ -120,7 +120,7 @@ function show_sms_errors($phone)
 function show_sms_received($phone)
 {
     $DATABASE_SMS = 'phone-'.$phone;
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB = new Database(SMS_DB_HOST,SMS_DB_USER,SMS_DB_PASS,$DATABASE_SMS);
     $DB->connect();
     print "<fieldset>";
     print "<legend>SMS received to ".$phone." phone</legend>";
@@ -160,34 +160,37 @@ function show_sms_received($phone)
 function delete_sms_inbox($phone,$id)
 {
     $DATABASE_SMS = 'phone-'.$phone;
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB = new Database(SMS_DB_HOST,SMS_DB_USER,SMS_DB_PASS,$DATABASE_SMS);
     $DB->connect();
     $qw = $DB->query("DELETE FROM inbox WHERE `ID` = \"".$id."\"");
     $data = $DB->fetch_array($qw);
     echo "Message deleted. &nbsp;<br>";
     echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+    $DB->close();
 }
 
 function delete_sms_outbox($phone,$id)
 {
     $DATABASE_SMS = 'phone-'.$phone;
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB = new Database(SMS_DB_HOST,SMS_DB_USER,SMS_DB_PASS,$DATABASE_SMS);
     $DB->connect();
     $qw = $DB->query("DELETE FROM sentitems WHERE `ID` = \"".$id."\"");
     $data = $DB->fetch_array($qw);
     echo "Message deleted. &nbsp;<br>";
     echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+    $DB->close();
 }
 
 function delete_sms_queue($phone,$id)
 {
     $DATABASE_SMS = 'phone-'.$phone;
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,$DATABASE_SMS);
+    $DB = new Database(SMS_DB_HOST,SMS_DB_USER,SMS_DB_PASS,$DATABASE_SMS);
     $DB->connect();
     $qw = $DB->query("DELETE FROM outbox WHERE `ID` = \"".$id."\"");
     $data = $DB->fetch_array($qw);
     echo "Message deleted. &nbsp;<br>";
     echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+    $DB->close();
 }
 
 
