@@ -39,7 +39,7 @@ a.hover {
     text-decoration: none;
 }
 
-table
+table, th, td
 {
     margin: 0px;
     padding: 0px;
