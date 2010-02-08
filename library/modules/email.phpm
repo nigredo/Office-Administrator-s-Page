@@ -2,7 +2,7 @@
 
 function show_email_domains()
 {
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB = new Database(MAIL_DB_HOST,MAIL_DB_USER,MAIL_DB_PASS,MAIL_DB_DATABASE);
     $DB->connect();
     print "<fieldset>";
     print "<legend>Email Domains</legend>";
@@ -45,7 +45,7 @@ function show_email_domains()
 
 function show_all_mailboxes()
 {
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB = new Database(MAIL_DB_HOST,MAIL_DB_USER,MAIL_DB_PASS,MAIL_DB_DATABASE);
     $DB->connect();
     print "<fieldset>";
     print "<legend>Email Domains</legend>";
@@ -90,7 +90,7 @@ function show_all_mailboxes()
 
 function show_domain($domain)
 {
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB = new Database(MAIL_DB_HOST,MAIL_DB_USER,MAIL_DB_PASS,MAIL_DB_DATABASE);
     $DB->connect();
     print "<fieldset>";
     print "<legend>Email Domains</legend>";
@@ -135,7 +135,7 @@ function show_domain($domain)
 
 function delete_mailbox($username)
 {
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB = new Database(MAIL_DB_HOST,MAIL_DB_USER,MAIL_DB_PASS,MAIL_DB_DATABASE);
     $DB->connect();
     $qw = $DB->query("DELETE FROM `mailbox` WHERE `username` = \"".$username."\"");
     $data = $DB->fetch_array($qw);
@@ -146,7 +146,7 @@ function delete_mailbox($username)
 
 function delete_domain($domain)
 {
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB = new Database(MAIL_DB_HOST,MAIL_DB_USER,MAIL_DB_PASS,MAIL_DB_DATABASE);
     $DB->connect();
     $qw = $DB->query("DELETE FROM `domain` WHERE `domain` = \"".$domain."\"");
     $data = $DB->fetch_array($qw);
@@ -164,7 +164,7 @@ if (isset($_REQUEST['OK']))
     $maxquota=$_REQUEST['maxquota'];
     $aliases=$_REQUEST['aliases'];
     $mailboxes=$_REQUEST['mailboxes'];
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB = new Database(MAIL_DB_HOST,MAIL_DB_USER,MAIL_DB_PASS,MAIL_DB_DATABASE);
     $DB->connect();
     $qw = $DB->query("INSERT INTO `domain` (`domain`, `aliases`,`mailboxes`,`maxquota`,`quota`,`transport`,`created`,`modified`,`active`) VALUES (\"".$domain."\",\"".$aliases."\",\"".$mailboxes."\",\"".$maxquota."\",'0','virtual',NOW(), NOW(), '1')");
     $data = $DB->fetch_array($qw);
@@ -216,7 +216,7 @@ if (isset($_REQUEST['OK']))
     $md5pass = md5crypt($password);
     $full_username = $username."@".$domain;
     $maildir = $full_username."/";
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB = new Database(MAIL_DB_HOST,MAIL_DB_USER,MAIL_DB_PASS,MAIL_DB_DATABASE);
     $DB->connect();
     $qw = $DB->query("INSERT INTO `mailbox` (`username`, `password`,`name`,`maildir`,`quota`,`local_part`, `domain`, `created`,`modified`,`active`) VALUES (\"".$full_username."\",\"".$md5pass."\",\"".$name."\",\"".$maildir."\",'0',\"".$username."\",\"".$domain."\",NOW(), NOW(), '1')");
     $data = $DB->fetch_array($qw);
@@ -244,7 +244,7 @@ else
     echo "<form action='?section=email&action=add_mailbox' method='POST'>";
     echo "<td><input name='username' type='text' value='me'></td>\n";
     echo "<td><select name='domain'>";
-    $DB = new Database(DB_HOST,ROOT_DB_USER,ROOT_DB_PASS,MAIL_DB_DATABASE);
+    $DB = new Database(MAIL_DB_HOST,MAIL_DB_USER,MAIL_DB_PASS,MAIL_DB_DATABASE);
     $DB->connect();
     $qw = $DB->query("SELECT * FROM `domain` where `domain` != 'ALL'");
     $rows = $DB->num_rows($qw);
