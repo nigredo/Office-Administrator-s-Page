@@ -117,6 +117,7 @@ strong {
     height: 18px;
     width: 190px;
     padding-right: 15px;
+    vertical-align: middle;
 }
 
 #main {
