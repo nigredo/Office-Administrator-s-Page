@@ -25,8 +25,9 @@ function show_http_accounts()
         for ($count=0;$count <= $rows; $count++)
         {
             $data = $DB->fetch_array($qw);
+            $link = "http://".$username.".".$VISP."/";
             echo "<tr>";
-            echo "<td>".$data['username']."</td>\n";
+            echo "<td><a href='".$link."'>".$data['username']."</a></td>\n";
             echo "<td>".$data['VISP']."</td>\n";
             echo "<td>".$data['home']."</td>\n";
             echo "<td><div class='add'><a href='index.php?section=http&action=delete&unic_id=".$data['unic_id']."'>";
