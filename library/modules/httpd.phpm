@@ -1,8 +1,181 @@
 <?php
-/*
- * Author: alphazo_id
+/* 
+ * HTTP module
  *
- * Date: Feb 12, 2010
- * Time: 2:23:03 PM
  */
+
+function show_http_accounts()
+{
+    $DB = new Database(HTTP_DB_HOST,HTTP_DB_USER,HTTP_DB_PASS,HTTP_DB_DATABASE);
+    $DB->connect();
+    print "<fieldset>";
+    print "<legend>HTTP Accounts</legend>";
+    print "<div id='add'><a href='index.php?section=httpd&action=add'><img src='".IMAGES_PATH."add.png'>Add account</a></div>\n";
+    $qw = $DB->query("SELECT * FROM users_table");
+    $rows = $DB->num_rows($qw);
+    if ($rows != 0)
+    {
+        echo "<table width='100%'>\n
+        <tr>\n
+        <th width='40%'>Username</th>\n
+        <th width='40%'>Domain</th>\n
+        <th width='40%'>Home</th>\n
+        <th>Delete</th>\n
+        </tr>\n";
+        for ($count=0;$count <= $rows; $count++)
+        {
+            $data = $DB->fetch_array($qw);
+            echo "<tr>";
+            echo "<td>".$data['username']."</td>\n";
+            echo "<td>".$data['VISP']."</td>\n";
+            echo "<td>".$data['home']."</td>\n";
+            echo "<td><div class='add'><a href='index.php?section=http&action=delete&unic_id=".$data['unic_id']."'>";
+            echo "<img src='".IMAGES_PATH."delete.gif'>";
+            echo "</a></div></td>\n";
+            echo "</tr>\n";
+            @$count++;
+        }
+        echo "</table>\n";
+        echo "</form>";
+        print "</fieldset>";
+    }
+    else
+    {
+        print ("There is no HTTP accounts on this server!");
+    }
+    $DB->close();
+}
+
+function add_http_account()
+{
+if (isset($_REQUEST['OK']))
+{
+    if ((!isset($_REQUEST['username'])) || (!isset($_REQUEST['password'])))
+    {
+        print ("Wrong username or password!");
+        break;
+    }
+    else
+    {
+    $username=$_REQUEST['username'];
+    $password=$_REQUEST['password'];
+    $DB = new Database(HTTP_DB_HOST,HTTP_DB_USER,HTTP_DB_PASS,HTTP_DB_DATABASE);
+    $DB->connect();
+    $qw = $DB->query("INSERT INTO ftp_users (`username`, `pass`) VALUES (\"".$username."\",\"".$password."\")");
+    $data = $DB->fetch_array($qw);
+    exec ("/usr/local/bin/sudo /bin/mkdir /usr/home/vsftpd/".$username);
+    exec ("/usr/local/bin/sudo /usr/sbin/chown -R vsftpd:nogroup /usr/home/vsftpd");
+    echo "Account added. &nbsp;<br>";
+    echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+    }
+}
+else
+{
+    print "<fieldset>";
+    print "<legend>Add FTP account</legend>";
+    echo "<table>\n
+    <tr>\n
+    <th>Username</th>\n
+    <th>Password</th>\n
+    </tr>\n";
+    echo "<form action='?section=ftp&action=add' method='POST'>";
+    echo "<td><input name='username' type='text' value='Username'></td>\n";
+    echo "<td><input name='password' type='password' value='Password'></td>\n";
+    echo "</tr>\n<td>&nbsp;</td><td>";
+    echo "<input type='submit' name='OK' value='Submit'>";
+    echo "</td></tr>\n";
+    echo "</form>";
+    echo "</table>\n";
+    print "</fieldset>";
+};
+}
+
+function delete_ftp_account($username)
+{
+    $DB = new Database(DB_HOST,DB_USER,DB_PASS,DB_DATABASE);
+    $DB->connect();
+    $qw = $DB->query("DELETE FROM ftp_users WHERE `username` = \"".$username."\"");
+    $data = $DB->fetch_array($qw);
+    exec ("/usr/local/bin/sudo /bin/rm -rf /usr/home/vsftpd/".$username);
+    echo "Account deleted. &nbsp;<br>";
+    echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+}
+
+function start_ftp()
+{
+    exec("/usr/local/bin/sudo /usr/local/etc/rc.d/apache start");
+    echo "Server started. &nbsp;<br>";
+    echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+}
+
+function stop_ftp()
+{
+    exec("/usr/local/bin/sudo /usr/local/etc/rc.d/apache stop");
+    echo "Server stopped. &nbsp;<br>";
+    echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+}
+
+function restart_ftp()
+{
+    exec("/usr/local/bin/sudo /usr/local/etc/rc.d/apache restart");
+    echo "Server restarted. &nbsp;<br>";
+    echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+}
+
+// Module submenu
+print ("<div id='modnavi'>");
+$menu = new Menu();
+$menu->add_item('View accounts','?section=httpd');
+$menu->add_item('Add account','?section=httpd&action=add');
+$menu->add_item('Restart HTTP','?section=httpd&action=restart');
+$menu->add_item('Stop HTTP','?section=httpd&action=stop');
+$menu->add_item('Start HTTP','?section=httpd&action=start');
+unset($menu);
+print ("</div>");
+
+
+if (isset($_REQUEST['action']))
+{
+    $action=$_REQUEST['action'];
+}
+else
+{
+    $action="view";  // Default action is VIEW
+};
+
+switch($action)
+{
+    case "view":
+        show_http_accounts();
+    break;
+
+    case "add":
+        add_http_account();
+    break;
+
+    case "delete":
+    if (isset($_REQUEST['username']))
+    {
+        $username=$_REQUEST['username'];
+        delete_ftp_account($username);
+    }
+    else
+    {
+        echo "WARNING! User ID is not set!";
+    };
+    break;
+
+    case "start":
+        start_http();
+    break;
+
+    case "stop":
+        stop_http();
+    break;
+
+    case "restart":
+        restart_http();
+    break;
+};
+
 ?>
