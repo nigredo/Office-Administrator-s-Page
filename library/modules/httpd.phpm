@@ -67,7 +67,7 @@ if (isset($_REQUEST['OK']))
     exec ("/usr/local/bin/sudo /bin/mkdir -p ".$home."/htdocs");
     exec ("/usr/local/bin/sudo /usr/sbin/chown -R www:www ".$home);
     echo "Account added. &nbsp;<br>";
-    echo "<div id='add'><a href='?section=http'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+    echo "<div id='add'><a href='?section=httpd'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
     }
 }
 else
