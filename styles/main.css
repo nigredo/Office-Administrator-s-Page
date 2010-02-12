@@ -22,7 +22,7 @@ ul	{
 }
 
 a { 
-    color: #A46395;
+    color: #141213;
     font-size: 11px;
     text-transform:uppercase;
     background-color:transparent;
@@ -32,7 +32,7 @@ a {
 }
  
 a.hover { 
-    color: #4A2007;
+    color: #130D10;
     font-size: 11px;
     text-transform:uppercase;
     background-color:transparent;
@@ -173,7 +173,7 @@ strong {
 }
 
 #info {
-    color: #564b47;
+    color: #141213;
     margin: 10px;
     padding: 0px;
 }
