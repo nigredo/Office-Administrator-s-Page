@@ -40,6 +40,21 @@ define ('SMS_DB_USER','root');
 define ('SMS_DB_PASS','3ch0r00t');
 define ('SMS_DB_PREFIX','');
 
+// HTTP database user
+define ('HTTP_DB_HOST','localhost');
+define ('HTTP_DB_DATABASE','httpd_vhosts');
+define ('HTTP_DB_USER','httpd');
+define ('HTTP_DB_PASS','3ch011nk');
+define ('HTTP_DB_PREFIX','');
+
+// FTP database user
+define ('FTP_DB_HOST','87.248.185.251');
+define ('FTP_DB_DATABASE','postfix');
+define ('FTP_DB_USER','root');
+define ('FTP_DB_PASS','3ch0r00t');
+define ('FTP_DB_PREFIX','');
+
+
 define ('RECORD_PER_PAGE','25');
 define ('LINKS_PER_PAGE','5');
  
