@@ -157,7 +157,7 @@ strong {
 
 #right {
     background-color: #DFDDD3;
-    position: absolute;
+    position: relative;
     right: 0px;
     width: 190px;
     color: #141213;
