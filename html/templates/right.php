@@ -25,10 +25,9 @@ print ('<div id="info">');
 print ("<h3>Services status</h3>");
 load_module("status");
 show_service_status('vsftpd');
-show_service_status('apache22');
+show_service_status('apache');
 show_service_status('mysql-server');
 show_service_status('sshd');
-show_service_status('absd');
 print ('</div>');
 print ('</div>');
 ?>
