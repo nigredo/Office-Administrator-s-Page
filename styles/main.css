@@ -105,8 +105,7 @@ strong {
     width: 190px;
     color: #141213;
     margin: 0px;
-    min-height: 400px;
-    height: auto;
+    height: 100%;
 }
 
 #vertmenu {
@@ -161,8 +160,7 @@ strong {
     color: #141213;
     margin: 0px;
     padding: 0px;
-    min-height: 400px;
-    height: auto;
+    height: 100%;
 }
 
 #footer {
