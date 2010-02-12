@@ -99,10 +99,10 @@ strong {
 }
 
 #left {
-    background-color: #141213;
+    background-color: #DFDDD3;
     position: absolute;
     width: 190px;
-    color: #564b47;
+    color: #141213;
     margin: 0px;
     min-height: 400px;
 }
@@ -165,6 +165,10 @@ strong {
 #footer {
     background-color: #141213;
     padding:5px 15px;
+    color: #6462A1;
+}
+
+#footer a {
     color: #6462A1;
 }
 
