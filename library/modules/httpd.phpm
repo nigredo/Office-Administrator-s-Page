@@ -65,6 +65,17 @@ if (isset($_REQUEST['OK']))
     $data = $DB->fetch_array($qw);
     exec ("/usr/local/bin/sudo /bin/mkdir -p ".$home."/htdocs");
     exec ("/usr/local/bin/sudo /usr/sbin/chown -R www:www ".$home);
+    $FileName = $home."/index.html";
+	$FileHandle = fopen($ourFileName, 'w') or die("can't open file");
+	$IndexPage = "<html>";
+	fwrite($FileHandle, $stringData);
+	$IndexPage = "<head><title>http://".$username.".".$VISP."/</title></head>";
+	fwrite($FileHandle, $stringData);
+	$IndexPage = "<body>http://".$username.".".$VISP."/</body>";
+	fwrite($FileHandle, $stringData);
+	$IndexPage = "</html>";
+	fwrite($FileHandle, $stringData);
+	fclose($FileHandle);
     echo "Account added. &nbsp;<br>";
     echo "<div id='add'><a href='?section=httpd'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
     }
