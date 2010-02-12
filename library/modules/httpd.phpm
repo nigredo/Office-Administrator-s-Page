@@ -25,7 +25,7 @@ function show_http_accounts()
         for ($count=0;$count <= $rows; $count++)
         {
             $data = $DB->fetch_array($qw);
-            $link = "http://".$username.".".$VISP."/";
+            $link = "http://".$data['username'].".".$data['VISP']."/";
             echo "<tr>";
             echo "<td><a href='".$link."'>".$data['username']."</a></td>\n";
             echo "<td>".$data['VISP']."</td>\n";
