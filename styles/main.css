@@ -94,8 +94,8 @@ strong {
     vertical-align: middle;
     text-transform:uppercase;
     background-image: url(/images/logo.png);
-    background-position: top right;
-    background-repeat: norepeat;
+    background-position: right center;
+    background-repeat: no-repeat;
 }
 
 #left {
