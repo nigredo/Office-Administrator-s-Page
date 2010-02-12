@@ -1,1 +1,7 @@
-php_value session.save_path /usr/local/www/admin/tmp/
+AllowOverride All
+Order allow,deny
+Allow from all
+AuthName "Restricted Access"
+AuthType Basic
+AuthUserFile /usr/local/etc/apache/.htpasswd
+Require valid-user
