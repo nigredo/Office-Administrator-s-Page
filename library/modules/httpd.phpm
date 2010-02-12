@@ -109,7 +109,7 @@ function delete_http_account($unic_id)
     $DB->connect();
     $data = $DB->query_first("SELECT * FROM users_table WHERE `unic_id` = \"".$unic_id."\"");
     $vhost = $data['username'].".".$data['VISP'];
-    echo ("Deleting vhost ".$host." with home in ".$data['home']); 
+    echo ("Deleting vhost ".$vhost." with home in ".$data['home']); 
 //    $qw = $DB->query("DELETE FROM users_table WHERE `username` = \"".$username."\"");
 //    $data = $DB->fetch_array($qw);
 //    exec ("/usr/local/bin/sudo /bin/rm -rf /usr/home/vsftpd/".$username);
