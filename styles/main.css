@@ -132,7 +132,7 @@ strong {
     border-bottom: 1px dashed #141213;
     padding: 5px 0px 2px 4px;
     text-decoration: none;
-    color: #666666;
+    color: #141213;
     width:160px;
 }
 
@@ -144,8 +144,8 @@ strong {
 
 #main {
     margin: 0px 190px 0px 190px;
-    border-left: 1px dotted #564b47;
-    border-right: 1px dotted #564b47;
+    border-left: 1px dotted #141213;
+    border-right: 1px dotted #141213;
     padding: 10px;
     min-height: 380px;
     background-color: #FFFFFF;
@@ -156,20 +156,20 @@ strong {
     position: absolute;
     right: 0px;
     width: 190px;
-    color: #564b47;
+    color: #141213;
     margin: 0px;
     padding: 0px;
     min-height: 400px;
 }
 
 #footer {
-    background-color: #141213;
+    background-color: #DFDDD3;
     padding:5px 15px;
-    color: #6462A1;
+    color: #141213;
 }
 
 #footer a {
-    color: #6462A1;
+    color: #141213;
 }
 
 #info {
