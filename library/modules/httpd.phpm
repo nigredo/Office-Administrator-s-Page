@@ -103,13 +103,17 @@ else
 };
 }
 
-function delete_ftp_account($username)
+function delete_http_account($unic_id)
 {
-    $DB = new Database(DB_HOST,DB_USER,DB_PASS,DB_DATABASE);
+    $DB = new Database(HTTP_DB_HOST,HTTP_DB_USER,HTTP_DB_PASS,HTTP_DB_DATABASE);
     $DB->connect();
-    $qw = $DB->query("DELETE FROM ftp_users WHERE `username` = \"".$username."\"");
+    $qw = $DB->query("SELECT * FROM users_table WHERE `unic_id` = \"".$unic_id."\"");
     $data = $DB->fetch_array($qw);
-    exec ("/usr/local/bin/sudo /bin/rm -rf /usr/home/vsftpd/".$username);
+    $vhost = $data['username'].".".$data['VISP'];
+    echo ("Deleting vhost ".$bhost." with home in ".$data['home']); 
+//    $qw = $DB->query("DELETE FROM users_table WHERE `username` = \"".$username."\"");
+//    $data = $DB->fetch_array($qw);
+//    exec ("/usr/local/bin/sudo /bin/rm -rf /usr/home/vsftpd/".$username);
     echo "Account deleted. &nbsp;<br>";
     echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
 }
