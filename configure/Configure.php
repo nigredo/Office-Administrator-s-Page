@@ -10,7 +10,7 @@ ini_set('display_errors', 1);
 ignore_user_abort(true);
 
 define('SITE_NAME','Office Administrator\'s Page');
-define('HOSTNAME','www.admin.awiki.net');
+define('HOSTNAME','www.admin.alphazoid.org');
 define('URL', rtrim(dirname($_SERVER['PHP_SELF']), '/\\'));
 
 // OAP database settings
