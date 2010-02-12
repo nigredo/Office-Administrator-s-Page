@@ -99,7 +99,7 @@ strong {
 }
 
 #left {
-    background-color: #DFDDD3;
+    background-color: #141213;
     position: absolute;
     width: 190px;
     color: #564b47;
@@ -129,7 +129,7 @@ strong {
 #vertmenu ul li a {
     font-size: 80%;
     display: block;
-    border-bottom: 1px dashed #C39C4E;
+    border-bottom: 1px dashed #141213;
     padding: 5px 0px 2px 4px;
     text-decoration: none;
     color: #666666;
@@ -163,7 +163,7 @@ strong {
 }
 
 #footer {
-    background-color: #DFDDD3;
+    background-color: #141213;
     padding:5px 15px;
     color: #6462A1;
 }
