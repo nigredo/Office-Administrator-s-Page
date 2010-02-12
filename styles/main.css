@@ -93,6 +93,9 @@ strong {
     padding-bottom: 25px;
     vertical-align: middle;
     text-transform:uppercase;
+    background-image: url(/images/logo.png);
+    background-position: top right;
+    background-repeat: norepeat;
 }
 
 #left {
