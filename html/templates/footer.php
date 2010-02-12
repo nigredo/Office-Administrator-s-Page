@@ -7,7 +7,7 @@
  */
 
 print ('<div id="footer"');
-print ('<h3>Office Administrator\'s Page</h3>');
+print ('hitlabit.com &copy; 2010');
 print ('</div>');    
 print ('</body>');
 print ('</html>');
