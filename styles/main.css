@@ -92,10 +92,10 @@ strong {
     padding-bottom: 25px;
     vertical-align: middle;
     text-transform:uppercase;
-    width: 80%;
 }
 
 #left {
+    background-color: #DFDDD3;
     position: absolute;
     width: 190px;
     color: #564b47;
@@ -148,6 +148,7 @@ strong {
 }
 
 #right {
+    background-color: #DFDDD3;
     position: absolute;
     right: 0px;
     width: 190px;
