@@ -166,6 +166,8 @@ strong {
     font-size: 10px;
     text-align: center;
     height: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 #footer a {
