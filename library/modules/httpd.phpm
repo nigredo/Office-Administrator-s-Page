@@ -62,7 +62,7 @@ if (isset($_REQUEST['OK']))
     $home=$_REQUEST['home'];;
     $DB = new Database(HTTP_DB_HOST,HTTP_DB_USER,HTTP_DB_PASS,HTTP_DB_DATABASE);
     $DB->connect();
-    $qw = $DB->query("INSERT INTO users_table (`username`, `VISP` , `home`) VALUES (\"".$username."\",\"".$VISP."\",\"".$home."\")");
+    $qw = $DB->query("INSERT INTO users_table (`username`,`VISP`,`uid`,`gid`) VALUES (\"".$username."\",\"".$VISP."\",1001,1001)");
     $data = $DB->fetch_array($qw);
     exec ("/usr/local/bin/sudo /bin/mkdir -p ".$home."/htdocs");
     exec ("/usr/local/bin/sudo /usr/sbin/chown -R www:www ".$home);
