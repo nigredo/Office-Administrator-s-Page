@@ -9,6 +9,8 @@
 print ('<div id="footer"');
 print ('<a href="http://www.hitlabit.com/">hitlabit.com</a> &copy; 2010');
 print ('</div>');    
+print ('<div id="postfooter"');
+print ('</div>');    
 print ('</body>');
 print ('</html>');
 ?>
