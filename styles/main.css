@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  background-color: #FCFFE0;
+  background-color: #A9A6AE;
   font-size: 12px;
   font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
   color: #666666;
@@ -189,8 +189,8 @@ img     {
 	font-weight 	: bold;
 	border-top 	: 1px solid #404040;
 	border-bottom 	: 5px solid #404040;
-        float           : right;
-        color           : #666666;
+    float           : right;
+    color           : #666666;
 }
 
 #modnavi li
@@ -200,8 +200,8 @@ img     {
 	margin 		: 0;
 	padding 	: 0;
 	font-weight	: bold;
-        margin          : 10px;
-        color           : #666666;
+    margin          : 10px;
+    color           : #666666;
 }
 
 #add a
