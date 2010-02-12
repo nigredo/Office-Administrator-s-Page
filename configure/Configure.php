@@ -58,10 +58,10 @@ define ('MODULES_PATH', 'library/modules' . DIRECTORY_SEPARATOR);
 define ('IMAGES_PATH', 'images' . DIRECTORY_SEPARATOR);
 
 require_once(API_CLASSES . 'SQL.php');
-require_once(API_CLASSES . 'MENU.php');
 
 require_once(API_LIBRARY . 'Auth.php');
 
+require_once(API_CLASSES . 'MENU.php');
 require_once(API_FUNCTIONS . 'Core.php');
 require_once(API_FUNCTIONS . 'Date.php');
 require_once(API_FUNCTIONS . 'Files.php');
