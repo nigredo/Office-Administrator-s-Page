@@ -12,7 +12,7 @@ print ('<div id="left">');
     $menu->add_item('Email Management','?section=email');
     $menu->add_item('MySQL Management','?section=mysql');
     $menu->add_item('SMS Management','?section=sms');
-    $menu->add_item('Apache Management','?section=http');
+    $menu->add_item('Apache Management','?section=httpd');
     unset($menu);
     print ('</div>');
 print ('</div>');
