@@ -7,7 +7,7 @@
  */
 
 print ('<div id="footer"');
-print ('hitlabit.com &copy; 2010');
+print ('<a href="http://www.hitlabit.com/">hitlabit.com</a> &copy; 2010');
 print ('</div>');    
 print ('</body>');
 print ('</html>');
