@@ -30,7 +30,7 @@ function show_http_accounts()
             echo "<td><a href='".$link."'>".$data['username']."</a></td>\n";
             echo "<td>".$data['VISP']."</td>\n";
             echo "<td>".$data['home']."</td>\n";
-            echo "<td><div class='add'><a href='index.php?section=http&action=delete&unic_id=".$data['unic_id']."'>";
+            echo "<td><div class='add'><a href='index.php?section=httpd&action=delete&unic_id=".$data['unic_id']."'>";
             echo "<img src='".IMAGES_PATH."delete.gif'>";
             echo "</a></div></td>\n";
             echo "</tr>\n";
