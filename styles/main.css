@@ -87,10 +87,11 @@ strong {
 #header {
     background-color: #CCCBD7;
     padding:5px 15px;
-    color: #1A0E00;
+    color: #6462A1;
     padding-top: 25px;
     padding-bottom: 25px;
     vertical-align: middle;
+    text-transform:uppercase;
 }
 
 #left {
@@ -158,7 +159,7 @@ strong {
 #footer {
     background-color: #CCCBD7;
     padding:5px 15px;
-    color: #1A0E00;
+    color: #6462A1;
 }
 
 #info {
