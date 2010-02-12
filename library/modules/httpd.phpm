@@ -171,10 +171,10 @@ switch($action)
     break;
 
     case "delete":
-    if (isset($_REQUEST['username']))
+    if (isset($_REQUEST['unic_id']))
     {
-        $username=$_REQUEST['username'];
-        delete_ftp_account($username);
+        $unic_id=$_REQUEST['unic_id'];
+        delete_http_account($unic_id);
     }
     else
     {
