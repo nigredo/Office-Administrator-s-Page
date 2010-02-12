@@ -64,7 +64,7 @@ if (isset($_REQUEST['OK']))
     $DB->connect();
     $qw = $DB->query("INSERT INTO users_table (`username`, `VISP` , `home`) VALUES (\"".$username."\",\"".$VISP."\",\"".$home."\")");
     $data = $DB->fetch_array($qw);
-    exec ("/usr/local/bin/sudo /bin/mkdir ".$home);
+    exec ("/usr/local/bin/sudo /bin/mkdir -p ".$home."/htdocs");
     exec ("/usr/local/bin/sudo /usr/sbin/chown -R www:www ".$home);
     echo "Account added. &nbsp;<br>";
     echo "<div id='add'><a href='?section=http'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
