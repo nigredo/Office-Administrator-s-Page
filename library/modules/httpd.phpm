@@ -50,37 +50,39 @@ function add_http_account()
 {
 if (isset($_REQUEST['OK']))
 {
-    if ((!isset($_REQUEST['username'])) || (!isset($_REQUEST['password'])))
+    if ((!isset($_REQUEST['username'])) || (!isset($_REQUEST['VISP'])) || (!isset($_REQUEST['home'])))
     {
-        print ("Wrong username or password!");
+        print ("Wrong username, domain or home directory!");
         break;
     }
     else
     {
     $username=$_REQUEST['username'];
-    $password=$_REQUEST['password'];
+    $VISP=$_REQUEST['VISP'];
+    $home=$_REQUEST['home'];;
     $DB = new Database(HTTP_DB_HOST,HTTP_DB_USER,HTTP_DB_PASS,HTTP_DB_DATABASE);
     $DB->connect();
-    $qw = $DB->query("INSERT INTO ftp_users (`username`, `pass`) VALUES (\"".$username."\",\"".$password."\")");
+    $qw = $DB->query("INSERT INTO users_table (`username`, `VISP` , `home`) VALUES (\"".$username."\",\"".$VISP."\",\"".$home."\")");
     $data = $DB->fetch_array($qw);
-    exec ("/usr/local/bin/sudo /bin/mkdir /usr/home/vsftpd/".$username);
-    exec ("/usr/local/bin/sudo /usr/sbin/chown -R vsftpd:nogroup /usr/home/vsftpd");
+    exec ("/usr/local/bin/sudo /bin/mkdir ".$home);
+    exec ("/usr/local/bin/sudo /usr/sbin/chown -R www:www ".$home);
     echo "Account added. &nbsp;<br>";
-    echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
+    echo "<div id='add'><a href='?section=http'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
     }
 }
 else
 {
     print "<fieldset>";
-    print "<legend>Add FTP account</legend>";
+    print "<legend>Add HTTP account</legend>";
     echo "<table>\n
     <tr>\n
     <th>Username</th>\n
     <th>Password</th>\n
     </tr>\n";
-    echo "<form action='?section=ftp&action=add' method='POST'>";
+    echo "<form action='?section=httpd&action=add' method='POST'>";
     echo "<td><input name='username' type='text' value='Username'></td>\n";
-    echo "<td><input name='password' type='password' value='Password'></td>\n";
+    echo "<td><input name='VISP' type='text' value='Domain'></td>\n";
+    echo "<td><input name='home' type='text' value='Home'></td>\n";
     echo "</tr>\n<td>&nbsp;</td><td>";
     echo "<input type='submit' name='OK' value='Submit'>";
     echo "</td></tr>\n";
