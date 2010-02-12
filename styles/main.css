@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  background-color: #DFDFE7;
+  background-color: #7791A9;
   font-size: 12px;
   font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
   color: #666666;
@@ -85,7 +85,7 @@ strong {
 }
 
 #header {
-    background-color: #CCCBD7;
+    background-color: #DFDDD3;
     padding:5px 15px;
     color: #6462A1;
     padding-top: 25px;
@@ -157,7 +157,7 @@ strong {
 }
 
 #footer {
-    background-color: #CCCBD7;
+    background-color: #DFDDD3;
     padding:5px 15px;
     color: #6462A1;
 }
