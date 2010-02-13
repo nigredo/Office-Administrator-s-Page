@@ -111,9 +111,9 @@ function delete_http_account($unic_id)
     $data = $DB->query_first("SELECT * FROM users_table WHERE `unic_id` = \"".$unic_id."\"");
     $vhost = $data['username'].".".$data['VISP'];
     echo ("Deleting vhost ".$vhost." with home in ".$data['home']);
-    $qw = $DB->query("DELETE FROM users_table WHERE `username` = \"".$username."\"");
+    $qw = $DB->query("DELETE FROM users_table WHERE `unic_id` = \"".$unic_id."\"");
     $data = $DB->fetch_array($qw);
-    exec ("/usr/local/bin/sudo /bin/mv ".$home." ".$BKP_DIR); 
+    exec ("/usr/local/bin/sudo /bin/mv ".$data['home']." ".$BKP_DIR); 
     echo "Account deleted. &nbsp;<br>";
     echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
 }
