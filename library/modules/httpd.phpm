@@ -52,33 +52,34 @@ function add_http_account()
 {
 if (isset($_REQUEST['OK']))
 {
-    if ((!isset($_REQUEST['username'])) || (!isset($_REQUEST['VISP'])))
+    if (!isset($_REQUEST['hostname']))
     {
-        print ("Wrong username or domain!");
+        print ("Hostname not set!");
     }
-    else
+    elseif (!isset($_REQUEST['host_descriptions']))
     {
-    $username = strtolower($_REQUEST['username']);
-    $VISP = strtolower($_REQUEST['VISP']);
-    $IniLetter = substr($username,0,1); 
-    $home="/usr/home/".$VISP."/".$IniLetter."/".$username;
+        print ("Host description not set!");
+    }
+    elseif (!isset($_REQUEST['data_dir']))
+    {
+        print ("Host data directory not set!");
+    }
+    elseif (!isset($_REQUEST['e_mail']))
+    {
+        print ("Administrator's email not set!");
+    }
+	else     
+    {
+    $hostname = strtolower($_REQUEST['hostname']);
+    $hostdesc = strtolower($_REQUEST['hostdesc']);
+    $hosthome = strtolower($_REQUEST['hosthome']);
+    $hostmail = strtolower($_REQUEST['hostmail']);
     $DB = new Database(HTTP_DB_HOST,HTTP_DB_USER,HTTP_DB_PASS,HTTP_DB_DATABASE);
     $DB->connect();
-    $qw = $DB->query("INSERT INTO users_table (`username`,`VISP`,`uid`,`gid`,`home`) VALUES (\"".$username."\",\"".$VISP."\",1001,1001,\"".$home."\")");
+    $qw = $DB->query("INSERT INTO hosts_list (`hostname`,`host_descriptions`,`data_dir`, `e_mail`,`uid`,`gid`,`active`) VALUES (\"".$hostname."\",\"".$hostname."\",\"".$hosthome."\",\"".$hostmail."\",1001,1001,1)");
     $data = $DB->fetch_array($qw);
-    exec ("/usr/local/bin/sudo /bin/mkdir -p ".$home."/htdocs");
-    exec ("/usr/local/bin/sudo /usr/sbin/chown -R www:www ".$home);
-    $FileName = $home."/htdocs/index.html";
-	$FileHandle = fopen($FileName, 'w') or die("can't open file");
-	$IndexPage = "<html>";
-	fwrite($FileHandle, $IndexPage);
-	$IndexPage = "<head><title>http://".$username.".".$VISP."/</title></head>";
-	fwrite($FileHandle, $IndexPage);
-	$IndexPage = "<body>http://".$username.".".$VISP."/</body>";
-	fwrite($FileHandle, $IndexPage);
-	$IndexPage = "</html>";
-	fwrite($FileHandle, $IndexPage);
-	fclose($FileHandle);
+    exec ("/usr/local/bin/sudo /bin/mkdir -p ".$hosthome);
+    exec ("/usr/local/bin/sudo /usr/sbin/chown -R www:www ".$hosthome);
     echo "Account added. &nbsp;<br>";
     echo "<div id='add'><a href='?section=httpd'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
     }
@@ -89,12 +90,16 @@ else
     print "<legend>Add HTTP account</legend>";
     echo "<table>\n
     <tr>\n
-    <th>Username</th>\n
-    <th>Password</th>\n
+    <th>Hostname</th>\n
+    <th>Description</th>\n
+    <th>Home directory</th>\n
+    <th>Email</th>\n
     </tr>\n";
     echo "<form action='?section=httpd&action=add' method='POST'>";
-    echo "<td><input name='username' type='text' value='Username'></td>\n";
-    echo "<td><input name='VISP' type='text' value='Domain'></td>\n";
+    echo "<td><input name='hostname' type='text' value='Hostname'></td>\n";
+    echo "<td><input name='hostdesc' type='text' value='Description'></td>\n";
+    echo "<td><input name='hosthome' type='text' value='Home directory'></td>\n";
+    echo "<td><input name='hostmail' type='text' value='Email'></td>\n";
     echo "</tr>\n<td>&nbsp;</td><td>";
     echo "<input type='submit' name='OK' value='Submit'>";
     echo "</td></tr>\n";
@@ -109,32 +114,32 @@ function delete_http_account($unic_id)
 	$BKP_DIR="/usr/home/backups/www/";
     $DB = new Database(HTTP_DB_HOST,HTTP_DB_USER,HTTP_DB_PASS,HTTP_DB_DATABASE);
     $DB->connect();
-    $data = $DB->query_first("SELECT * FROM users_table WHERE `unic_id` = \"".$unic_id."\"");
-    $vhost = $data['username'].".".$data['VISP'];
-    $home = $data['home'];
+    $data = $DB->query_first("SELECT * FROM hosts_list WHERE `unic_id` = \"".$unic_id."\"");
+    $vhost = $data['hostname'];
+    $home = $data['data_dir'];
     echo ("Deleting vhost ".$vhost." with home in ".$data['home']);
-    $qw = $DB->query("DELETE FROM users_table WHERE `unic_id` = \"".$unic_id."\"");
+    $qw = $DB->query("DELETE FROM hosts_list WHERE `unic_id` = \"".$unic_id."\"");
     $data = $DB->fetch_array($qw);
     exec ("/usr/local/bin/sudo /bin/mv ".$home." ".$BKP_DIR); 
     echo "Account deleted. &nbsp;<br>";
     echo "<div id='add'><a href='javascript:history.go(-1)'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
 }
 
-function start_ftp()
+function start_http()
 {
     exec("/usr/local/bin/sudo /usr/local/etc/rc.d/apache start");
     echo "Server started. &nbsp;<br>";
     echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
 }
 
-function stop_ftp()
+function stop_http()
 {
     exec("/usr/local/bin/sudo /usr/local/etc/rc.d/apache stop");
     echo "Server stopped. &nbsp;<br>";
     echo "<div id='add'><a href='?section=ftp'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
 }
 
-function restart_ftp()
+function restart_http()
 {
     exec("/usr/local/bin/sudo /usr/local/etc/rc.d/apache restart");
     echo "Server restarted. &nbsp;<br>";
