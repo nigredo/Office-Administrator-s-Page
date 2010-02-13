@@ -52,7 +52,7 @@ if (isset($_REQUEST['OK']))
 {
     if ((!isset($_REQUEST['username'])) || (!isset($_REQUEST['VISP'])) || (!isset($_REQUEST['home'])))
     {
-        print ("Wrong username, domain or home directory!");
+        print ("Wrong username or domain!");
         break;
     }
     else
@@ -94,7 +94,6 @@ else
     echo "<form action='?section=httpd&action=add' method='POST'>";
     echo "<td><input name='username' type='text' value='Username'></td>\n";
     echo "<td><input name='VISP' type='text' value='Domain'></td>\n";
-    echo "<td><input name='home' type='text' value='Home'></td>\n";
     echo "</tr>\n<td>&nbsp;</td><td>";
     echo "<input type='submit' name='OK' value='Submit'>";
     echo "</td></tr>\n";
