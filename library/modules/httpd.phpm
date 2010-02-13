@@ -71,11 +71,11 @@ if (isset($_REQUEST['OK']))
 	$IndexPage = "<html>";
 	fwrite($FileHandle, $stringData);
 	$IndexPage = "<head><title>http://".$username.".".$VISP."/</title></head>";
-	fwrite($FileHandle, $stringData);
+	fwrite($FileHandle, $IndexPage);
 	$IndexPage = "<body>http://".$username.".".$VISP."/</body>";
-	fwrite($FileHandle, $stringData);
+	fwrite($FileHandle, $IndexPage);
 	$IndexPage = "</html>";
-	fwrite($FileHandle, $stringData);
+	fwrite($FileHandle, $IndexPage);
 	fclose($FileHandle);
     echo "Account added. &nbsp;<br>";
     echo "<div id='add'><a href='?section=httpd'><img src='".IMAGES_PATH."back.png'>Go back</a></div>";
