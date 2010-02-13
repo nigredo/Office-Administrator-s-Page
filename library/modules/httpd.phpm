@@ -11,25 +11,27 @@ function show_http_accounts()
     print "<fieldset>";
     print "<legend>HTTP Accounts</legend>";
     print "<div id='add'><a href='index.php?section=httpd&action=add'><img src='".IMAGES_PATH."add.png'>Add account</a></div>\n";
-    $qw = $DB->query("SELECT * FROM users_table");
+    $qw = $DB->query("SELECT * FROM hosts_list");
     $rows = $DB->num_rows($qw);
     if ($rows != 0)
     {
         echo "<table width='100%'>\n
         <tr>\n
-        <th width='40%'>Username</th>\n
-        <th width='40%'>Domain</th>\n
-        <th width='40%'>Home</th>\n
+        <th>Domain</th>\n
+        <th>Description</th>\n
+        <th>Home</th>\n
+        <th>Administrator\'s email'</th>\n
         <th>Delete</th>\n
         </tr>\n";
         for ($count=0;$count < $rows; $count++)
         {
             $data = $DB->fetch_array($qw);
-            $link = "http://".$data['username'].".".$data['VISP']."/";
+            $link = "http://".$data['domain']."/";
             echo "<tr>";
-            echo "<td><a href='".$link."'>".$data['username']."</a></td>\n";
-            echo "<td>".$data['VISP']."</td>\n";
-            echo "<td>".$data['home']."</td>\n";
+            echo "<td><a href='".$link."'>".$data['domain']."</a></td>\n";
+            echo "<td>".$data['host_descriptions']."</td>\n";
+            echo "<td>".$data['data_dir']."</td>\n";
+            echo "<td>".$data['e_mail']."</td>\n";
             echo "<td><div class='add'><a href='index.php?section=httpd&action=delete&unic_id=".$data['unic_id']."'>";
             echo "<img src='".IMAGES_PATH."delete.gif'>";
             echo "</a></div></td>\n";
