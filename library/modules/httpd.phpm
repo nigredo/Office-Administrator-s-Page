@@ -20,7 +20,7 @@ function show_http_accounts()
         <th>Domain</th>\n
         <th>Description</th>\n
         <th>Home</th>\n
-        <th>Administrator\'s email'</th>\n
+        <th>Administrator's email</th>\n
         <th>Delete</th>\n
         </tr>\n";
         for ($count=0;$count < $rows; $count++)
