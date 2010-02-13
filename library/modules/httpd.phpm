@@ -50,10 +50,9 @@ function add_http_account()
 {
 if (isset($_REQUEST['OK']))
 {
-    if ((!isset($_REQUEST['username'])) || (!isset($_REQUEST['VISP'])) || (!isset($_REQUEST['home'])))
+    if ((!isset($_REQUEST['username'])) || (!isset($_REQUEST['VISP'])))
     {
         print ("Wrong username or domain!");
-        break;
     }
     else
     {
