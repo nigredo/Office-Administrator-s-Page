@@ -76,7 +76,7 @@ if (isset($_REQUEST['OK']))
     $hostmail = strtolower($_REQUEST['hostmail']);
     $DB = new Database(HTTP_DB_HOST,HTTP_DB_USER,HTTP_DB_PASS,HTTP_DB_DATABASE);
     $DB->connect();
-    $qw = $DB->query("INSERT INTO hosts_list (`hostname`,`host_descriptions`,`data_dir`, `e_mail`,`uid`,`gid`,`active`) VALUES (\"".$hostname."\",\"".$hostname."\",\"".$hosthome."\",\"".$hostmail."\",1001,1001,1)");
+    $qw = $DB->query("INSERT INTO hosts_list (`hostname`,`host_descriptions`,`data_dir`, `e_mail`,`uid`,`gid`,`active`) VALUES (\"".$hostname."\",\"".$hostdesc."\",\"".$hosthome."\",\"".$hostmail."\",1001,1001,1)");
     $data = $DB->fetch_array($qw);
     exec ("/usr/local/bin/sudo /bin/mkdir -p ".$hosthome);
     exec ("/usr/local/bin/sudo /usr/sbin/chown -R www:www ".$hosthome);
