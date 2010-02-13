@@ -26,9 +26,9 @@ function show_http_accounts()
         for ($count=0;$count < $rows; $count++)
         {
             $data = $DB->fetch_array($qw);
-            $link = "http://".$data['domain']."/";
+            $link = "http://".$data['hostname']."/";
             echo "<tr>";
-            echo "<td><a href='".$link."'>".$data['domain']."</a></td>\n";
+            echo "<td><a href='".$link."'>".$data['hostname']."</a></td>\n";
             echo "<td>".$data['host_descriptions']."</td>\n";
             echo "<td>".$data['data_dir']."</td>\n";
             echo "<td>".$data['e_mail']."</td>\n";
