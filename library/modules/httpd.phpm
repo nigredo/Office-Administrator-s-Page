@@ -57,9 +57,10 @@ if (isset($_REQUEST['OK']))
     }
     else
     {
-    $username=$_REQUEST['username'];
-    $VISP=$_REQUEST['VISP'];
-    $home=$_REQUEST['home'];;
+    $username = strtolower($_REQUEST['username']);
+    $VISP = strtolower($_REQUEST['VISP']);
+    $IniLetter = substr($username,0,1); 
+    $home="/usr/home/".$VISP."/".$IniLetter."/".$username;
     $DB = new Database(HTTP_DB_HOST,HTTP_DB_USER,HTTP_DB_PASS,HTTP_DB_DATABASE);
     $DB->connect();
     $qw = $DB->query("INSERT INTO users_table (`username`,`VISP`,`uid`,`gid`,`home`) VALUES (\"".$username."\",\"".$VISP."\",1001,1001,\"".$home."\")");
@@ -69,7 +70,7 @@ if (isset($_REQUEST['OK']))
     $FileName = $home."/index.html";
 	$FileHandle = fopen($FileName, 'w') or die("can't open file");
 	$IndexPage = "<html>";
-	fwrite($FileHandle, $stringData);
+	fwrite($FileHandle, $IndexPage);
 	$IndexPage = "<head><title>http://".$username.".".$VISP."/</title></head>";
 	fwrite($FileHandle, $IndexPage);
 	$IndexPage = "<body>http://".$username.".".$VISP."/</body>";
