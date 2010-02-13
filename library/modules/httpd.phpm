@@ -56,15 +56,15 @@ if (isset($_REQUEST['OK']))
     {
         print ("Hostname not set!");
     }
-    elseif (!isset($_REQUEST['host_descriptions']))
+    elseif (!isset($_REQUEST['hostdesc']))
     {
         print ("Host description not set!");
     }
-    elseif (!isset($_REQUEST['data_dir']))
+    elseif (!isset($_REQUEST['hosthome']))
     {
         print ("Host data directory not set!");
     }
-    elseif (!isset($_REQUEST['e_mail']))
+    elseif (!isset($_REQUEST['hostmail']))
     {
         print ("Administrator's email not set!");
     }
@@ -100,7 +100,7 @@ else
     echo "<td><input name='hostdesc' type='text' value='Description'></td>\n";
     echo "<td><input name='hosthome' type='text' value='Home directory'></td>\n";
     echo "<td><input name='hostmail' type='text' value='Email'></td>\n";
-    echo "</tr>\n<td>&nbsp;</td><td>";
+    echo "</tr>\n<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>";
     echo "<input type='submit' name='OK' value='Submit'>";
     echo "</td></tr>\n";
     echo "</form>";
