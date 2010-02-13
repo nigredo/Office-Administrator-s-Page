@@ -117,7 +117,7 @@ function delete_http_account($unic_id)
     $data = $DB->query_first("SELECT * FROM hosts_list WHERE `unic_id` = \"".$unic_id."\"");
     $vhost = $data['hostname'];
     $home = $data['data_dir'];
-    echo ("Deleting vhost ".$vhost." with home in ".$data['home']);
+    echo ("Deleting vhost ".$vhost." with home in ".$home);
     $qw = $DB->query("DELETE FROM hosts_list WHERE `unic_id` = \"".$unic_id."\"");
     $data = $DB->fetch_array($qw);
     exec ("/usr/local/bin/sudo /bin/mv ".$home." ".$BKP_DIR); 
