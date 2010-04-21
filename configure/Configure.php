@@ -15,15 +15,15 @@ define('URL', rtrim(dirname($_SERVER['PHP_SELF']), '/\\'));
 
 // OAP database settings
 define ('DB_HOST','localhost');
-define ('DB_USER','admin');
-define ('DB_PASS','3ch046m1n');
+define ('DB_USER','administrator');
+define ('DB_PASS','password');
 define ('DB_DATABASE','oap_admin');
 define ('DB_PREFIX','');
 
 // MySQL administrator
 define ('ROOT_DB_HOST','localhost');
 define ('ROOT_DB_USER','root');
-define ('ROOT_DB_PASS','3ch0r00t');
+define ('ROOT_DB_PASS','password');
 define ('ROOT_DB_DATABASE','mysql');
 define ('ROOT_DB_PREFIX','');
 
@@ -31,27 +31,27 @@ define ('ROOT_DB_PREFIX','');
 define ('MAIL_DB_HOST','localhost');
 define ('MAIL_DB_DATABASE','postfix');
 define ('MAIL_DB_USER','postfix');
-define ('MAIL_DB_PASS','3ch0m41l');
+define ('MAIL_DB_PASS','password');
 define ('MAIL_DB_PREFIX','');
 
 // SMS database user
-define ('SMS_DB_HOST','87.248.185.251');
-define ('SMS_DB_USER','root');
-define ('SMS_DB_PASS','3ch0r00t');
+define ('SMS_DB_HOST','localhost');
+define ('SMS_DB_USER','sms');
+define ('SMS_DB_PASS','password');
 define ('SMS_DB_PREFIX','');
 
 // HTTP database user
 define ('HTTP_DB_HOST','localhost');
 define ('HTTP_DB_DATABASE','httpd_vhosts');
 define ('HTTP_DB_USER','httpd');
-define ('HTTP_DB_PASS','3ch011nk');
+define ('HTTP_DB_PASS','password');
 define ('HTTP_DB_PREFIX','');
 
 // FTP database user
 define ('FTP_DB_HOST','87.248.185.251');
 define ('FTP_DB_DATABASE','postfix');
 define ('FTP_DB_USER','root');
-define ('FTP_DB_PASS','3ch0r00t');
+define ('FTP_DB_PASS','password');
 define ('FTP_DB_PREFIX','');
 
 
